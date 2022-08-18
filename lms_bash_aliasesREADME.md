@@ -13,7 +13,7 @@ lmseditstart - edit service config<br />
 lmsprefs - open directory <br />
 lmsplugins - open directory <br />
 lmslogs - open directory<br />
-lmshelp - same as typing '$ alias'<br />
+lmshelp - same as '$ alias'<br />
 
 <br />
 </b>
