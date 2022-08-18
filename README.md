@@ -29,4 +29,4 @@ $ sudo mv [filename.sh] /bin/[filename]<br />
 <br />
 You often see guidance to runs script with <b>./</b>[scriptname].<br />
 <b>./</b> meens <i>this directory</i> and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
-There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script.
+There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script. Hence the file extention are not needed.
