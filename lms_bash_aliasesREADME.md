@@ -22,7 +22,7 @@ The quickest way is to copy text line below and run the string of commands from 
 <br />
 ~$ cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms_bash_aliases.txt && cat lms_bash_aliases.txt >> .bash_aliases && cat .bash_aliases<br />
 <br />
-This will download the text file and append the commands to the end of your '.bash_aliases' file inside your home directory. If the files doesn't exist it will be created.<br />
+This will download the text file and append the command shortcuts to the end of your '.bash_aliases' file inside your home directory. If the file doesn't exist it will be created.<br />
 <br />
 The safest way are probebly to edit the hidden file '.bash_aliases' youself using a text editor. <i>On a fresh RPi-OS Lite install users individually aliases file are not yet created</i>.<br />
 <br />
