@@ -1,4 +1,5 @@
 #lms_bash_aliases
+---------------------------------------------------------------
 'lms_bash_aliases.txt' are aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver' + a few shortcuts to directories used by lms.<br />
 Note: intended used with systemd -> logitechmediaserver.service config as used by RPi-OS (Debian). System where lms start from /etc/initd/logitechmediaserver need som adjusting.<br />
 ---------------------------------------------------------------
