@@ -131,10 +131,9 @@ else
 	exit 1
 fi
 
-# format the string used to mount partition
+# format the string used to mount the partition
 mountstr="$uuidstr=$partuuid	$mountpoint	$type	defaults,noatime	0	0"
 
-#printf '\n%s' "$mountstr" >> testfst.txt
 printf '%s\n' "Make directory $mountpoint (mount point)"
 if ! sudo mkdir -p "$mountpoint";
 	then printf '%s\n' "Error - Not able to create directory for mount point"; exit; fi
