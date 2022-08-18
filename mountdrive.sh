@@ -2,12 +2,14 @@
 # Easily add USB storage devices to RPi-OS (Debian)
 # v.0.0.1 - 2022-08 - passed https://www.shellcheck.net/
 # WARNING: script do not attempt to be portable
-# verified platform RPi-OS Lite 32-bit (Bullseye)
+# verified platform is RPi-OS Lite 32-bit (Bullseye)
 # List storage devices from 'blkid' exluding sd with PARTUUID
-# or UUID already configured in 'fstab' for user to then select 
-# single item to mount with 'fstab' entry 'mount -a'. Option to 
-# create relative symlink to newly mounted partition in user's 
-# home directory + option to create alias to 'mount point && ls -l'
+# or UUID already configured in 'fstab'. For user then to select 
+# single partition to mount with automatically added entry to 
+# 'fstab' before 'mount -a' are executed. 
+# Option to create relative symlink to newly mounted partition 
+# in user's home directory + option to create alias to commands
+# 'cd [mount point] && ls -l'
 
 #mountdir="/media/"
 mountdir="/mnt/"
