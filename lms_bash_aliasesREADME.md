@@ -20,7 +20,7 @@ lmshelp - same as typing '$ alias'<br />
 There are a number of ways to implement these aliases.<br />
 The quickest way is to copy text line below and run the string of commands from command prompt:<br />
 <br />
-cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms_bash_aliases.txt && cat lms_bash_aliases.txt >> .bash_aliases && cat .bash_aliases<br />
+"cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms_bash_aliases.txt && cat lms_bash_aliases.txt >> .bash_aliases && cat .bash_aliases"<br />
 <br />
 This will download the txt file and append the commands to the end of your '.bash_aliases' file inside your home directory. If the files doesn't exist it will be created.<br />
 <br />
