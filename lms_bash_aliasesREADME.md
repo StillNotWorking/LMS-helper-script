@@ -24,7 +24,7 @@ $ cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script
 <br />
 This will download the text file and append the commands to the end of your '.bash_aliases' file inside your home directory. If the files doesn't exist it will be created.<br />
 <br />
-The safest way are probebly to edit the hidden file '.bash_aliases' youself using a text editor. On a fresh RPi-OS Lite install the aliases file are not yet created.<br />
+The safest way are probebly to edit the hidden file '.bash_aliases' youself using a text editor. On a fresh RPi-OS Lite install users individually aliases file are not yet created.<br />
 <br />
 Or you can copy the text from the file and append it between this command on the command promt:<br />
 echo [all text inluding line feed here] >> .bash_aliases<br />
