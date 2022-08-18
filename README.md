@@ -13,7 +13,7 @@ If you like to have the script as part of your system as a command you might wan
 $ sudo chown root:root [filename]<br />
 <br />
 <b>select one of these methods to make the script executable</b><br />
-u+x, command must run with 'sudo' as 'u=user' now are root. This can be confusing if one forget 'sudo' as the error are as if the file is missing.<br />
+u+x, your new command must run with 'sudo' as 'u=user' now are root. This can be confusing if one forget 'sudo' as the error are as if the file is missing.<br />
 $ sudo chmod u+x [filename]<br />
 a+x, everyone can run the command<br />
 $ sudo chmod a+x [filename]<br />
