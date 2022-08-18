@@ -15,17 +15,17 @@ To run a bash script simply type: '$ bash [scriptname]' or 'sudo bash' if needed
 If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.*<br />
 <br />
 <b>change the file owner and group</b><br />
-$ sudo chown root:root [filename]<br />
+~$ sudo chown root:root [filename]<br />
 <br />
 <b>select one of these two methods to make the script executable:</b><br />
 'chmod u+x', your new command must run with 'sudo' as file owner 'u=user' are set to root. This can be confusing if one forget 'sudo' as the error are as if the file is missing.<br />
-$ sudo chmod u+x [filename]<br />
+~$ sudo chmod u+x [filename]<br />
 <br /> 
 'chmod a+x', everyone can run the command<br />
-$ sudo chmod a+x [filename]<br />
+~$ sudo chmod a+x [filename]<br />
 <br />
 To run the script as a command without the need to type the full path now copy or move the script to the '/bin' directory. You might also want to remove the file exstention '.sh.'<br />
-$ sudo mv [filename.sh] /bin/[filename]<br />
+~$ sudo mv [filename.sh] /bin/[filename]<br />
 <br />
 (*) if root is owner you need to use 'sudo' to edit the script.<br />
 <br />
