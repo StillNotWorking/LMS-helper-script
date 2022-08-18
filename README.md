@@ -7,7 +7,7 @@ Tools to help maintain headless Logitech Media Server devices for novice users
 
 To run a bash script simply type: '$ bash [scriptname]' or 'sudo bash' if needed.<br />
 <br />
-If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.<br />
+If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.*<br />
 <br />
 <b>change the file owner and group</b><br />
 $ sudo chown root:root [filename]<br />
