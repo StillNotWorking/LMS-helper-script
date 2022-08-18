@@ -5,15 +5,15 @@
 <br />Note: intended used with systemd -> logitechmediaserver.service config as used by RPi-OS (Debian). System where lms start from /etc/initd/logitechmediaserver need som adjusting.<br />
 <br />
 <b>
-lmsstatus - service status<br />
-lmsrestart - service restart <br />
-lmsstart - service start<br />
-lmsstop - service stopt<br />
-lmseditstart - edit service config<br />
-lmsprefs - open directory <br />
-lmsplugins - open directory <br />
-lmslogs - open directory<br />
-lmshelp - same as '$ alias'<br />
+`lmsstatus` - service status<br />
+`lmsrestart` - service restart <br />
+`lmsstart` - service start<br />
+`lmsstop` - service stopt<br />
+`lmseditstart` - edit service config<br />
+`lmsprefs` - open directory <br />
+`lmsplugins` - open directory <br />
+`lmslogs` - open directory<br />
+`lmshelp` - same as '$ alias'<br />
 
 <br />
 </b>
