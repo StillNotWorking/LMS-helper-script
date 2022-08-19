@@ -17,14 +17,13 @@ Note: intended used with systemd -> logitechmediaserver.service config as used b
 
 <br />
 </b>
-There are a number of ways to implement these aliases.<br />
-The quickest way is to copy text line below and run the string of commands from command prompt:<br />
+There are a number of ways to implement these aliases. The quickest way is to copy text line below and run the string of commands from command prompt:<br />
 <br />
 ~$ cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms_bash_aliases.txt && cat lms_bash_aliases.txt >> .bash_aliases && cat .bash_aliases<br />
 <br />
 This will download the text file and append the command shortcuts to the end of your '.bash_aliases' file inside your home directory. If the file doesn't exist it will be created.<br />
 <br />
-The safest way are probebly to edit the hidden file '.bash_aliases' youself using a text editor. <i>On a fresh RPi-OS Lite install users individually aliases file are not yet created</i>.<br />
+Some might feel safer edit the hidden file '.bash_aliases' for themself using a text editor. <i>On a fresh RPi-OS Lite install users individually aliases file are not yet created</i>.<br />
 <br />
 Or you can copy the text from the file and append it between this command on the command promt:<br />
 ~$ echo [all text inluding line feed here] >> .bash_aliases<br />
