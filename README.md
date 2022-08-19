@@ -31,9 +31,11 @@ To run the script as a command without the need to type the full path now copy o
 ~$ sudo mv [filename.sh] /usr/bin/[filename]<br />
 
 <i>Linux directory structure are explained here: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</i>
-<br /><br />
-<sup>1</sup> if root is owner you need to use 'sudo' to edit the script.<br />
+<br />
 <br />
 You often see guidance to runs script with <b>./</b>[scriptname].<br />
 <b>./</b> meens <i>this directory</i> and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
 There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script. Hence the file extention are not needed.
+
+<br /><br />
+<sup>1</sup> if root is owner you need to use 'sudo' to edit the script.<br />
