@@ -11,7 +11,7 @@
 # in user's home directory + option to create alias to commands
 # 'cd [mount point] && ls -l'
 
-#mountdir="/media/"
+#mountdir="/media/" # do not use this if usbmount are running 
 mountdir="/mnt/"
 
 if [[ ! "$EUID" = 0 ]]; then
