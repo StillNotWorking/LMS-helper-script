@@ -27,7 +27,7 @@ If you like to have the script as part of your system as a command you might wan
 `chmod a+x`  everyone can run the command<br />
 ~$ sudo chmod a+x [filename]<br />
 <br />
-To run the script as a command without the need to type the full path now copy or move the script to the '/bin' directory. You might also want to remove the file exstention '.sh.'<br />
+To run the script as a command without the need to type the full path now copy or move the script to the '/usr/bin' directory. You might also want to remove the file exstention '.sh.'<br />
 ~$ sudo mv [filename.sh] /bin/[filename]<br />
 <br />
 (*) if root is owner you need to use 'sudo' to edit the script.<br />
