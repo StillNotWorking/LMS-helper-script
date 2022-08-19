@@ -15,7 +15,7 @@ are an exsample how to make custom visualization for any LMS player using html a
 
 To run a bash script simply type: '$ bash [scriptname]' or 'sudo bash' if needed.<br />
 <br />
-If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.*<br />
+If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.<sub>1</sub><br />
 <br />
 <b>change the file owner and group</b><br />
 ~$ sudo chown root:root [filename]<br />
@@ -29,8 +29,10 @@ If you like to have the script as part of your system as a command you might wan
 <br />
 To run the script as a command without the need to type the full path now copy or move the script to the '/usr/bin' directory. You might also want to remove the file exstention '.sh.'<br />
 ~$ sudo mv [filename.sh] /bin/[filename]<br />
+
+<i>Linux directory structure are explained here: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</i>
 <br />
-(*) if root is owner you need to use 'sudo' to edit the script.<br />
+<sub>1</sub> if root is owner you need to use 'sudo' to edit the script.<br />
 <br />
 You often see guidance to runs script with <b>./</b>[scriptname].<br />
 <b>./</b> meens <i>this directory</i> and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
