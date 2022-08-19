@@ -1,10 +1,10 @@
 # LMS-helper-script
 Tools to help maintain headless Logitech Media Server devices for novice users
 
-<h3>mountdrive.sh</h3> 
+#### mountdrive.sh
 let user easily add USB storage devices to RPi-OS by listing detected devices and configure fstab for item selected by user.
 
-<h3>lms_bash_aliases.txt</h3>
+#### lms_bash_aliases.txt
 are several aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver' + a few shortcuts to directories used by lms.<br />
 How to implement aliases: https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md
 
