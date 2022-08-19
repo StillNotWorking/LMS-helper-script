@@ -25,7 +25,7 @@ This will download the text file and append the command shortcuts to the end of 
 <br />
 Some might feel safer edit the hidden file '.bash_aliases' for themself using a text editor. <i>On a fresh RPi-OS Lite install users individually aliases file are not yet created</i>.<br />
 <br />
-Or you can copy the text from the file and append it between this command on the command promt:<br />
+Or you can copy the text from the 'lms_bash_aliases.txt' file and append it between this command on the command promt:<br />
 ~$ echo [all text inluding line feed here] >> .bash_aliases<br />
 <br />
 <b>New aliases are available at next login.</b><br />
