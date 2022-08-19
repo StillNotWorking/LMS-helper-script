@@ -28,7 +28,7 @@ If you like to have the script as part of your system as a command you might wan
 ~$ sudo chmod a+x [filename]<br />
 <br />
 To run the script as a command without the need to type the full path now copy or move the script to the '/usr/bin' directory. You might also want to remove the file exstention '.sh.'<br />
-~$ sudo mv [filename.sh] /bin/[filename]<br />
+~$ sudo mv [filename.sh] /usr/bin/[filename]<br />
 
 <i>Linux directory structure are explained here: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</i>
 <br /><br />
