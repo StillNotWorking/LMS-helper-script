@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Custom visualization for any LMS player Version: 0.1.5 - 2021-05-03
+  
+	   How to use: 
+	   Edit 'SETTINGS' then store this file on LMS server - rename file at will
+       Location on RPi-OS (Debian): 
+	   '/usr/share/squeezeboxserver/HTML/Default/html'
+
+	   To view the result use the full path in a java enabled web browser, 
+	   this will ensure it also works with Matarial skin 
+	   example: 'http://192.168.0.2:9000/Default/html/cover.html'
+	   
+	   If this html file are edited or replaced LMS server need to be restarted
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  
+	//-- SETTINGS: ----------------------------------------------------------------------------------
+	var clientID = "00:04:20:23:2d:25"; // ususally but not always player's MAC address
+	var serverAd = "http://192.168.0.2:9000/"; // ip address & port to your LMS server
+	var interval = 3040;  // how frequently we ask server for updates, 3000 milliseconds = 3 second
+	//-- END SETTINGS -------------------------------------------------------------------------------
+
+	var xhttp = new XMLHttpRequest();
+	//tags are like keywords the server will include in its response
+	var request = "{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + clientID + "\",[\"status\",\"-\",1,\"tags:oraculyB\"]]}"; 
+	var songid = "dummy01", curPos = "", duration = "", durationStr = "", mode = "stoppet", id = "";
+	var ssavercount = 0;
+	//var serverstatus = "{\"id\":1,\"method\":\"slim.request\",\"params\":[\"\",[\"serverstatus\",0,999]]}"; //for future use
+	
+	function cyrb53(str, seed = 0) {
+		//https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+		let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+		for (let i = 0, ch; i < str.length; i++) {
+			ch = str.charCodeAt(i);
+			h1 = Math.imul(h1 ^ ch, 2654435761);
+			h2 = Math.imul(h2 ^ ch, 1597334677);
+		}
+		h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+		h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+		return 4294967296 * (2097151 & h2) + (h1>>>0);
+	}
+	function TSH(str) {
+		https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+		var h = 9;
+		for (var i=0;i<str.length;i++) {
+			h = Math.imul(h^str.charCodeAt(i), 9**9);    
+		}
+		return h^h >>> 9;
+	}
+	function actScreenSaver(){
+		// here we can add code for loading screen saver photos etc.
+		if (mode == "stoppet" || mode == "pause") {clearScreen();}
+	}
+	function addSecond() {
+		if (mode == "spiller" && interval > 1000) {
+			if (duration == "" || curPos < duration) {curPos += 1;}
+			updatePosition()
+		} 
+	}
+	function updatePosition() {
+		if (mode == "spiller") {
+			var str;
+			if (duration == 0 || duration == "") {
+				str = myTime(curPos);
+			} else {
+				str = myTime(curPos) + durationStr + myTime(duration);
+				/* -- math and code to populate a progress bar -- */
+				// var curPosPCT = (curPos / duration) * 100;
+				// if (curPosPCT > 100) {curPosPCT = 100;}
+				// var elem = document.getElementById("myBar");  
+				// elem.style.width = curPosPCT + "%";
+			}
+			document.getElementById("ptime").innerHTML = str;
+		}
+	}
+	function myTime(seconds){
+		// this function are liftet strait off the Default skin
+		var remaining;
+
+		if (seconds < 0) {
+			remaining = true;
+			seconds = Math.abs(seconds);
+		}
+		
+		var hours = Math.floor(seconds / 3600);
+		var minutes = Math.floor((seconds - hours*3600) / 60);
+		seconds = Math.floor(seconds % 60);
+
+		var formattedTime = (hours ? hours + ':' : '');
+		formattedTime += (minutes ? (minutes < 10 && hours ? '0' : '') + minutes : '0') + ':';
+		formattedTime += (seconds ? (seconds < 10 ? '0' : '') + seconds : '00');
+		return (remaining ? '-' : '') + formattedTime;
+	}
+	function loadCoverArt() {
+		/* note: this work-around are done due to LMS url coverid tag might end up
+		         static for stream where cover art are updated but not the coverid
+		         else we could have used this url:  ip:port/music/coverid/cover.jpg 
+		   now in attempt to fool the cash on client side we add # + songid to src string
+		         songid being a hash computed from artist+title+id                     */
+		var myimg = document.getElementById("imgcover");
+		myimg.src = serverAd + "music/current/cover.jpg?player=" + clientID + "#" + songid;
+		doResize(); // slight adjustments due to cover art images not being sized equal 
+		/* debug: */
+			var tmpimgid = document.getElementById("imgcover");
+			var rect = tmpimgid.getBoundingClientRect();
+			console.log("cover art size in px: ",'\n'," left: " + rect.left, '\n'," top: " + rect.top,'\n'," witch: " + rect.width,'\n'," height: " + rect.height);
+		// */
+	}
+	function clearScreen(){
+		var allP = document.getElementsByTagName("P");
+		var i=0; var max=0;
+		for (i=0, max=allP.length; i < max; i++) {
+			allP[i].innerHTML = "";
+			//allP[i].style.visibility = "hidden";
+		}
+	}
+	function loaded() {
+		loadCoverArt();
+		clearScreen();
+	}
+	function doResize() {}
+	function postlms() {
+		xhttp.open("POST", serverAd + "jsonrpc.js", true);
+		xhttp.send(request);
+		xhttp.overrideMimeType("text/plain")
+		//xhttp.onloadstart = function(){document.getElementById("pconnection").innerHTML = "Loading...";} // flicker gets tedious
+		xhttp.onerror   = function(){document.getElementById("pconnection").innerHTML = "JSON Error";}
+		xhttp.ontimeout = function(){document.getElementById("pconnection").innerHTML = "JSON Connection Timeout";}
+		xhttp.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200){
+				var myObj = JSON.parse(this.responseText);
+//console.log(myObj); // for debugging
+				id = myObj.result.playlist_loop[0].id;
+				  if (typeof(id) == 'undefined') {id="";}
+				duration = myObj.result.duration;
+				  if (typeof(duration) == 'undefined' || duration == 0) {
+					duration=""; 
+					durationStr = "";
+				  } else {
+					durationStr = " &#8286; ";
+				  }
+				mode         = myObj.result.mode;
+				  if (typeof(mode) == 'undefined') {mode="stop";}
+				  if (mode=="stop") {mode="stoppet";} 
+				  if (mode=="play") {mode="spiller"}
+				var time     = myObj.result.time;
+				  if (typeof(time) == 'undefined') {time="";}
+				var artist   = myObj.result.playlist_loop[0].artist;
+				  if (typeof(artist) == 'undefined') {artist="";}
+				var title    = myObj.result.playlist_loop[0].title;
+				  if (typeof(title) == 'undefined') {title="";}
+				var album    = myObj.result.playlist_loop[0].album;
+				  if (typeof(album) == 'undefined') {album="";} else {album = "ALBUM: " + album;}
+				var bitrate  = myObj.result.playlist_loop[0].bitrate;
+				  if (typeof(bitrate) == 'undefined') {bitrate="";}
+				var type     = myObj.result.playlist_loop[0].type;
+				  if (typeof(type) == 'undefined') {type="";}
+				var year     = myObj.result.playlist_loop[0].year;
+				  if (typeof(year) == 'undefined' || year<1) {year="";} else {year = "UTGIVELSESÅR: " + year;}
+				var url      = myObj.result.playlist_loop[0].url;
+				  if (typeof(url) == 'undefined') {url="";}
+				var tmp      = url.split(":"); 
+				var source   = tmp[0]; // first part of song's url used to identify source
+				curPos = time;         // also updated from 1 second ticker
+				
+				if (mode == "spiller") {
+					ssavercount = 0;
+					// for some radio streams the song id tag is static even when song and cover change 
+					// hence the need for a unique identifier build form multiple datafields
+					if (songid != TSH(artist+title+id)){
+						songid = TSH(artist+title+id);
+						loadCoverArt();
+					}
+					document.getElementById("partist").innerHTML = artist;
+					document.getElementById("ptitle").innerHTML = title;
+					document.getElementById("palbum").innerHTML = album;
+					document.getElementById("pyear").innerHTML = year;
+					updatePosition() // song position
+					document.getElementById("pmode").innerHTML = myObj.result.mode.toUpperCase();
+					document.getElementById("psource").innerHTML = source.toUpperCase();
+					document.getElementById("pmode").innerHTML = mode.toUpperCase();
+					document.getElementById("pbitrate").innerHTML = bitrate + " " + type.toUpperCase();
+					document.getElementById("pconnection").innerHTML = "";
+				} else {
+					ssavercount++;
+					if (ssavercount = 10000) {actScreenSaver();}
+				}
+			}
+		}
+	}
+	// sadly these intervall timers seem to be disabled in 2017 Samsung TV's browser 
+	var si = setInterval(postlms, interval);    // pull JSON
+	var ti = setInterval(addSecond, 1000);      // trigger second counter
+  </script>
+  <style>
+	* {
+		box-sizing: border-box;
+	}
+	html {
+		height: 100%;
+		background-color: SlateGray;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background: SlateGray;
+		background-repeat:no-repeat;
+		background: -webkit-linear-gradient( to left top, SlateGray, Black);
+		background: -moz-linear-gradient( to left top, SlateGray, Black);
+		background: -ms-linear-gradient( to left top, SlateGray, Black);
+		background: -o-linear-gradient( to left top, SlateGray, Black);
+		background: linear-gradient( to left top, SlateGray, Black);
+	}
+	img {
+		text-align: center;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 98%;
+		transform:rotate(0deg);
+		z-index: -1;
+	}
+	p {
+		color:rgba(255,255,255,0.8); // for text overlay adjust translusent
+		white-space: pre-wrap;
+		overflow-wrap: break-word;
+		overflow: visible;
+		position: absolute;
+		width: 20vw;
+		font-size: 1.2vw;
+	}
+	#partist {
+		position: relative;
+		left: 1.2vw;
+		font-size: 2.2vw;
+	}
+	#ptitle{
+		position: relative;
+		left: 1.2vw;
+		font-size: 1.8vw;
+		text-overflow: ellipsis;   
+	}
+	#palbum {
+		position: relative;
+		margin-top: 10vh;
+		left: 1.2vw;
+		text-overflow: ellipsis;  
+	}
+	#pyear {
+		position: relative;
+		left: 1.2vw;
+	}
+	#ptime {
+		bottom: 0vh;
+		text-align: center;
+		font-size: 3em;
+	}
+	
+	#psource {
+		position: absolute;
+		top: 1vh;
+		right:2vw;
+		text-align: right;
+		font-size: 2.2vw;
+	}
+	#pmode {
+		position: absolute;
+		top: 10vh;
+		right:2vw;
+		text-align: right;
+	}
+	#pconnection {
+		position: absolute;
+		bottom: 8vh;
+		right:1vw;
+		text-align: right;
+	}
+	#pbitrate {
+		position: absolute;
+		right:1vw;
+		bottom: 3vh;
+		text-align: right;
+	}
+  </style>
+</head>
+<body onload="loaded()" onresize="doResize()">
+		<p id="partist">Artist</p>
+		<p id="ptitle">Track Name</p>
+		<p id="palbum">Album</p>
+		<p id="pyear">Year</p>
+		<p id="ptime">0:00 &#8286; 0:00</p>
+
+		<img id="imgcover" alt="Album Cover Art" src="">
+
+		<p id="psource">Source</p>
+		<p id="pbitrate">bitrate type</p>
+		<p id="pconnection">connection status</p>
+		<p id="pmode">Mode</p>
+</body>
+</html>

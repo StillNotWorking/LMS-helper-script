@@ -8,6 +8,9 @@ let user easily add USB storage devices to RPi-OS by listing detected devices an
 are several aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver' + a few shortcuts to directories used by lms.<br />
 How to implement aliases: https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md
 
+#### cover.html
+are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
+
 ---------------------------------------------------------------
 
 To run a bash script simply type: '$ bash [scriptname]' or 'sudo bash' if needed.<br />
