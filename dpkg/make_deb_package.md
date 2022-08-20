@@ -1,10 +1,5 @@
 # Make deb package
-Ready for install on Debian system with `apt` command.
-<br />
-If already downloaded use: sudo apt install ./mountdrive-0.0.2_all 
-where `./` just means <i>this directory</i> - not to have `apt` looking in its packaging list.
-<br />
-More efficient is to use the direct internet path and let `apt` take care of the download before install.
+Create packages ready for install on Debian system with `apt` command.
 ## Prepear files
 Have your complete project in a single directory named 'applicationname-version_all'. The optional <i>all</i> at the end are here ment to tell that package is not hardware specific.
 
