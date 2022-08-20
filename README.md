@@ -5,6 +5,7 @@ Tools to help maintain headless Logitech Media Server devices for novice Linux u
 Let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure fstab for item selected by user for instant access. Drive will then mount automatic at next boot.
 #### mountdrive-0.0.2_all.deb
 same as above ready to install on RPi-OS (Debian)
+
 sudo apt install 'https://github.com/StillNotWorking/LMS-helper-script/blob/338ac7189d450af57bd0a6ff198396ea4acd672b/mountdrive-0.0.2_all.deb'
 <br />
 if deb files are downloaded manually and then user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
