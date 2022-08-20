@@ -10,7 +10,7 @@ Same as above ready to install on RPi-OS (Debian)
  - ~$ sudo apt install ./mountdrive-0.0.2_all.deb
 
 When <i>deb</i> files are downloaded manually and user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
-<br />where `./` means <i>this directory</i>.
+<br />Here `./` means <i>this directory</i>.
 #### lms_bash_aliases.txt
 are several aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver' + a few shortcuts to directories used by lms.<br />
 How to implement aliases: https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md
