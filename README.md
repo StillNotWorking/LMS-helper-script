@@ -25,17 +25,17 @@ simply type:
 ```
 ~$ bash [scriptname]
 or 
-~$ sudo bash [scriptname] if needed
+~$ sudo bash [scriptname] if administrator privileges are needed
 ```
-<br />
-If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.<sup>1</sup><br />
-<br />
-<b>change the file owner and group</b>
+If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.<sup>1</sup>
+
+
+Change the file owner and group
 ```
 ~$ sudo chown root:root [filename]
 ```
-<b>select one of these two methods to make the script executable:</b><br />
-`chmod u+x`  your new command must run with 'sudo' as file owner 'u=user' are set to root. This can be confusing if one forget 'sudo' as the error are as if the file is missing.<br />
+select one of these two methods to make the script executable:
+`chmod u+x`  your new command must run with `sudo` as file owner 'u=user' are set to root. This can be confusing if one forget `sudo` as the error are as if the file is missing.
 ```
 ~$ sudo chmod u+x [filename]
 ``` 
