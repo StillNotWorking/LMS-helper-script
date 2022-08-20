@@ -2,9 +2,9 @@
 Tools to help maintain headless Logitech Media Server devices for novice Linux users 
 
 #### mountdrive.sh
-Let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive will then mount automatic at next boot.
+let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive will then mount automatic at next boot.
 #### mountdrive-0.0.2_all.deb
-Same as above ready to install on RPi-OS (Debian)
+same as above ready to install on RPi-OS (Debian)
 ```
 ~$ wget 'https://github.com/StillNotWorking/LMS-helper-script/blob/main/mountdrive-0.0.2_all.deb?raw=true'
 ~$ sudo apt install ./mountdrive-0.0.2_all.deb
@@ -20,21 +20,22 @@ are an exsample how to make custom visualization for any LMS player using html a
 
 ---------------------------------------------------------------
 
-### To run a bash script 
+# How to run a bash script 
 simply type: 
 ```
 ~$ bash [scriptname]
 or 
 ~$ sudo bash [scriptname] if administrator privileges are needed
 ```
-If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.<sup>1</sup>
+If one like to have a script as part of the system as a command we make it executable. And for safety have root be the owner of the file.<sup>1</sup>
 
 
-Change the file owner and group
+**Change the file owner and group**
 ```
 ~$ sudo chown root:root [filename]
 ```
-select one of these two methods to make the script executable:
+**Select one of these two methods to make the script executable:**
+
 `chmod u+x`  your new command must run with `sudo` as file owner 'u=user' are set to root. This can be confusing if one forget `sudo` as the error are as if the file is missing.
 ```
 ~$ sudo chmod u+x [filename]
