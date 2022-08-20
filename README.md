@@ -45,15 +45,15 @@ If one like to have a script as part of the system as a command we make it execu
 ```
 ~$ sudo chmod a+x [filename]
 ```
-#### Run the script as a command 
-without the need to type the full path now copy or move the executable script to the `/usr/bin` directory. Its common to also remove the file exstention `.sh`.
+#### Run a script as a command 
+without the need to type the full path. Copy or move the executable script to the `/usr/bin` directory. Its common to also remove the file exstention `.sh`.
 ```
 ~$ sudo mv [filename.sh] /usr/bin/[filename]
 ```
 <i>Linux directory structure are explained here: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</i>
 
 
-We often see guidance to runs script with <b>./</b>[scriptname].
+We often see guidance to runs script with `./[scriptname]`.
 `./` meens <i>this directory</i> and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
 There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script. Hence the file extention are not needed.
 
