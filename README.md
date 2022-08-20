@@ -20,11 +20,17 @@ are an exsample how to make custom visualization for any LMS player using html a
 
 ---------------------------------------------------------------
 
-To run a bash script simply type: '$ bash [scriptname]' or 'sudo bash' if needed.<br />
+### To run a bash script 
+simply type: 
+```
+~$ bash [scriptname]
+or 
+~$ sudo bash [scriptname] if needed
+```
 <br />
 If you like to have the script as part of your system as a command you might want to make it executable and for safety have root be the owner.<sup>1</sup><br />
 <br />
-<b>change the file owner and group
+<b>change the file owner and group</b>
 ```
 ~$ sudo chown root:root [filename]
 ```
@@ -33,7 +39,8 @@ If you like to have the script as part of your system as a command you might wan
 ```
 ~$ sudo chmod u+x [filename]
 ``` 
-`chmod a+x`  everyone can run the command<br />
+
+`chmod a+x`  everyone can run the command
 ```
 ~$ sudo chmod a+x [filename]
 ```
