@@ -2,7 +2,7 @@
 
 #### 'lms_bash_aliases.txt' are aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver', and a few shortcuts to directories used by lms.<br />
 ---------------------------------------------------------------
-Note: intended used with __systemd -> logitechmediaserver.service__ config as used by RPi-OS (Debian). System where lms start from /etc/initd/logitechmediaserver need som adjusting.
+Note: intended used with _ _systemd -> logitechmediaserver.service_ _ config as used by RPi-OS (Debian). System where lms start from _ _/etc/initd/logitechmediaserver_ _ need som adjusting.
 
 **
  - `lmsstatus` - service status
@@ -24,7 +24,7 @@ There are a number of ways to implement these aliases. The quickest way is to co
 This will download the text file and append the command shortcuts to the end of your '.bash_aliases' file inside your home directory. If the file doesn't exist it will be created.
 
 
-Some might feel safer edit the hidden file `.bash_aliases` for themself using an text editor. __On a fresh RPi-OS Lite install users individually aliases file are not yet created__.
+Some might feel safer edit the hidden file `.bash_aliases` for themself using an text editor. _ _On a fresh RPi-OS Lite install users individually aliases file are not yet created_ _.
 
 
 Or one can copy the text from the 'lms_bash_aliases.txt' file and append it between these commands on the command promt:
