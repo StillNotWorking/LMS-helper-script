@@ -6,7 +6,7 @@ let user easily add USB storage devices to RPi-OS by listing detected devices an
 #### mountdrive-0.0.2_all.deb
 same as above ready to install on RPi-OS (Debian)
 ```bash
-wget 'https://github.com/StillNotWorking/LMS-helper-script/blob/main/mountdrive-0.0.2_all.deb?raw=true'
+wget 'https://github.com/StillNotWorking/LMS-helper-script/raw/main/mountdrive-0.0.2_all.deb'
 sudo apt install ./mountdrive-0.0.2_all.deb
 ```
 When <i>deb</i> files are downloaded manually and user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
