@@ -1,9 +1,9 @@
 # LMS helper scripts
 Tools to help maintain headless Logitech Media Server devices for novice Linux users 
 
-#### mountdrive.sh
+### mountdrive.sh
 let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive will then mount automatic at next boot.
-#### mountdrive-0.0.2_all.deb
+### mountdrive-0.0.2_all.deb
 same as above ready to install on RPi-OS (Debian)
 ```bash
 wget 'https://github.com/StillNotWorking/LMS-helper-script/raw/main/mountdrive-0.0.2_all.deb'
@@ -11,12 +11,12 @@ sudo apt install ./mountdrive-0.0.2_all.deb
 ```
 When <i>deb</i> files are downloaded manually and user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
  - `./` means <i>this directory</i>.
-#### lms_bash_aliases.txt
+### lms_bash_aliases.txt
 are several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] logitechmediaserver'*, plus a few shortcuts to directories used by lms.
 
-[https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md](Read how to implement aliases)
+[Read how to implement aliases](https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md)
 
-#### cover.html
+### cover.html
 are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
 
 ---------------------------------------------------------------
