@@ -10,10 +10,11 @@ wget 'https://github.com/StillNotWorking/LMS-helper-script/raw/main/mountdrive-0
 sudo apt install ./mountdrive-0.0.2_all.deb
 ```
 When <i>deb</i> files are downloaded manually and user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
-<br />Here `./` means <i>this directory</i>.
+ - `./` means <i>this directory</i>.
 #### lms_bash_aliases.txt
-are several aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver' + a few shortcuts to directories used by lms.<br />
-How to implement aliases: https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md
+are several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] logitechmediaserver'*, plus a few shortcuts to directories used by lms.
+
+[https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md](Read how to implement aliases)
 
 #### cover.html
 are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
