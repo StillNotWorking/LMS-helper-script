@@ -12,7 +12,7 @@ Note: intended used with *systemd -> logitechmediaserver.service* config as used
  - **`lmsprefs`** - open directory
  - **`lmsplugins`** - open directory
  - **`lmslogs`** - open directory
- - **`lmshelp`** - same as '~$ alias' list the real command behind the alias
+ - **`lmshelp`** - list the real command behind the alias, same as '~$ alias'
 
 
 There are a number of ways to implement these aliases. The quickest way is to copy text line below and run the string of commands from command prompt:
@@ -23,7 +23,7 @@ This will download the text file and append the command shortcuts to the end of 
 
 
 
-Some might feel safer edit the hidden file `.bash_aliases` for themself using an text editor. *On a fresh RPi-OS Lite install users individually aliases file are not yet created*.
+Some might feel safer edit the hidden file `.bash_aliases` themself using an text editor. *On a fresh RPi-OS Lite install users individually aliases file are not yet created*.
 
 
 Or one can copy the text from the '*lms_bash_aliases.txt*' file and append it between these commands on the command promt:
