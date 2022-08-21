@@ -4,15 +4,15 @@
 ---------------------------------------------------------------
 Note: intended used with *systemd -> logitechmediaserver.service* config as used by RPi-OS (Debian). System where lms start from */etc/initd/logitechmediaserver* need som adjusting.
 
-** - `lmsstatus` - service status
- - `lmsrestart` - service restart
- - `lmsstart` - service start
- - `lmsstop` - service stopt
- - `lmseditstart` - edit service config
- - `lmsprefs` - open directory
- - `lmsplugins` - open directory
- - `lmslogs` - open directory
- - `lmshelp` - same as '~$ alias' list the real command behind the alias**
+ - **`lmsstatus`** - service status
+ - **`lmsrestart`** - service restart
+ - **`lmsstart`** - service start
+ - **`lmsstop`** - service stopt
+ - **`lmseditstart`** - edit service config
+ - **`lmsprefs`** - open directory
+ - **`lmsplugins`** - open directory
+ - **`lmslogs`** - open directory
+ - **`lmshelp`** - same as '~$ alias' list the real command behind the alias
 
 
 There are a number of ways to implement these aliases. The quickest way is to copy text line below and run the string of commands from command prompt:
