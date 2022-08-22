@@ -2,12 +2,18 @@
 Tools to help maintain headless Logitech Media Server devices for novice Linux users 
 
 ### mountdrive.sh
-let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive will then mount automatic at next boot.
+let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
 ### mountdrive-0.0.2_all.deb
 same as above ready to install on RPi-OS (Debian)
+*tip: copy all text including last empty line and paste into terminal before hitting enter*
 ```bash
 wget 'https://github.com/StillNotWorking/LMS-helper-script/raw/main/mountdrive-0.0.2_all.deb'
 sudo apt install ./mountdrive-0.0.2_all.deb
+
+```
+After install use `mountdrive` to run the command
+```
+sudo mountdrive
 ```
 When <i>deb</i> files are downloaded manually and user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
  - `./` means <i>this directory</i>.
@@ -28,8 +34,7 @@ simply type:
 or 
 ~$ sudo bash [scriptname] if administrator privileges are needed
 ```
-If one like to have a script as part of the system as a command we make it executable. And for safety have root be the owner of the file.<sup>1</sup>
-
+If one like to have a script as part of the system as a command we make it executable. And for safety have root be the owner of the file.<sup>2</sup>
 
 **Change the file owner and group**
 ```
@@ -37,7 +42,7 @@ If one like to have a script as part of the system as a command we make it execu
 ```
 **Select one of these two methods to make the script executable:**
 
-`chmod u+x`  your new command must run with `sudo` as file owner 'u=user' are set to root. This can be confusing if one forget `sudo` as the error are as if the file is missing.
+`chmod u+x`  your new command must run with `sudo` as file owner (*u=user*) are first set to root. This can be confusing if one forget `sudo` as the error are as if the file is missing.
 ```
 ~$ sudo chmod u+x [filename]
 ``` 
@@ -46,6 +51,7 @@ If one like to have a script as part of the system as a command we make it execu
 ```
 ~$ sudo chmod a+x [filename]
 ```
+
 #### Run a script as a command 
 without the need to type the full path. Copy or move the executable script to the `/usr/bin` directory. Its common to also remove the file exstention `.sh`.
 ```
@@ -55,9 +61,9 @@ without the need to type the full path. Copy or move the executable script to th
 
 
 We often see guidance to runs script with `./[scriptname]`.
-`./` meens <i>this directory</i> and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
+`./` meens *this directory* and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
 There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script. Hence the file extention are not needed.
 
 
-
-<sup>1</sup> if root is owner you need to use 'sudo' to edit the script.<br />
+<sup>1</sup> Technically the script are not mounting a drive but rather help user to mount a partition living on the physical drive. There can be multiple partition on the drive where system list the physical drive as sd(a-z) and partitions as sd(a-z)(#).
+<sup>2</sup> if root is owner you need to use 'sudo' to edit the script.<br />

@@ -1,4 +1,4 @@
-# lms_bash_aliases
+# lms_bash_aliases.txt
 
 #### 'lms_bash_aliases.txt' are aliases (command shortcut) that simplify the control of the LMS system with short single word commands rather than typing 'sudo systemctl [command] logitechmediaserver', and a few shortcuts to directories used by lms.<br />
 ---------------------------------------------------------------
@@ -28,6 +28,6 @@ Some might feel safer edit the hidden file `.bash_aliases` themself using an tex
 
 Or one can copy the text from the '*lms_bash_aliases.txt*' file and append it between these commands on the command promt:
 ```
-~$ echo [all text inluding line feed here] >> .bash_aliases
+~$ echo 'all text inluding line feed here >> .bash_aliases
 ```
 **New aliases are available at next login.**
