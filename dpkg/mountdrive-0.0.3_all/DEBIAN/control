@@ -1,12 +1,14 @@
 Package: mountdrive
-Version: 0.0.2
+Version: 0.0.3
 Architecture: all
 Maintainer: StillNotWorking
 Depends: bash,util-linux
-Installed-Size: 6.803
+Installed-Size: 7.52
 Homepage: https://github.com/StillNotWorking/LMS-helper-script
-Description: Let user easily add USB storage devices to RPi-OS (Debian) by listing detected devices and configure fstab for item selected by user.
- Easely add USB storage devices to RPi-OS (Debian)
+Description: Easely add USB storage devices to RPi-OS (Debian)
+ Let user easily add USB storage devices to RPi-OS (Debian) by 
+ listing detected devices and configure fstab for item selected 
+ by user.
  |
  WARNING - mountdrive do not attempt to be portable
  verified platform is RPi-OS Lite 32-bit (Bullseye)

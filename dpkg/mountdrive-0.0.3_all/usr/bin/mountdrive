@@ -1,25 +1,50 @@
 #!/bin/bash
 # Easily add USB storage devices to RPi-OS (Debian)
-# v.0.0.2 - 2022-08 - passed https://www.shellcheck.net/
+# passed https://www.shellcheck.net/
 # WARNING: script do not attempt to be portable
 # verified platform is RPi-OS Lite 32-bit (Bullseye)
 # List storage devices from 'blkid' exluding sd with PARTUUID
 # or UUID already configured in 'fstab'. For user then to select 
-# single partition to mount with automatically added entry to 
-# 'fstab' before 'mount -a' are executed. 
-# Option to create relative symlink to newly mounted partition 
-# in user's home directory + option to create alias to commands
-# 'cd [mount point] && ls -l'
+# single partition to mount where appropriate mount directive 
+# are written to 'fstab' before 'mount -a' are executed. 
+# Option 1: Create relative symlink to newly mounted partition 
+#           in user's home directory. 
+# Option 2: Create alias to commands 'cd [mount point] && ls -l'
 
-#mountdir="/media/" # do not use this if usbmount are running 
+version="0.0.3" # 2022-8
+
+# not recommended to use /media if any automount are running
+#mountdir="/media/"  
 mountdir="/mnt/"
+user=$(logname)
+
+function printversion {
+	printf '%b\n' "$0 version $version
+	This is free software, you are free to change and redistribute it.
+	Included you find there is NO WARRANTY!"
+}
+function printhelp {
+	printf '%b\n' "Usage: sudo $0
+
+Files and directory $0 can alter if user accept: 
+	/etc/fstab - append to the end of the file
+	/home/$user/.bash_aliases - append to the end of the file
+	/home/$user/ - add relative symlink to mounted partition"
+}
+if test $# = 1; then
+	case "$1" in
+		--help | --hel | --he | --h | -h | "-?")
+			printhelp; exit 0 ;;
+		--version | --versio | --versi | --vers | --ver | --ve | --v | -v)
+			printversion; exit 0 ;;
+	esac
+fi
 
 if [[ ! "$EUID" = 0 ]]; then
 	printf '%b\n' "We need root privileges to mount new partition\nPlease run 'sudo mountdrive'." 
 	exit
 fi
 
-user=$(logname)
 cd "/home/$user" || exit 1
 
 # read PARTUUID and UUID from already mounted storage devices
@@ -61,7 +86,7 @@ printf '%s' "Select [1-$x]: "
 
 # wait for user input
 while true; do
-    read -r inst
+    read -r -s -n1 inst
     case $inst in
         [1-"$x"]* ) break;;
         * )	echo "Please select option 1 - $x";;
@@ -90,15 +115,16 @@ fi
 if [[ -z "$label" ]] || [ "$label" = " " ]; then label="usbsd"; fi
 
 # wait for user input
-printf '%b\n' "Do you want to mount using label name '$label'?\nPress 'n' to type in another label  [y/n]"
-while true; do read -r inst
+printf '%b\n' "Do you want to mount using label name '$label'?\nPress 'n' to type in another label  [Y/n]"
+while true; do read -r -n1 inst
     case $inst in
+		"" ) inst="y" ;break;;
         [yY]|[nN]* ) break;;
         * )	echo "Please select option y(es) - n(o)";;
     esac
 done
 
-if [ "$inst" = "n" ]; then
+if [ "$inst" = "n" ] || [ "$inst" = "N" ]; then
 	read -r -p "Enter label name for mount point (directory): " label
 fi
 
@@ -134,7 +160,7 @@ else
 fi
 
 # format the string used to mount the partition
-mountstr="$uuidstr=$partuuid	$mountpoint	$type	defaults,noatime	0	0"
+mountstr="$uuidstr=$partuuid	$mountpoint	$type	defaults,noatime,nofail	0	0"
 
 printf '%s\n' "Make directory $mountpoint (mount point)"
 if ! sudo mkdir -p "$mountpoint";
@@ -152,14 +178,15 @@ if ! sudo mount -a;
 
 # Create Symbolic Links
 printf '%s\n' "-----------------------------------------------------------------------"
-printf '%s\n' "Do you want to create symbolic link to newly mounted directory? [y/n]"
-while true; do read -r inst
+printf '%s\n' "Do you want to create symbolic link to newly mounted directory? [Y/n]"
+while true; do read -r -s -n1 inst
     case $inst in
+		"" ) inst=y; break;;
         [yY]|[nN]* ) break;;
         * )	echo "Please select option y(es) - n(o)";;
     esac
 done
-if [ "$inst" = "y" ]; then
+if [ "$inst" = "y" ] || [ "$inst" = "Y" ]; then
 	sym="/home/$user/$labelfst"
 	if [[ -f "$sym" ]]; then 
 		printf '%s\n' "WARNING: $labelfst already exist. Symlink not created!"
@@ -179,20 +206,20 @@ fi
 # Create alias
 printf '%s\n' "-----------------------------------------------------------------------"
 printf '%b\n' "Do you want to create an alias (shortcut) to $mountpoint?\nexample of alias could be short command words like 'sd1' 'sd2' 'flash' 'usb'" 
-printf '%s' "[y/n] "
-while true; do read -r inst
+printf '%s' "[Y/n] "
+while true; do read -r -s -n1 inst
     case $inst in
+		"" ) inst=y; break;;
         [yY]|[nN]* ) break;;
         * )	echo "Please select option y(es) - n(o)";;
     esac
 done
-if [ "$inst" = "y" ]; then
+if [ "$inst" = "y" ] || [ "$inst" = "Y" ]; then
 	read -r -p "Enter alias name: " al
 	cd "/home/$user" || exit 1
 	if ! printf '\n%s' "alias ""$al""=\"cd $mountpoint && ls -l\"" | tee -a "/home/$user/.bash_aliases" > /dev/null;
 		then printf '%s\n' "Error creating alias'"; exit 1;
 		else printf '%s\n' "Alias '$al' available at next login"; fi
 fi
-printf '%s\n\n' "[END]"
+printf '\n%s\n\n' "[END]"
 exit 0
-#inotifywait

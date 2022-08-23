@@ -66,4 +66,6 @@ There is also another logic in work here as there are no need for the bash comma
 
 
 <sup>1</sup> Technically the script are not mounting a drive but rather help user to mount a partition living on the physical drive. There can be multiple partition on the drive where system list the physical drive as sd(a-z) and partitions as sd(a-z)(#).
+
+
 <sup>2</sup> if root is owner you need to use 'sudo' to edit the script.<br />
