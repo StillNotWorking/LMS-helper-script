@@ -42,12 +42,12 @@ If one like to have a script as part of the system as a command we make it execu
 ```
 **Select one of these two methods to make the script executable:**
 
-`chmod u+x`  your new command must run with `sudo` as file owner (*u=user*) are first set to root. This can be confusing if one forget `sudo` as the error are as if the file is missing.
+`chmod u+x`  your new command must run with `sudo` as file owner (*u=user*) first are set to root. *This can be confusing if you forget `sudo` as the error message first lead you to belive the file is missing*.
 ```
 ~$ sudo chmod u+x [filename]
 ``` 
 
-`chmod a+x`  everyone can run the command
+`chmod a+x`  Normal, everyone can run the command. *Script will fail or ask for administrator privileges if needed*.
 ```
 ~$ sudo chmod a+x [filename]
 ```
