@@ -191,7 +191,7 @@ if [ "$inst" = "y" ] || [ "$inst" = "Y" ]; then
 	if [[ -f "$sym" ]]; then 
 		printf '%s\n' "WARNING: $labelfst already exist. Symlink not created!"
 	else
-		if ! ln -s -r "$mountpoint" "$sym";
+		if ! ln -s -r "$sym";
 			then printf '%s\n' "Error creating symlink";
 		else 
 			if [[ -f "$sym" ]]; then 
