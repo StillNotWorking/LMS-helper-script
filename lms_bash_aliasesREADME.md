@@ -17,7 +17,7 @@ Note: intended used with *systemd -> logitechmediaserver.service* config as used
 
 There are a number of ways to implement these aliases. The quickest way is to copy text line below and run the string of commands from command prompt:
 ```
-cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms_bash_aliases.txt && cat lms_bash_aliases.txt >> .bash_aliases && cat .bash_aliases<br />
+cd && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms_bash_aliases.txt && cat lms_bash_aliases.txt >> .bash_aliases && cat .bash_aliases
 ```
 This will download the text file and append the command shortcuts to the end of your '.bash_aliases' file inside your home directory. If the file doesn't exist it will be created.
 
