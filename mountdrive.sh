@@ -11,7 +11,7 @@
 #           in user's home directory. 
 # Option 2: Create alias to commands 'cd [mount point] && ls -l'
 
-version="0.0.3" # 2022-8
+version="0.0.4" # 2022-8
 
 # not recommended to use /media if any automount are running
 #mountdir="/media/"  
@@ -94,7 +94,7 @@ while true; do
 done
 
 if [ "$inst" = $x ]; then echo "Bye bye!"; exit 0; fi
-printf '%s\n' "-----------------------------------------------------------------------"
+printf '\n%s\n' "-----------------------------------------------------------------------"
 
 # get string from user selection
 x=0
@@ -116,7 +116,7 @@ if [[ -z "$label" ]] || [ "$label" = " " ]; then label="usbsd"; fi
 
 # wait for user input
 printf '%b\n' "Do you want to mount using label name '$label'?\nPress 'n' to type in another label  [Y/n]"
-while true; do read -r -n1 inst
+while true; do read -r -s -n1 inst
     case $inst in
 		"" ) inst="y" ;break;;
         [yY]|[nN]* ) break;;
@@ -160,7 +160,7 @@ else
 fi
 
 # format the string used to mount the partition
-mountstr="$uuidstr=$partuuid	$mountpoint	$type	defaults,noatime,nofail	0	0"
+mountstr="$uuidstr=$partuuid	$mountpoint	$type	defaults,noatime,nofail,x-systemd.device-timeout=30	0	0"
 
 printf '%s\n' "Make directory $mountpoint (mount point)"
 if ! sudo mkdir -p "$mountpoint";
@@ -191,7 +191,7 @@ if [ "$inst" = "y" ] || [ "$inst" = "Y" ]; then
 	if [[ -f "$sym" ]]; then 
 		printf '%s\n' "WARNING: $labelfst already exist. Symlink not created!"
 	else
-		if ! ln -s -r "$sym";
+		if ! ln -s -r "$mountpoint" "$sym";
 			then printf '%s\n' "Error creating symlink";
 		else 
 			if [[ -f "$sym" ]]; then 
