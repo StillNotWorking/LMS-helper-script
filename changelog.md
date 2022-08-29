@@ -1,5 +1,5 @@
 # mountdrive-0.0.4
-To mitigate problem mounting some USB drives that are slow to respond at power-up *device-timeout* are now added.
+To mitigate problem mounting some USB drives that are slow to respond at power-on *device-timeout* are now added.
  - `defaults,noatime,nofail,x-systemd.device-timeout=30`
  - corrected bug in symlink introdused in v0.0.3
 # mountdrive-0.0.3
