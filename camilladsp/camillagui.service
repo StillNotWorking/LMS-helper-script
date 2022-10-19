@@ -1,0 +1,12 @@
+# path: sudo nano /etc/systemd/system/camillagui.service
+[Unit]
+Description=CamillaDSP Backend and GUI
+After=multi-user.target
+
+[Service]
+User=pi
+ExecStart=/usr/bin/python3 /home/pi/camilladsp/gui/main.py
+Type=idle
+
+[Install]
+WantedBy=multi-user.target

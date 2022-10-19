@@ -1,0 +1,124 @@
+devices:
+  adjust_period: 10
+  capture:
+    channels: 2
+    device: hw:Loopback,0,0
+    format: S32LE
+    type: Alsa
+  capture_samplerate: 44100
+  chunksize: 2048
+  enable_rate_adjust: false
+  enable_resampling: false
+  playback:
+    channels: 2
+    device: hw:Headphones,0,0
+    format: S16LE
+    type: Alsa
+  queuelimit: 4
+  rate_measure_interval: 1
+  resampler_type: Synchronous
+  samplerate: 44100
+  silence_threshold: -60
+  silence_timeout: 2.8
+  stop_on_rate_change: false
+  target_level: 0
+filters:
+  Bass:
+    parameters:
+      freq: 40
+      gain: 0
+      slope: 6
+      type: Lowshelf
+    type: Biquad
+  Loadness:
+    parameters:
+      high_boost: 5
+      low_boost: 5
+      ramp_time: 200
+      reference_level: 0
+    type: Loudness
+  Treble:
+    parameters:
+      freq: 12000
+      gain: 0
+      q: 0.7
+      type: Peaking
+    type: Biquad
+  hs1:
+    parameters:
+      freq: 75
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs2:
+    parameters:
+      freq: 150
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs3:
+    parameters:
+      freq: 300
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs4:
+    parameters:
+      freq: 600
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs5:
+    parameters:
+      freq: 1200
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs6:
+    parameters:
+      freq: 2400
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs7:
+    parameters:
+      freq: 4800
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  hs8:
+    parameters:
+      freq: 9600
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+mixers: {}
+pipeline:
+- channel: 0
+  names:
+  - hs1
+  - hs2
+  - hs3
+  - hs4
+  - hs5
+  - hs6
+  - hs7
+  - hs8
+  - Treble
+  - Bass
+  - Loadness
+  type: Filter
+- channel: 1
+  names:
+  - hs1
+  - hs2
+  - hs3
+  - hs4
+  - hs5
+  - hs6
+  - hs7
+  - hs8
+  - Treble
+  - Bass
+  - Loadness
+  type: Filter

@@ -1,6 +1,9 @@
 # LMS helper scripts
 Tools to help maintain headless Logitech Media Server devices for novice Linux users 
 
+### installcamilladsp.sh
+With this script all dependencies, binary and configuration files to make both Squeezelite and CamillaDSP up running on a fresh RPi-OS install. 
+**Intended for RPi-OS Lite 64 bit** with user `pi`
 ### mountdrive.sh
 let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
 ### mountdrive-0.0.3_all.deb
