@@ -7,7 +7,7 @@ To get started the headphone output on the RPi are used as audio output. Your re
 You need a ready running RPi with latest **RPi-OS Lite 64 bit** on your network. Follow instruction here: https://www.raspberrypi.com/software/
 
 Log on to your RPi with a SSH terminal of chose. Recommended user is `pi` (*se bottom of page*).
-Then simply copy & paste all lines below and press `Enter` on your RPi terminal.
+Then simply copy & paste all lines below into your terminal window and press `Enter` on your RPi terminal.
 ```bash
 cd ~/
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/installcamilladsp.sh
@@ -15,7 +15,7 @@ bash ./installcamilladsp.sh
 
 ```
 
-Reboot the RPi and start playing music from your LMS system.
+When install is finished reboot the RPi and start playing music from your LMS system.
 
 To access CamillaDSP open a web browser with adress `[IP adress to RPi:5000]`
 
@@ -30,15 +30,16 @@ https://github.com/HEnquist/camillagui-backend/blob/master/README.md
 # Filters
 Script also download filters for demonstration. All 'House' filters are made up of eight high shelf biquad filters spaced one octave appart starting from 75 Hz. 
 *Tip: simply remove lower filter(s) from the `Pipeline` if you want to test the overall filter starting from a higher frequency.*
-Note that the Treble control on the `Shortcut` menu are a peak filter at 12000 Hz rather then the typical shelf filter. Very easy to edit with a drop down dialog.
+Note that the Treble control on the `Shortcut` menu are a peak filter at 12000 Hz rather then the typical shelf filter. Very easy to edit to shelf with drop down dialogs on the web user interface.
 
-There are two series of House filters. HouseQ have Q setting at 0.7. HouseFO use fist order high shelf filters. These are less flexible, but also have nicer group delay graph to tell them appart.
+There are two series of House filters. HouseQ have Q set at 0.7 on all filter stages. HouseFO use fist order high shelf filters. These are less flexible, but also have nicer group delay graph to tell them appart.
 
 <img src="Q_HiShelf_vs_FO_HiShelf.png" style=" width:70% "  >
 
 
 ## NOTE: Installation asume the logged in user is `pi`
 If another user than `pi` run the install script there are two service files that need to be edited and services initialized.
+
 Change `{USER}` to your user name.
 ```
 ~$ sudo nano /etc/systemd/system/camilladsp.service
@@ -57,4 +58,5 @@ sudo systemctl start camillagui
 sudo systemctl enable camillagui
 
 ```
+
 
