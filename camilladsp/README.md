@@ -1,4 +1,5 @@
 #CamillaDSP install script for RPi-OS Lite 64 bit
+
 Intention with this script is to have RPi up running with Squeezelite and CamillaDSP ready to play 2 channel audio from the LMS system.
 
 To get started the headphone output on the RPi are used as audio output. Your real DAC can be configured from CamillaGUI web page later on when you have RPi-OS recognise it.
