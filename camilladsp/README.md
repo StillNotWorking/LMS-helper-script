@@ -29,7 +29,7 @@ Script also download filters for demonstration. All 'House' filters are made up 
 *Tip: simply remove lower filter(s) from the `Pipeline` if you want to test the overall filter starting from a higher frequency.*
 Note that the Treble control on the `Shortcut` menu are a peak filter at 12000 Hz rather then the typical shelf filter. Very easy to edit with a drop down dialog.
 
-There are two series of House filters. HouseQ have Q setting at 0.7. HouseFO use fist order high shelf filters. These are less flexible, but also nicer group delay graph also tell them appart.
+There are two series of House filters. HouseQ have Q setting at 0.7. HouseFO use fist order high shelf filters. These are less flexible, but also have nicer group delay graph to tell them appart.
 
 <img src="Q_HiShelf_vs_FO_HiShelf.png" style=" width:70% "  >
 
