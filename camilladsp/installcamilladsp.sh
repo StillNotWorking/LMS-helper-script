@@ -23,7 +23,7 @@ sudo mv ~/camilladsp/camilladsp /usr/bin/camilladsp
 # filter with cdsp config
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/default_config.yml -P ~/camilladsp/
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO6.4.yml -P ~/camilladsp/configs/
-ln -s ~/camilladsp/active_config.yml -> /home/pi/camilladsp/configs/HouseFO6.4.yml
+ln -s ~/camilladsp/configs/HouseFO6.4.yml ~/camilladsp/active_config.yml
 # more filter configs for demo
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO3.2.yml -P ~/camilladsp/configs/
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO4.8.yml -P ~/camilladsp/configs/
