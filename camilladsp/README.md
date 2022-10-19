@@ -10,13 +10,14 @@ Log on to your RPi with a SSH terminal of chose. Recommended user is `pi` (*se b
 Then simply copy & paste all lines below and press `Enter` on your RPi terminal.
 ```bash
 cd ~/
-wget
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/installcamilladsp.sh
 bash ./installcamilladsp.sh
 
 ```
 
 Reboot the RPi and start playing music from your LMS system.
-To access CamillaDSP open a web browser with adress [IP adress to RPi:5000]
+
+To access CamillaDSP open a web browser with adress `[IP adress to RPi:5000]`
 
 # What is CamillaDSP
 A tool to create audio processing pipelines for applications such as active crossovers or room correction.
@@ -30,7 +31,7 @@ Note that the Treble control on the `Shortcut` menu are a peak filter at 12000 H
 
 There are two series of House filters. HouseQ have Q setting at 0.7. HouseFO use fist order high shelf filters. These are less flexible, but also nicer group delay graph also tell them appart.
 
-<img src="http://Q_HiShelf_vs_FO_HiShelf.png" style=" width:60% "  >
+<img src="Q_HiShelf_vs_FO_HiShelf.png" style=" width:70% "  >
 
 
 ## NOTE: Installation asume the logged in user is `pi`
