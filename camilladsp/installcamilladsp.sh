@@ -1,5 +1,5 @@
 #!/bin/bash
-# 0.0.1 - https://github.com/StillNotWorking/LMS-helper-script
+# 0.0.2 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64 bit with logged in user 'pi'. If installed 
 # with user other than 'pi' edit following files to reflect this
 #   /etc/systemd/system/camillagui.service
@@ -69,6 +69,8 @@ pip3 install git+https://github.com/HEnquist/pycamilladsp-plot.git@v1.0.2
 wget https://github.com/HEnquist/camillagui-backend/releases/download/v1.0.0/camillagui.zip -P ~/camilladsp/gui
 unzip ~/camilladsp/gui/camillagui.zip -d ~/camilladsp/gui/
 rm camilladsp/gui/camillagui.zip
+mv ~/camilladsp/gui/config/camillagui.yml ~/camilladsp/gui/config/camillagui_org.yml
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml -P ~/camilladsp/gui/config/
 # configure camillagui.service 
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service -P ~/camilladsp/gui/
 sudo mv ~/camilladsp/gui/camillagui.service /etc/systemd/system/camillagui.service
