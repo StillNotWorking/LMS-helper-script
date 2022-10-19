@@ -1,4 +1,4 @@
-#CamillaDSP install script for RPi-OS Lite 64 bit
+# CamillaDSP install script for RPi-OS Lite 64 bit
 
 Intention with this script is to have RPi up running with Squeezelite and CamillaDSP ready to play 2 channel audio from the LMS system.
 
@@ -18,12 +18,12 @@ bash ./installcamilladsp.sh
 Reboot the RPi and start playing music from your LMS system.
 To access CamillaDSP open a web browser with adress [IP adress to RPi:5000]
 
-#What is CamillaDSP
+# What is CamillaDSP
 A tool to create audio processing pipelines for applications such as active crossovers or room correction.
 https://www.diyaudio.com/community/threads/camilladsp-cross-platform-iir-and-fir-engine-for-crossovers-room-correction-etc.349818/
 https://github.com/HEnquist/camilladsp
 https://github.com/HEnquist/camillagui-backend/blob/master/README.md
-#Filters
+# Filters
 Script also download filters for demonstration. All 'House' filters are made up of eight high shelf biquad filters spaced one octave appart starting from 75 Hz. 
 *Tip: simply remove lower filter(s) from the `Pipeline` if you want to test the overall filter starting from a higher frequency.*
 Note that the Treble control on the `Shortcut` menu are a peak filter at 12000 Hz rather then the typical shelf filter. Very easy to edit with a drop down dialog.
