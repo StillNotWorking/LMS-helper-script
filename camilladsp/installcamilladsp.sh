@@ -11,7 +11,7 @@ sudo apt update
 sudo apt full-upgrade -y
 #******  Squeezelite  ******
 sudo apt install squeezelite -y
-#wget config -P ~/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/squeezelite -P ~/
 sudo mv ~/squeezelite /etc/default/squeezelite
 #******  CamillaDSP install ******
 mkdir ~/camilladsp && mkdir ~/camilladsp/configs && mkdir ~/camilladsp/coeffs
@@ -21,11 +21,22 @@ tar -xvf ~/camilladsp/camilladsp-linux-aarch64.tar.gz -C ~/camilladsp/
 rm ~/camilladsp/camilladsp-linux-aarch64.tar.gz
 sudo mv ~/camilladsp/camilladsp /usr/bin/camilladsp
 # filter with cdsp config
-wget /default_config.yml -P ~/camilladsp/
-wget /HouseFO6.4.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/default_config.yml -P ~/camilladsp/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO6.4.yml -P ~/camilladsp/configs/
 ln -s ~/camilladsp/active_config.yml -> /home/pi/camilladsp/configs/HouseFO6.4.yml
-# aditional filters
-sudo wget https://raw.githubusercontent.com/HEnquist/camilladsp/master/filter.txt -P ~/camilladsp/coeffs/
+# more filter configs for demo
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO3.2.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO4.8.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO8.0.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO6.4-88.2.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO9.6.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseQ3.2.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseQ4.8.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseQ6.4.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseQ8.0.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseQ9.6.yml -P ~/camilladsp/configs/
+# convelution filter test file
+wget https://raw.githubusercontent.com/HEnquist/camilladsp/master/filter.txt -P ~/camilladsp/coeffs/
 # aloop.conf
 wget https://raw.githubusercontent.com/HEnquist/camilladsp-config/master/aloop.conf
 sudo mv aloop.conf /etc/modules-load.d/aloop.conf
@@ -34,13 +45,13 @@ sudo modprobe snd-aloop
 wget https://raw.githubusercontent.com/HEnquist/camilladsp-config/master/asound.conf
 sudo mv asound.conf /etc/asound.conf
 # initialize service files
-wget https://raw.githubusercontent.com/HEnquist/camilladsp-config/master/camilladsp.service
-sudo mv camilladsp.service /etc/systemd/system/camilladsp.service
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camilladsp.service -P ~/camilladsp/
+sudo mv ~/camilladsp/camilladsp.service /etc/systemd/system/camilladsp.service
 sudo systemctl daemon-reload
 sudo systemctl start camilladsp
 sudo systemctl enable camilladsp
 sudo systemctl restart squeezelite
-echo "this should have a working CamillaDSP installation without web gui"
+echo "We should now have a working CamillaDSP installation without web gui"
 echo "******  Web interface & Backend  ******"
 mkdir ~/camilladsp/gui
 # dependencies for backend
@@ -59,8 +70,9 @@ wget https://github.com/HEnquist/camillagui-backend/releases/download/v1.0.0/cam
 unzip ~/camilladsp/gui/camillagui.zip -d ~/camilladsp/gui/
 rm camilladsp/gui/camillagui.zip
 # configure camillagui.service 
-wget https://raw.githubusercontent.com/HEnquist/camilladsp-config/master/camillagui.service -P ~/camilladsp/gui/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service -P ~/camilladsp/gui/
 sudo mv ~/camilladsp/gui/camillagui.service /etc/systemd/system/camillagui.service
 sudo systemctl daemon-reload
 sudo systemctl start camillagui
 sudo systemctl enable camillagui
+echo "Finished - Please reboot and enjoy music from the headphones out on your RPi"
