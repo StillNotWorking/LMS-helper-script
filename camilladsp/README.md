@@ -21,8 +21,11 @@ To access CamillaDSP open a web browser with adress `[IP adress to RPi:5000]`
 
 # What is CamillaDSP
 A tool to create audio processing pipelines for applications such as active crossovers or room correction.
+
 https://www.diyaudio.com/community/threads/camilladsp-cross-platform-iir-and-fir-engine-for-crossovers-room-correction-etc.349818/
+
 https://github.com/HEnquist/camilladsp
+
 https://github.com/HEnquist/camillagui-backend/blob/master/README.md
 # Filters
 Script also download filters for demonstration. All 'House' filters are made up of eight high shelf biquad filters spaced one octave appart starting from 75 Hz. 
