@@ -1,10 +1,10 @@
 #!/bin/bash
 # 0.0.3 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64 bit with logged in user 'pi'. If installed 
-# with user other than 'pi' edit following files to reflect this
+# with user other than 'pi' edit following two files to reflect this
 #   /etc/systemd/system/camilladsp.service
 #   /etc/systemd/system/camillagui.service
-# aditional to the above two custom config files are:
+# aditional to the above two config files these can be altered if needed:
 #   /etc/default/squeezelite
 #   /camilladsp/gui/config/camillagui.yml
 sudo apt update
