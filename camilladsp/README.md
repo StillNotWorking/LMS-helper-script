@@ -19,7 +19,7 @@ When install is finished reboot the RPi and start playing music from your LMS sy
 
 To access CamillaDSP open a web browser with adress `[IP adress to RPi:5000]`
 
-***NOTE: If you already have a DAC configured and this had you disable local sound with `#dtparam=audio=on` in `/boot/config.txt` there will off course be no sound from the headphone out. From the CamillaGUI web page click the `Devices` tab and configure the `Playback device`. If you don't remember your DAC's name you might get lucky using `hw:1,0,0`***
+***NOTE: If you already have a DAC configured and this had you disable local sound with `#dtparam=audio=on` in `/boot/config.txt` there will be no sound from the headphone out. From the CamillaGUI web page click the `Devices` tab and configure the `Playback device`. If you don't remember your DAC's name you might get lucky using `hw:1,0,0`***
 # What is CamillaDSP
 A tool to create audio processing pipelines for applications such as active crossovers or room correction.
 
