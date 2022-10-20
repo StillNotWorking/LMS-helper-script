@@ -1,8 +1,8 @@
 #!/bin/bash
-# 0.0.2 - https://github.com/StillNotWorking/LMS-helper-script
+# 0.0.3 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64 bit with logged in user 'pi'. If installed 
 # with user other than 'pi' edit following files to reflect this
-#   /etc/systemd/system/camillagui.service
+#   /etc/systemd/system/camilladsp.service
 #   /etc/systemd/system/camillagui.service
 # aditional to the above two custom config files are:
 #   /etc/default/squeezelite
@@ -12,6 +12,7 @@ sudo apt full-upgrade -y
 #******  Squeezelite  ******
 sudo apt install squeezelite -y
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/squeezelite -P ~/
+sudo rm /etc/default/squeezelite
 sudo mv ~/squeezelite /etc/default/squeezelite
 #******  CamillaDSP install ******
 mkdir ~/camilladsp && mkdir ~/camilladsp/configs && mkdir ~/camilladsp/coeffs
