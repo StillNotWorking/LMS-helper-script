@@ -9,7 +9,7 @@
 #   /camilladsp/gui/config/camillagui.yml
 sudo apt update
 sudo apt full-upgrade -y
-#******  Squeezelite and dependencies ******
+#******  Squeezelite and backend dependencies ******
 sudo apt install squeezelite git python3-pip python3-aiohttp python3-jsonschema python3-numpy python3-matplotlib -y
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/squeezelite -P ~/
 sudo rm /etc/default/squeezelite
