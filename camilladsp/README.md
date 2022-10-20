@@ -2,7 +2,7 @@
 
 Intention with this script is to have RPi up running with Squeezelite and CamillaDSP ready to play 2 channel audio from the LMS system.
 
-To get started the headphone output on the RPi are used as audio output. Your real DAC can be configured from CamillaGUI web page later on when you have RPi-OS recognise it.
+The headphone output on the RPi are used as audio output. Your real DAC can be configured from CamillaGUI web page later on when you have RPi-OS recognise it.
 
 You need a ready running RPi with latest **RPi-OS Lite 64 bit** on your network. Follow instruction here: https://www.raspberrypi.com/software/
 
@@ -19,6 +19,7 @@ When install is finished reboot the RPi and start playing music from your LMS sy
 
 To access CamillaDSP open a web browser with adress `[IP adress to RPi:5000]`
 
+***NOTE: If you already have a DAC configured and this had you disabled  local sound with `dtparam=audio=on` in `/boot/config.txt` the will off course be no sound from the headphone out. From the CamillaGUI web page click the `Devices` tab and configure the `Playback device`. If you don't remember your DAC's name you might be lucky using `hw:1,0,0`***
 # What is CamillaDSP
 A tool to create audio processing pipelines for applications such as active crossovers or room correction.
 
