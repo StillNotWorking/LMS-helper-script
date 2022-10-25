@@ -33,7 +33,7 @@ are an exsample how to make custom visualization for any LMS player using html a
 change color on command prompt to help different multiple RPi terminals. Overwrite existing `~/.bashrc` in user home directory.
 Will also enable aliases `la` 'ls -lhA' `ll` 'ls -lh' and `l` 'ls -CF'
 
-Like to temporary test new settings copy & paste line below. Log out and in to remove them. Or first save `PS1` to a variable as shown in screen dump below.
+Like to temporary test new settings copy & paste line below. Log out and in to remove. Or first save `PS1` to a variable as shown in screen dump below.
 ```
 PS1="\[\033[47m\]\[\033[30m\]\u@\h\[\033[00m\]:\[\033[32m\]\w\[\033[00m\] \$ "
 ```
