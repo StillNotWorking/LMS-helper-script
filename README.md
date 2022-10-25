@@ -1,5 +1,5 @@
 # LMS helper scripts
-Tools to help maintain headless Logitech Media Server devices for novice Linux users 
+Tools to help maintain headless **Logitech Media Server** devices for novice Linux users 
 
 ### installcamilladsp.sh
 With this script all dependencies, binary and configuration files to make both Squeezelite and CamillaDSP up running on a fresh RPi-OS install. 
@@ -28,6 +28,14 @@ are several aliases (command shortcut) meant to simplify the control of the LMS 
 
 ### cover.html
 are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
+
+### .bashrc
+change color on command prompt to help different multiple RPi terminals. Overwrite existing `~/.bashrc` in user home directory.
+Will also enable aliases `la` 'ls -lhA' `ll` 'ls -lh' and `l` 'ls -CF'
+
+Like to temporary test new settings copy & paste line below. Log out and in to remove them. Or first save `PS1` to a variable as shown in screen dump below.
+```PS1="\[\033[47m\]\[\033[30m\]\u@\h\[\033[00m\]:\[\033[32m\]\w\[\033[00m\] \$ "```
+<img src="/img/consol.png" style=" width:94% "  >
 
 ---------------------------------------------------------------
 
