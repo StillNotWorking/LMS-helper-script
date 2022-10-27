@@ -10,7 +10,8 @@ Note: intended used with *systemd -> logitechmediaserver.service* config as used
  - **`lmsstop`** - service stopt
  - **`lmseditstart`** - edit service config
  - **`lmsprefs`** - open directory
- - **`lmsplugins`** - open directory
+ - **`lmsplugins`** - open plugins directory
+ - **`lmsplugin`** - open locally installed plugins directory
  - **`lmslogs`** - open directory
  - **`lmshelp`** - list the real command behind the alias, same as '~$ alias'
 
