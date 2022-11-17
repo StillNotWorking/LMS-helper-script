@@ -1,5 +1,5 @@
 #!/bin/bash
-# 0.0.4 - https://github.com/StillNotWorking/LMS-helper-script
+# 0.0.5 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64 bit with logged in user 'pi'. If installed 
 # with user other than 'pi' edit following two files to reflect this
 #   /etc/systemd/system/camilladsp.service
@@ -17,7 +17,7 @@ sudo mv ~/squeezelite /etc/default/squeezelite
 #******  CamillaDSP install ******
 mkdir ~/camilladsp && mkdir ~/camilladsp/configs && mkdir ~/camilladsp/coeffs
 # CamillaDSP 1.0.2
-wget https://github.com/HEnquist/camilladsp/releases/download/v1.0.2/camilladsp-linux-aarch64.tar.gz -P ~/camilladsp/
+wget https://github.com/HEnquist/camilladsp/releases/download/v1.0.3/camilladsp-linux-aarch64.tar.gz -P ~/camilladsp/
 tar -xvf ~/camilladsp/camilladsp-linux-aarch64.tar.gz -C ~/camilladsp/
 rm ~/camilladsp/camilladsp-linux-aarch64.tar.gz
 sudo mv ~/camilladsp/camilladsp /usr/bin/camilladsp
@@ -59,8 +59,8 @@ mkdir ~/camilladsp/gui
 pip3 install git+https://github.com/HEnquist/pycamilladsp.git@v1.0.0
 # pycamilladsp-plot v1.0.2
 pip3 install git+https://github.com/HEnquist/pycamilladsp-plot.git@v1.0.2
-# GUI frontend v.1.0.0
-wget https://github.com/HEnquist/camillagui-backend/releases/download/v1.0.0/camillagui.zip -P ~/camilladsp/gui
+# GUI frontend v.1.0.1
+wget https://github.com/HEnquist/camillagui-backend/releases/download/v1.0.1/camillagui.zip -P ~/camilladsp/gui
 unzip ~/camilladsp/gui/camillagui.zip -d ~/camilladsp/gui/
 rm camilladsp/gui/camillagui.zip
 mv ~/camilladsp/gui/config/camillagui.yml ~/camilladsp/gui/config/camillagui_org.yml
