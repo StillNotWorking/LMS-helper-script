@@ -16,7 +16,7 @@ sudo rm /etc/default/squeezelite
 sudo mv ~/squeezelite /etc/default/squeezelite
 #******  CamillaDSP install ******
 mkdir ~/camilladsp && mkdir ~/camilladsp/configs && mkdir ~/camilladsp/coeffs
-# CamillaDSP 1.0.2
+# CamillaDSP 1.0.3
 wget https://github.com/HEnquist/camilladsp/releases/download/v1.0.3/camilladsp-linux-aarch64.tar.gz -P ~/camilladsp/
 tar -xvf ~/camilladsp/camilladsp-linux-aarch64.tar.gz -C ~/camilladsp/
 rm ~/camilladsp/camilladsp-linux-aarch64.tar.gz
