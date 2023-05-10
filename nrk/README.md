@@ -4,7 +4,7 @@ As radio links to NRK found in other radio plugins often link the AAC 48 kbps st
 From the Classic web GUI (http://192.168.x.x:9000**/Default**) there is a merge function found on the bottom of you favorites list.
 Press `Edit` (*pen icon*) on the `Favorites` folder, then scroll down to the `Import` button and paiste in this path:
 ```
-https://
+https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/nrk/favorites.opml
 ```
 Now using Material Skin web GUI, — from the Favorites list select your favorite NRK station and select `Pin to home page` from dropdown menu. You can Un-pin at any time from Material Skin home page.
 
