@@ -1,19 +1,12 @@
 ---
-# path: ~/camilladsp/gui/config/camillagui.yml
 camilla_host: "127.0.0.1"
 camilla_port: 1234
 port: 5000
 config_dir: "~/camilladsp/configs"
 coeff_dir: "~/camilladsp/coeffs"
 default_config: "~/camilladsp/default_config.yml"
-active_config: "~/camilladsp/active_config.yml"
-active_config_txt: "~/camilladsp/active_config.txt"
-#log_file: "~/camilladsp/camilladsp.log"
-log_file: "/var/log/syslog"
-#update_config_symlink: false
-update_config_symlink: true
-#update_config_txt: false
-update_config_txt: true
+statefile_path: "~/camilladsp/statefile.yml"
+log_file: "~/camilladsp/camilladsp.log"
 on_set_active_config: null
 on_get_active_config: null
 supported_capture_types: null

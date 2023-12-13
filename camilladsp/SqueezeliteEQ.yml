@@ -1,0 +1,94 @@
+description: Test configuration
+devices:
+  adjust_period: null
+  capture:
+    channels: 2
+    device: hw:Loopback,0,0
+    format: S32LE
+    type: Alsa
+  capture_samplerate: 44100
+  chunksize: 4096
+  enable_rate_adjust: null
+  playback:
+    channels: 2
+    device: hw:Headphones,0,0
+    format: S32LE
+    type: Alsa
+  queuelimit: null
+  rate_measure_interval: null
+  resampler:
+    profile: Balanced
+    type: AsyncSinc
+  samplerate: 88200
+  silence_threshold: null
+  silence_timeout: null
+  stop_on_rate_change: null
+  target_level: null
+  volume_ramp_time: 200
+filters:
+  Bass:
+    description: Bass slider
+    parameters:
+      freq: 85
+      gain: 0
+      q: 0.9
+      type: Lowshelf
+    type: Biquad
+  HSFO-20Hz:
+    description: null
+    parameters:
+      freq: 20
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  HSFO-40Hz:
+    description: null
+    parameters:
+      freq: 40
+      gain: -1
+      type: HighshelfFO
+    type: Biquad
+  Treble:
+    description: Treble slider
+    parameters:
+      freq: 6500
+      gain: 0
+      slope: 6
+      type: Highshelf
+    type: Biquad
+  Volume:
+    description: Main Volume Fader
+    parameters:
+      fader: Aux1
+      ramp_time: 200
+    type: Volume
+mixers:
+  Unnamed Mixer 1:
+    channels:
+      in: 2
+      out: 2
+    description: null
+    mapping:
+    - dest: 0
+      mute: false
+      sources:
+      - channel: 0
+        gain: 0
+        inverted: false
+        mute: false
+        scale: dB
+pipeline:
+- bypassed: false
+  channel: 0
+  description: null
+  names:
+  - Volume
+  type: Filter
+- bypassed: false
+  channel: 1
+  description: null
+  names:
+  - Volume
+  type: Filter
+processors: {}
+title: StillNotWorking

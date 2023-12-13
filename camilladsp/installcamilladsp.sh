@@ -92,9 +92,9 @@ wget https://github.com/HEnquist/camillagui-backend/releases/download/v2.0.0/cam
 unzip ~/camilladsp/gui/camillagui.zip -d ~/camilladsp/gui/
 rm camilladsp/gui/camillagui.zip
 
-# No longer needet with new statefile for v.2
-#mv ~/camilladsp/gui/config/camillagui.yml ~/camilladsp/gui/config/camillagui_org.yml
-#get https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml -P ~/camilladsp/gui/config/
+# Change the GUI port to 5000 from default 5005
+mv ~/camilladsp/gui/config/camillagui.yml ~/camilladsp/gui/config/camillagui_org.yml
+get https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml -P ~/camilladsp/gui/config/
 
 # configure camillagui.service, this file is configured with user 'pi'  
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service -P ~/camilladsp/gui/
@@ -110,4 +110,4 @@ echo ""
 echo "Finished - Please reboot and then enjoy music from the headphones out on your RPi"
 echo ""
 echo "TIP: Type 'aplay -l' or 'squeezelite -l' and press Enter to list available sound devices"
-echo "Then from CamillaDSP web change Playback device to your real sound card."
+echo "Then from CamillaDSP web change Playback device to your sound card."
