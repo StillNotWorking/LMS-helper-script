@@ -47,7 +47,7 @@ sudo mv -b ~/camilladsp/camilladsp /usr/bin/camilladsp
 
 # default_config.yml - a functioning filter for the 1st run of CamillaDSP
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
-#wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO6.4.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ.yml -P ~/camilladsp/configs/
 
 # CDSP from v2 no longer make use of linked files. Now replaced with statefile
 #ln -s ~/camilladsp/configs/HouseFO6.4.yml ~/camilladsp/active_config.yml
@@ -94,7 +94,7 @@ rm camilladsp/gui/camillagui.zip
 
 # Change the GUI port to 5000 from default 5005
 mv ~/camilladsp/gui/config/camillagui.yml ~/camilladsp/gui/config/camillagui_org.yml
-get https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml -P ~/camilladsp/gui/config/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml -P ~/camilladsp/gui/config/
 
 # configure camillagui.service, this file is configured with user 'pi'  
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service -P ~/camilladsp/gui/
