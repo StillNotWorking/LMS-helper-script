@@ -48,6 +48,7 @@ sudo mv -b ~/camilladsp/camilladsp /usr/bin/camilladsp
 # default_config.yml - a functioning filter for the 1st run of CamillaDSP
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ.yml -P ~/camilladsp/configs/
+chmod g+w ~/camilladsp/statefile.yml
 
 # CDSP from v2 no longer make use of linked files. Now replaced with statefile
 #ln -s ~/camilladsp/configs/HouseFO6.4.yml ~/camilladsp/active_config.yml
