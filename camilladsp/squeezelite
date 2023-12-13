@@ -8,6 +8,7 @@ SL_NAME="$(hostname -s)"
 # ALSA output device:
 #SL_SOUNDCARD=hdmi:CARD=vc4hdmi,DEV=0
 #SL_SOUNDCARD=hw:CARD=Headphones,DEV=0
+#SL_SOUNDCARD=hw:CARD=Amanero,DEV=0
 SL_SOUNDCARD=hw:CARD=Loopback,DEV=1
 
 # Squeezebox server (Logitech Media Server):
@@ -19,4 +20,5 @@ SL_SOUNDCARD=hw:CARD=Loopback,DEV=1
 # Additional options to pass to squeezelite:
 # Please do not include -z to make squeezelite daemonise itself.
 #SB_EXTRA_ARGS="-W -C 5 -r 44100-44100 -R vLE"
-SB_EXTRA_ARGS="-C 5"
+#SB_EXTRA_ARGS="-C 5 -W -f /var/log/squeezelite -d all=debug"
+SB_EXTRA_ARGS="-W -C 5"

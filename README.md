@@ -5,6 +5,10 @@ Tools to help maintain headless **Logitech Media Server** devices for novice Lin
 With this script all dependencies, binary and configuration files to make both Squeezelite and CamillaDSP up running on a fresh RPi-OS install. 
 **Intended for RPi-OS Lite 64 bit** with user `pi`
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp
+### squeezetoggle.sh
+Restart Squeezelite with alternative configuration. Here used to toogle Squeezelite output between sound cards or loopback devices, e.g CamillaDSP loopback device and USB DAC. See custom menus on how to run script from Material Skin.
+### materialskin
+[Add custom menus to Material Skin to run bash commands on local and remote computers]https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin
 ### mountdrive.sh
 let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
 ### mountdrive-0.0.3_all.deb
