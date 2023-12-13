@@ -94,7 +94,7 @@ rm camilladsp/gui/camillagui.zip
 
 # Change the GUI port to 5000 from default 5005
 mv ~/camilladsp/gui/config/camillagui.yml ~/camilladsp/gui/config/camillagui_org.yml
-wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml -P ~/camilladsp/gui/config
+wget 'https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.yml' -P ~/camilladsp/gui/config
 
 # configure camillagui.service, this file is configured with user 'pi'  
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service -P ~/camilladsp/gui
