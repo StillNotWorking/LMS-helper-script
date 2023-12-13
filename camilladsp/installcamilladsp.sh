@@ -46,7 +46,7 @@ rm ~/camilladsp/camilladsp-linux-aarch64.tar.gz
 sudo mv -b ~/camilladsp/camilladsp /usr/bin/camilladsp
 
 # default_config.yml - a functioning filter for the 1st run of CamillaDSP
-wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/default_config.yml -P ~/camilladsp/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
 #wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO6.4.yml -P ~/camilladsp/configs/
 
 # CDSP from v2 no longer make use of linked files. Now replaced with statefile
