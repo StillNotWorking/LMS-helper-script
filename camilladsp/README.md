@@ -23,7 +23,7 @@ Configuration files for CamillaDSP version 2 are not compatible with previous ve
 ***NOTE: If you already have a DAC configured and this had you disable local sound with `#dtparam=audio=on` in `/boot/config.txt` there will be no sound from the headphone out.***
 # Configure Playback Device (DAC)
 From the CamillaGUI web page click the `Devices` tab and select the `Playback device` from the dropdown list.
-From this string here is what we will type in the CamillaDSP web configuration box: **hw:Amanero:0:0**
+
 # What is CamillaDSP
 It's tool to create audio processing pipelines for applications such as active crossovers or room correction. Sqeezelite's PCM stream goes to Alsa Loopback where CamillaDSP picks it up and do high quality FP64 digital processing before passing it on to desiered output, — typical for a headless RPi a sound card configured with Alsa. 
 
