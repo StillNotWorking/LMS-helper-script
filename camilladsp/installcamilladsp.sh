@@ -110,5 +110,4 @@ sudo systemctl enable camillagui
 echo ""
 echo "Finished - Please reboot and then enjoy music from the headphones out on your RPi"
 echo ""
-echo "TIP: Type 'aplay -l' or 'squeezelite -l' and press Enter to list available sound devices"
-echo "Then from CamillaDSP web change Playback device to your sound card."
+echo "CamillaDSP v2 now support selecting sound card from drop down list under the Devices tab."
