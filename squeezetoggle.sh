@@ -21,9 +21,13 @@ if [ $(grep -E ^$KEY$SC1 $CONFIGFILE) ]; then
   sudo sed -i -e "/^$KEY/ s/.*/$KEY$SC2/" $CONFIGFILE
   # Stop CamillaDSP to free up the sound card
   sudo systemctl stop camilladsp
+  sudo systemctl disable camilladsp.service
+  sudo systemctl daemon-reload
 else
   sudo sed -i -e "/^$KEY/ s/.*/$KEY$SC1/" $CONFIGFILE
   # Start CamillaDSP now that we use SC1 (Loopback device)
+  sudo systemctl enable camilladsp.service
+  sudo systemctl daemon-reload
   sudo systemctl start camilladsp
 fi
 # Start Squeezelite with new configuration
