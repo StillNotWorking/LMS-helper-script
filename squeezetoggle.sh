@@ -37,7 +37,8 @@ sudo systemctl start squeezelite
 # By default RPi-OS do not have telnet client installed 'sudo apt-get install telnet'
 #telnet 192.168.10.253 9090 <<< 'd8:3a:dd:46:ef:04 mixer volume 50'
 # CamillDSP use websocket which complicates direct interaction from bash
-# There is a little Python script that can be run with:
+# There is a little Python script here https://github.com/StillNotWorking/LMS-helper-script/raw/main/camilladsp/py_scripts/cdspvol.py 
+# that can be run like this:
 #python ~/camilladsp/cdspvol.py -6.02 
 
 #cat $CONFIGFILE
