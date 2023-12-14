@@ -1,7 +1,7 @@
 description: '"House" curve created using first order high shelf filters with gain
-  -1
+  -0.7
 
-  Down approx -8.37dB at 10kHz and -9.26 at 20kHz
+  Down approx -5.85dB at 10kHz and -6.5 at 20kHz
 
 
   For most of us it probably make sense to remove the two first filters at 20Hz and
@@ -45,77 +45,77 @@ filters:
     description: High Shelf First Order
     parameters:
       freq: 10240
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-1280Hz:
     description: High Shelf First Order
     parameters:
       freq: 1280
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-160Hz:
     description: High Shelf First Order
     parameters:
       freq: 160
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-20480Hz:
     description: High Shelf First Order
     parameters:
       freq: 20480
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-20Hz:
     description: High Shelf First Order
     parameters:
       freq: 20
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-2560Hz:
     description: High Shelf First Order
     parameters:
       freq: 2560
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-320Hz:
     description: High Shelf First Order
     parameters:
       freq: 320
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-40Hz:
     description: High Shelf First Order
     parameters:
       freq: 40
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-5120Hz:
     description: High Shelf First Order
     parameters:
       freq: 5120
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-640Hz:
     description: High Shelf First Order
     parameters:
       freq: 640
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   HSFO-80Hz:
     description: High Shelf First Order
     parameters:
       freq: 80
-      gain: -1
+      gain: -0.7
       type: HighshelfFO
     type: Biquad
   Treble:
@@ -194,4 +194,4 @@ pipeline:
   - HSFO-20480Hz
   type: Filter
 processors: {}
-title: House Filter 1.0
+title: House Filter 0.7
