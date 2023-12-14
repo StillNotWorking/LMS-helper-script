@@ -1,7 +1,7 @@
 # Custom menus in Material skin
 This guide and scripts will describe how to add menus that can control daemons running on the LMS server and remote linux computers using stored bash commands activated from Material Skin UI.
 
-Guidance is based on a default LMS installation on RPi-OS. But guide should function on most Linux distros with minimal changes, — if any. Just very whos running the LMS daemon. Using `htop` might be the easiest way to check this.
+Guidance is based on a default LMS installation on RPi-OS. But guide should function on most Linux distros with minimal changes, — if any. To verify which user is running the LMS daemon using `htop` might be the easiest way to check this.
 
 ### Add menus
 It is a good idea to first familiarize oneself with Craig Drummond's customisation guide for Material Skin: https://github.com/CDrummond/lms-material/wiki/07-Customisation
@@ -56,9 +56,9 @@ Here is the JSON code for the four example menus. Code should be edited to refle
 
 ```
 ### Run bash commands from Material Skin
-For security purposes users running daemons usually have very restricted access to the system. This is also true for user `squeezeboxserver` normally running LMS webserver where Material Skin is running from. We have to change this, — and we are going all out here where user will be able to run `sudo` without even typing a password. **One should understand the risk of doing this if the LMS server is on a network where users can have ill intents**<sup>1</sup>.
+For security purposes users running daemons usually have very restricted access to the system. This is also true for user `squeezeboxserver` normally running LMS webserver where Material Skin is running from. We have to change this, — and we are going all out here where user will be able to run `sudo` without even typing a password. **One should understand the risk of doing this if the LMS server is on a network where users can have ill intents** <sup>1</sup>.
 <br />
-Now for the changes needed please read inline comments in code below. <i>It should be possible to copy paste the complete code into your terminal window.</i> [Or download the script]/materialskin/user_squeezeboxserver.sh
+Now for the changes needed please read inline comments in code below. <i>It should be possible to copy paste the complete code into your terminal window.</i> Or download the script /materialskin/user_squeezeboxserver.sh
 ```bash
 # Change system privileges for user 'squeezeboxserver'
 # Before we start make a copy of settings in passwd
@@ -91,8 +91,7 @@ sudo chown -R squeezeboxserver /usr/share/squeezeboxserver
 ```
 
 ### Run bash commands on remote computer with `ssh`
-For Material Skin to be able to run bash commands they should not need any input, — as for instance a password.<br />
-For this to happen with `ssh` we need to create and exchange ssh keys.
+For Material Skin to be able to run bash commands they should not need any input, — as for instance a password. For this to happen with `ssh` we need to create and exchange ssh keys.
 
 From the mashine running LMS & Material-Skin type:
 ```
