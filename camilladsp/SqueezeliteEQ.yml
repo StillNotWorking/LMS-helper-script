@@ -18,7 +18,7 @@ devices:
   enable_rate_adjust: false
   playback:
     channels: 2
-    device: hw:CARD=Amanero,DEV=0
+    device: hw:Headphones,0,0
     format: S32LE
     type: Alsa
   queuelimit: null
