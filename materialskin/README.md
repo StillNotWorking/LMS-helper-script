@@ -6,7 +6,7 @@ Guidance is based on a default LMS installation on RPi-OS. But guide should func
 ### Add menus
 It is a good idea to first familiarize oneself with Craig Drummond's customisation guide for Material Skin: https://github.com/CDrummond/lms-material/wiki/07-Customisation
 We will here demonstrate how to add four custom menus associated with a single player linked to its MAC address. And a option under the Server Settings menu to reboot the computer running LMS.
-<img src="menuplayer.jpg" style=" width:38% "  >  <img src="menuserver.jpg" style=" width:38% "  >
+<br /><img src="menuplayer.jpg" style=" width:38% "  >  <img src="menuserver.jpg" style=" width:28% "  >
 
 **We create menu items by edit the `actions.json` file:**
 ```
