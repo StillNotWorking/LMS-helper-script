@@ -7,6 +7,7 @@ With this script all dependencies, binary and configuration files to make both S
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp
 ### squeezetoggle.sh
 Restart Squeezelite with alternative configuration. Here used to toogle Squeezelite output between sound cards or loopback devices, e.g CamillaDSP loopback device and USB DAC. See custom menus on how to run script from Material Skin.
+https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin#readme
 ### materialskin
 [Add custom menus to Material Skin to run bash commands on local and remote computers]https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin
 ### mountdrive.sh
