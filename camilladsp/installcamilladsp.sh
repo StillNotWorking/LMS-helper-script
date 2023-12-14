@@ -45,17 +45,13 @@ tar -xvf ~/camilladsp/camilladsp-linux-aarch64.tar.gz -C ~/camilladsp/
 rm ~/camilladsp/camilladsp-linux-aarch64.tar.gz
 sudo mv -b ~/camilladsp/camilladsp /usr/bin/camilladsp
 
-# default_config.yml - a functioning filter for the 1st run of CamillaDSP
+# functioning filter for the 1st run of CamillaDSP
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ.yml -P ~/camilladsp/configs/
 chmod g+w ~/camilladsp/statefile.yml
 
-# CDSP from v2 no longer make use of linked files. Now replaced with statefile
-#ln -s ~/camilladsp/configs/HouseFO6.4.yml ~/camilladsp/active_config.yml
-
 # more filter configs for demo
-#wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO3.2.yml -P ~/camilladsp/configs/
-#wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/HouseFO4.8.yml -P ~/camilladsp/configs/
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ_07.yml -P ~/camilladsp/configs/
 
 # convelution filter test file
 wget https://raw.githubusercontent.com/HEnquist/camilladsp/master/filter.txt -P ~/camilladsp/coeffs/
