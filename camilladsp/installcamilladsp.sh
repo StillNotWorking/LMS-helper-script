@@ -1,5 +1,5 @@
 #!/bin/bash
-# 2.0.0 - https://github.com/StillNotWorking/LMS-helper-script
+# 2.0.1 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64-bit with logged in user 'pi'. If installed 
 # with user other than 'pi' edit the following two files to reflect this
 #   /etc/systemd/system/camilladsp.service
@@ -106,4 +106,6 @@ sudo systemctl enable camillagui
 echo ""
 echo "Finished - Please reboot and then enjoy music from the headphones out on your RPi"
 echo ""
-echo "CamillaDSP v2 now support selecting sound card from drop down list under the Devices tab."
+echo "CamillaDSP v2 now support selecting sound card from a drop down list under the Devices tab."
+myip=$(hostname -I)
+echo "Hyperlink to CamillaDSP: http://${myip//[[:space:]]/}:5000"
