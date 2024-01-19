@@ -1,0 +1,155 @@
+description: '"House" curve created using Tile
+
+  Down approx -dB at 10kHz and - at 20kHz'
+devices:
+  adjust_period: null
+  capture:
+    channels: 2
+    device: hw:Loopback,0,0
+    format: S32LE
+    type: Alsa
+  capture_samplerate: 44100
+  chunksize: 1024
+  enable_rate_adjust: false
+  playback:
+    channels: 2
+    device: hw:CARD=Amanero,DEV=0
+    format: S32LE
+    type: Alsa
+  queuelimit: 1
+  rate_measure_interval: null
+  resampler: null
+  samplerate: 44100
+  silence_threshold: null
+  silence_timeout: null
+  stop_on_rate_change: null
+  target_level: null
+  volume_ramp_time: 200
+filters:
+  Bass:
+    description: Bass slider
+    parameters:
+      freq: 85
+      gain: 3
+      q: 0.9
+      type: Lowshelf
+    type: Biquad
+  Gain:
+    description: null
+    parameters:
+      gain: -6.5
+      inverted: false
+      mute: false
+      scale: dB
+    type: Gain
+  GraphicEQ:
+    description: null
+    parameters:
+      freq_max: 16000
+      freq_min: 200
+      gains:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      type: GraphicEqualizer
+    type: BiquadCombo
+  LowCut:
+    description: null
+    parameters:
+      freq: 18
+      q: 0.7
+      type: Highpass
+    type: Biquad
+  Tilt:
+    description: Tilt -6dB
+    parameters:
+      gain: -6
+      type: Tilt
+    type: BiquadCombo
+  Treble:
+    description: Treble slider
+    parameters:
+      freq: 6500
+      gain: 0
+      slope: 6
+      type: Highshelf
+    type: Biquad
+  Volume:
+    description: Main Volume Fader
+    parameters:
+      attenuate_mid: true
+      fader: Main
+      high_boost: 5
+      low_boost: 5
+      reference_level: 0
+    type: Loudness
+mixers:
+  Unnamed Mixer 1:
+    channels:
+      in: 2
+      out: 2
+    description: null
+    mapping:
+    - dest: 0
+      mute: false
+      sources:
+      - channel: 0
+        gain: 0
+        inverted: false
+        mute: false
+        scale: dB
+pipeline:
+- bypassed: null
+  channel: 0
+  description: null
+  names:
+  - Gain
+  - Tilt
+  - Bass
+  - Treble
+  - GraphicEQ
+  - LowCut
+  - Volume
+  type: Filter
+- bypassed: false
+  channel: 1
+  description: null
+  names:
+  - Gain
+  - Tilt
+  - Bass
+  - Treble
+  - GraphicEQ
+  - LowCut
+  - Volume
+  type: Filter
+processors: {}
+title: 'Tile '

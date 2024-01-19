@@ -39,8 +39,8 @@ if test -d ~/camilladsp; then
 fi
 mkdir ~/camilladsp && mkdir ~/camilladsp/configs && mkdir ~/camilladsp/coeffs
 
-# CamillaDSP 2.0.0
-wget https://github.com/HEnquist/camilladsp/releases/download/v2.0.0/camilladsp-linux-aarch64.tar.gz -P ~/camilladsp/
+# CamillaDSP 2.0.1
+wget https://github.com/HEnquist/camilladsp/releases/download/v2.0.1/camilladsp-linux-aarch64.tar.gz -P ~/camilladsp/
 tar -xvf ~/camilladsp/camilladsp-linux-aarch64.tar.gz -C ~/camilladsp/
 rm ~/camilladsp/camilladsp-linux-aarch64.tar.gz
 sudo mv -b ~/camilladsp/camilladsp /usr/bin/camilladsp
