@@ -2,7 +2,7 @@
 **volumelms2cdsp.py** let you control CamillaDSP volume from LMS user interfaces.
 
 ## Principle of operation:
-When Player has it volume control set to **Output level is fixed at 100%** from Player -> Extra setting -> Audio -> Volume Control we have the option to repurpose the volume slider.
+When Player has it volume control set to **Output level is fixed at 100%** from 'Player -> Extra setting -> Audio -> Volume Control' we have the option to repurpose the volume slider.
 When script is loaded it will have an telnet client connected to LMS Command Line Interface (CLI). Where it subscripe to CLI volume messages going from LMS out to the player. When changes occurs it will rescale value to desibel values -51 to 0dB compatible with CamillaDSP and then forward this to CamillaDSP back-end.
 * *Known limitation are some 100-200ms delay mostly coming from low CPU intensive Python loop with telnetlib3.<sup>1</sup>. Mute are not suported, but both interfaces allow for its implementation.* *
 

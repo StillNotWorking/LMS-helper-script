@@ -106,6 +106,8 @@ ssh-copy-id pi@192.168.10.128
 
 Don't forget Material Skin also support flexible ways to run code from the browser.
 
+### Forward volume controll from LMS Player to CamillaDSP
+https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp/volume_from_lms#adjust-volume-on-camilladsp-
 ---------------------------------------------------------------
 
 <sup>1</sup> It is possible to restrict the sudo user to only execute a limited number of applications. Instead of using `ALL` in the file we created under `/etc/passwd.d` we specifically define full path to the applications the user are allowed to run with sudo. 
