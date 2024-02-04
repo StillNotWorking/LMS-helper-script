@@ -54,8 +54,8 @@ startstring+="${cdspport}"
 #  s/.*/string/  - substitute whatever with string
 sudo sed -i -e "/^$key/ s/.*/$startstring/" $servicefile
 
-sudo mv -b volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
 sudo chown root:root /etc/systemd/system/volumelms2cdsp.service
+sudo mv -b volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
 
 sudo systemctl daemon-reload
 sudo systemctl start volumelms2cdsp
