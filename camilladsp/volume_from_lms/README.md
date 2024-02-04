@@ -10,7 +10,7 @@ When script is loaded it will have an telnet client connected to LMS Command Lin
 ***Before starting the install prepare the following information.***
 + **Player MAC address** - can be found under the information menu
 + **LMS server address**
-+ **LMS Command Line Interface (CLI) port number** - default on server is 9090, can be changed from Server -> Plugins -> Command Line Interface (CLI)
++ **LMS Command Line Interface (CLI) port number** - default on server is 9090, can be changed from 'Server -> Plugins -> Command Line Interface (CLI)'
 + **CamillaDSP back-end port number** - often default to 1234
  
 Log on to your RPi with a SSH terminal application of chose. Then simply copy & paste the line below into your terminal window.
@@ -19,7 +19,7 @@ Log on to your RPi with a SSH terminal application of chose. Then simply copy & 
 cd ~/ && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2cdsp.sh && bash ./installvolumelms2cdsp.sh
 
 ```
-Make sure the player volume are locket to 100% and Material Skin setting under Server -> Plugins -> Material Skin are set to 'Display standard volume control'
+Make sure the player volume are locked to 100% and Material Skin setting under 'Server -> Plugins -> Material Skin' are set to 'Display standard volume control'
 <img src="mssetting.jpg" style="width:48%">
 
 ## Control CamillaDSP volume from legacy Logitech devices or classic web UI
@@ -28,5 +28,5 @@ Script are dependent on functionality in Material Skin or a plugin that intercep
 ## Control other hardware or program from GPIO or USB
 Script can be used as insperation to make control over other software and hardware connectet to the computer running the Player.
 
-
+--------------------------------------------------------------------
 1: CLI are usually quite responsive in itself. Initial trail of this idea first tested with bash script showed better performance. A possible more responsive UI can be had if Material Skin send command direcly from its web UI. Although this will exclude legacy Logitech devices to function as controllers.
