@@ -1,4 +1,4 @@
-### Adjust volume on CamillaDSP from LMS player
+# Adjust volume on CamillaDSP from LMS player
 **volumelms2cdsp.py** let you control CamillaDSP volume from LMS user interfaces.
 
 ## Principle of operation:
