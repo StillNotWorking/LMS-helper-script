@@ -1,0 +1,11 @@
+[Unit]
+Description=UAC2 Gadget init
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/usbgadget
+Group=root
+User=root
+
+[Install]
+WantedBy=multi-user.target
