@@ -43,7 +43,7 @@ sudo chown root:root /usr/bin/volumelms2cdsp
 # ExecStart=/usr/bin/volumelms2cdsp 00:00:00:00:00:00 127.0.0.0 9090 1234
 servicefile='volumelms2cdsp.service'
 key='ExecStart='
-startstring="ExecStart=\/usr\/bin\/volumelms2cdsp "
+startstring="ExecStart=\/usr\/bin\/python3 \/usr\/bin\/volumelms2cdsp "
 startstring+="${playermac} "
 startstring+="${lmsaddr} "
 startstring+="${lmsport} "
@@ -54,9 +54,10 @@ startstring+="${cdspport}"
 #  s/.*/string/  - substitute whatever with string
 sudo sed -i -e "/^$key/ s/.*/$startstring/" $servicefile
 
-sudo chown root:root ~/volumelms2cdsp.service
-sudo chmod 755 ~/volumelms2cdsp.service 
-sudo mv -b ~/volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
+cd
+sudo chown root:root volumelms2cdsp.service
+sudo chmod 755 volumelms2cdsp.service 
+sudo mv -b volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
 
 sudo systemctl daemon-reload
 sudo systemctl start volumelms2cdsp

@@ -7,7 +7,7 @@ StartLimitBurst=10
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/volumelms2cdsp 00:00:00:00:00:00 127.0.0.1 9090 1234
+ExecStart=/usr/bin/python3 /usr/bin/volumelms2cdsp 00:00:00:00:00:00 127.0.0.1 9090 1234
 Restart=always
 RestartSec=1
 StandardOutput=journal

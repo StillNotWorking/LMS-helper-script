@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/env python
 # Adjust CamillaDSP volume from Material Skin
 # Version 0.0.1 - https://github.com/StillNotWorking/LMS-helper-script
 # syntax: ms2cdsp {player mac} {lms ip} {lms cli port} {camilladsp port} [-v] verbose is optional
