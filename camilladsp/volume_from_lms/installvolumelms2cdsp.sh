@@ -36,7 +36,7 @@ read -p "Enter LMS port: " lmsport
 read -p "Enter CamillaDSP back-end port: " cdspport
 
 sudo mv -b volumelms2cdsp.py /usr/bin/volumelms2cdsp
-sudo chmod g+w /usr/bin/volumelms2cdsp
+sudo chmod 755 /usr/bin/volumelms2cdsp
 sudo chown root:root /usr/bin/volumelms2cdsp
 
 # build startup string
@@ -54,8 +54,9 @@ startstring+="${cdspport}"
 #  s/.*/string/  - substitute whatever with string
 sudo sed -i -e "/^$key/ s/.*/$startstring/" $servicefile
 
-sudo chown root:root /etc/systemd/system/volumelms2cdsp.service
-sudo mv -b volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
+sudo chown root:root ~/volumelms2cdsp.service
+sudo chmod 755 ~/volumelms2cdsp.service 
+sudo mv -b /etc/systemd/system/volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
 
 sudo systemctl daemon-reload
 sudo systemctl start volumelms2cdsp
