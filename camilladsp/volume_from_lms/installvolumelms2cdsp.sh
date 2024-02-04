@@ -56,7 +56,7 @@ sudo sed -i -e "/^$key/ s/.*/$startstring/" $servicefile
 
 sudo chown root:root ~/volumelms2cdsp.service
 sudo chmod 755 ~/volumelms2cdsp.service 
-sudo mv -b /etc/systemd/system/volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
+sudo mv -b ~/volumelms2cdsp.service /etc/systemd/system/volumelms2cdsp.service
 
 sudo systemctl daemon-reload
 sudo systemctl start volumelms2cdsp
