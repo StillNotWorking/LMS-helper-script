@@ -37,7 +37,7 @@ read -p "Enter CamillaDSP back-end port: " cdspport
 
 sudo mv -b volumelms2cdsp.py /usr/bin/volumelms2cdsp
 sudo chmod g+w /usr/bin/volumelms2cdsp
-sudo chow root:root /usr/bin/volumelms2cdsp
+sudo chown root:root /usr/bin/volumelms2cdsp
 
 # build startup string
 # ExecStart=/usr/bin/volumelms2cdsp 00:00:00:00:00:00 127.0.0.0 9090 1234
