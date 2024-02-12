@@ -1,5 +1,5 @@
 ---
-config_path: ~
+config_path: /home/pi/camilladsp/configs/SqueezeliteEQ.yml
 mute:
   - false
   - false
