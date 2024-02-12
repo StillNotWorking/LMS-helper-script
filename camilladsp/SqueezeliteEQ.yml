@@ -19,7 +19,7 @@ devices:
   playback:
     channels: 2
     device: hw:CARD=Headphones,DEV=0
-    format: S32LE
+    format: S16LE
     type: Alsa
   queuelimit: null
   rate_measure_interval: null
