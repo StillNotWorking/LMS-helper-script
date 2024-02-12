@@ -13,7 +13,7 @@ devices:
   enable_rate_adjust: false
   playback:
     channels: 2
-    device: hw:CARD=Amanero,DEV=0
+    device: hw:CARD=Loopback,DEV=0
     format: S32LE
     type: Alsa
   queuelimit: 1
