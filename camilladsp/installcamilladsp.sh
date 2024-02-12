@@ -79,8 +79,8 @@ sudo chown root:root /usr/bin/camilladsp
 sudo chmod a+x /usr/bin/camilladsp
 
 # functioning filter file for the 1st run of CamillaDSP
-#wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
-#chmod 755 ~/camilladsp/statefile.yml
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
+chmod 755 ~/camilladsp/statefile.yml
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ.yml -P ~/camilladsp/configs/
 cp ~/camilladsp/configs/SqueezeliteEQ.yml ~/camilladsp/default_config.yml
 
