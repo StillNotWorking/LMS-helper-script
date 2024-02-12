@@ -31,7 +31,7 @@ if test -f /usr/bin/camilladsp; then
     string=$(/usr/bin/camilladsp -V)
     # don't ask if configuration from v1.0.3 - not compatible with v2
     if [[ $string == *"CamillaDSP 2."* ]]; then
-        read -p 'Keep existing configurations and coefficients? [Y/n] :' keep
+        read -p 'Keep existing configurations and coefficients? [Y/n]:' keep
     fi
 fi
 
