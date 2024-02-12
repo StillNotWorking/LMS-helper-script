@@ -3,10 +3,10 @@ Tools to help maintain headless **Logitech Media Server** devices for novice Lin
 
 ### installcamilladsp.sh
 With this script all dependencies, binary and configuration files to make both Squeezelite and CamillaDSP up running on a fresh RPi-OS install. 
-**Intended for RPi-OS Lite 64 bit** with user `pi`
+**Intended for RPi-OS Lite 64 bit** but should work on most Debian style distros
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp
 ### squeezetoggle.sh
-Restart Squeezelite with alternative configuration. Here used to toogle Squeezelite output between sound cards or loopback devices, e.g CamillaDSP loopback device and USB DAC. See custom menus on how to run script from Material Skin.
+Restart Squeezelite with alternative configuration. Here used to toogle Squeezelite output between sound cards or loopback devices, e.g loopback used for input on CamillaDSP or output direcly to a USB DAC. See custom menus on how to run script from Material Skin.
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin#readme
 ### materialskin
 Add custom menus to Material Skin to run bash commands on local and remote computers 
@@ -25,12 +25,12 @@ After install use `mountdrive` to run the command
 ```
 sudo mountdrive
 ```
-When <i>deb</i> files are downloaded manually and user later want to install `apt` will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
+When <i>deb</i> files are downloaded manually and user later want to install the file using `apt` it will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
  - `./` means <i>this directory</i>.
 ### lms_bash_aliases.txt
 are several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] logitechmediaserver'*, plus a few shortcuts to directories used by lms.
 
-[Read how to implement aliases](https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md)
+[Read how to implement these aliases](https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md)
 
 ### cover.html
 are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
@@ -84,6 +84,7 @@ We often see guidance to runs script with `./[scriptname]`.
 `./` meens *this directory* and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
 There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script. Hence the file extention are not needed.
 
+---------------------------------------------------------------
 
 <sup>1</sup> Technically the script are not mounting a drive but rather help user to mount a partition living on the physical drive. There can be multiple partition on the drive where system list the physical drive as sd(a-z) and partitions as sd(a-z)(#).
 

@@ -13,8 +13,8 @@ RestartSec=1
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=camilladsp
-User=root
-Group=root
+User=pi
+Group=pi
 CPUSchedulingPolicy=fifo
 CPUSchedulingPriority=10
 
