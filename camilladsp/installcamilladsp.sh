@@ -45,7 +45,7 @@ if sudo systemctl is-active --quiet camillagui ; then
 if sudo systemctl is-active --quiet camilladsp ; then
     sudo systemctl stop camilladsp; fi
 
-# timer saver if user already know sytem are up to date
+# if user already know system are up to date
 read -p 'Do you want to upgrade operating system? Recommended! [N/y]' os
 if [[ "$os" =~ ^([yY])$ ]]; then
     sudo apt update

@@ -7,7 +7,7 @@ StartLimitBurst=10
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/camilladsp -s /home/pi/camilladsp/statefile.yml -o /home/pi/camilladsp/camilladsp.log -l error -p 1234 /home/pi/camilladsp/default_config.yml
+ExecStart=/usr/bin/camilladsp -s /home/pi/camilladsp/statefile.yml -o /home/pi/camilladsp/camilladsp.log -l error -p 1234 -w
 Restart=always
 RestartSec=1
 StandardOutput=journal
