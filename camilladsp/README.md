@@ -44,12 +44,31 @@ https://github.com/HEnquist/camillagui-backend/blob/master/README.md
 # Filters
 Script also download a few EQ filters for demonstration if one don't opt to keep existing files from previous install.
 
+# Remove install
+```bash
+# Copy paist all code
+sudo systemctl stop camillagui
+sudo systemctl stop camilladsp
+sudo systemctl stop squeezelite
+sudo rm /etc/systemd/system/camillagui.service
+sudo rm /etc/systemd/system/camilladsp.service
+sudo rm /usr/bin/camilladsp*
+sudo systemctl daemon-reload
+sudo rm -r ~/camilladsp
+sudo apt remove squeezelite
+
+# dependencies used
+sudo pip3 uninstall git+https://github.com/HEnquist/pycamilladsp.git@v2.0.0
+sudo pip3 uninstall git+https://github.com/HEnquist/pycamilladsp-plot.git@$v2.0.0
+sudo apt remove git python3-pip python3-aiohttp python3-jsonschema python3-numpy python3-matplotlib
+
+```
 ## User running the daemons
 There are four service files that control which user services are initialized with.
 Default will Squeezelite run as root. While CamillaDSP, CamillaGUI and VolumeLMS2CDSP run as user logged in when it first where installed. This is due to some Python libryas for security purposes are located in user home directory.
 
 See examples below if you like to change this. Alter `{USER}` to your preferd user name.
-```
+```bash
 ~$ sudo nano /etc/systemd/system/camilladsp.service
 ~$ sudo nano /etc/systemd/system/camillagui.service
 ~$ sudo nano /etc/systemd/system/squeezelite.service
