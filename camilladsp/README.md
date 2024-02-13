@@ -41,8 +41,16 @@ https://www.diyaudio.com/community/threads/camilladsp-cross-platform-iir-and-fir
 https://github.com/HEnquist/camilladsp
 
 https://github.com/HEnquist/camillagui-backend/blob/master/README.md
+
 ## Filters
 Script also download a few EQ filters for demonstration if one don't opt to keep existing files from previous install.
+
+## Trouble shooting
+Common pitfalls if ran on a Debian computer with other hardware than RPi.
+Edit the `Playback Device` under `Devices` tab and click Save to File. 
+Run `aplay -l` from console windows to list available playback devices.
+
+Default install use SqueezeliteEQ.yml as its initial configuration. Where RPi3 and RPi4 will output to hw:CARD=Headphones,DEV=0
 
 ## Remove install
 ```bash
