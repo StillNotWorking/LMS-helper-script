@@ -47,8 +47,9 @@ Script also download a few EQ filters for demonstration if one don't opt to keep
 
 ## Trouble shooting
 Common pitfalls if ran on a Debian computer with other hardware than RPi.
-Edit the `Playback Device` under `Devices` tab and click Save to File. 
-Run `aplay -l` from console windows to list available playback devices.
+Edit the `Playback Device` under `Devices` tab and click `Save to File`. 
+
+Run `aplay -l` from terminal to list available playback devices.
 
 Default install use SqueezeliteEQ.yml as its initial configuration. Where RPi3 and RPi4 will output to hw:CARD=Headphones,DEV=0
 
