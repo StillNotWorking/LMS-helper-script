@@ -85,8 +85,8 @@ cp ~/camilladsp/configs/SqueezeliteEQ.yml ~/camilladsp/default_config.yml
 # keep existing configs and coefficients or download demo files
 if [[ "$keep" =~ ^([yY])$ ]]; then
     # keep existing
-    cp -R "~/camilladsp_$backuptime/configs" ~/camilladsp/configs
-    cp -R "~/camilladsp_$backuptime/coeffs" ~/camilladsp/coeffs
+    cp -R "~/camilladsp_$backuptime/configs" ~/camilladsp/
+    cp -R "~/camilladsp_$backuptime/coeffs" ~/camilladsp/
 else
     # download filter/configs and convelution for demo
     wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ_07.yml -P ~/camilladsp/configs/
