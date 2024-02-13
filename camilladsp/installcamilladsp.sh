@@ -78,9 +78,7 @@ sudo mv -b ~/camilladsp/camilladsp /usr/bin/camilladsp
 sudo chown root:root /usr/bin/camilladsp
 sudo chmod a+x /usr/bin/camilladsp
 
-# functioning filter and statefile file for the 1st run of CamillaDSP
-wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
-chmod 644 ~/camilladsp/statefile.yml
+# functioning config/filter file for the 1st run of CamillaDSP
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/SqueezeliteEQ.yml -P ~/camilladsp/configs/
 cp ~/camilladsp/configs/SqueezeliteEQ.yml ~/camilladsp/default_config.yml
 
@@ -119,6 +117,8 @@ key='Group='
 sudo sed -i -e "/^$key/ s/pi/$user/" $servicefile
 
 # we should now have a working CamillaDSP installation without GUI
+sudo systemctl daemon-reload
+sudo systemctl start camillagui
 
 echo ''
 echo '****** Install CamillaDSP web user interface & backend ******'
@@ -156,16 +156,6 @@ sudo sed -i -e "/^$key/ s/pi/$user/g" $servicefile
 key="User="
 sudo sed -i -e "/^$key/ s/pi/$user/" $servicefile
 
-
-# initialize and start daemons
-sudo systemctl daemon-reload
-sudo systemctl start camillagui
-sudo systemctl enable camillagui
-sudo systemctl start camilladsp
-sudo systemctl enable camilladsp
-sudo systemctl restart squeezelite
-
-
 # Evaluate Squeezelite version - debian package are at v1.9.8 
 # sourceforge.net list a test version v2.0.0.1465
 if test -f /usr/bin/squeezelite; then
@@ -197,6 +187,27 @@ if test -f /usr/bin/squeezelite; then
     fi
 fi
 
+# functioning statefile for the 1st run of CamillaDSP
+# it seems CamillaDSP will overwrite this file at first run
+# hence the need to trick her to first make her own before replacing it
+if test -f ~/camilladsp/statefile.yml; then 
+    rm ~/camilladsp/statefile.yml
+else
+    sleep 2
+    rm ~/camilladsp/statefile.yml
+fi 
+sudo systemctl stop camillagui
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml -P ~/camilladsp/
+chmod 644 ~/camilladsp/statefile.yml
+
+# initialize and start daemons
+sudo systemctl daemon-reload
+sudo systemctl start camillagui
+sudo systemctl enable camillagui
+sudo systemctl start camilladsp
+sudo systemctl enable camilladsp
+sudo systemctl restart squeezelite
+
 # install volume control daemon?
 read -p 'Do you want to adjust CamillaDSP volume from Material Skin? [N/y]: ' volume
 if [[ "$volume" =~ ^([yY])$ ]]; then
@@ -216,6 +227,8 @@ if sudo systemctl is-active --quiet camilladsp ; then
     echo 'Check CamillaDSP is running: OK'
 else
     echo 'Check CamillaDSP is running: FAIL'
+    echo 'Possible emty ~/camilladsp/statefile.yml'
+    echo 'From web UI first click tab Files, then click a Star in front of any file to activate it. This will update the statefile'
 fi
 if sudo systemctl is-active --quiet camillagui ; then
     echo 'Check CamillaGUI is running: OK'
@@ -225,7 +238,7 @@ fi
 echo '----------------------------------'
 
 echo ''
-echo 'Finished - Please reboot and then enjoy music from the headphones out on your RPi'
+echo 'Finished! - If RPi3 or RPi4 you should now be able to enjoy music from the headphone output'
 echo ''
 echo 'CamillaDSP v2 now support selecting sound card from a drop down list under the Devices tab.'
 myip=$(hostname -I)
