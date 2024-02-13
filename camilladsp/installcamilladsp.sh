@@ -172,7 +172,7 @@ if test -f /usr/bin/squeezelite; then
             wget -nv https://sourceforge.net/projects/lmsclients/files/squeezelite/linux/testing/squeezelite-2.0.0.1465-aarch64.tar.gz/download -P ~/tmpdownload
             # check file hash before unpack and install
             if [[ "$(sha1sum download)" == "dba645abf324987dd2068620d629b18915a56046  download" ]] && [[ "$(md5sum download)" == "0170d04ac75f6748ab8b5a51fb66376d  download" ]]; then
-                echo "SHA1 and SH5 checksum OK"; echo "Unpack archive:"
+                echo "SHA1 and SH5 checksum OK - Unpack archive:"
                 tar -xvf ~/tmpdownload/download -C ~/tmpdownload
                 sudo systemctl stop squeezelite
                 sudo mv -b ~/tmpdownload/squeezelite /usr/bin/squeezelite

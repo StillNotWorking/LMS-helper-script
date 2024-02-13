@@ -5,10 +5,10 @@
 When Player has it volume control set to **Output level is fixed at 100%** from `Player -> Extra setting -> Audio -> Volume Control` we have the option to repurpose the volume slider.
 
 When script is loaded it will have a telnet client connected to LMS Command Line Interface (CLI). Where it subscripe to CLI volume messages going from LMS out to the player. When changes occurs it will rescale value to decibel values -51 to 0dB compatible with CamillaDSP GUI and then forward this to CamillaDSP back-end.
-* *Known limitation:
+Known limitation:
 + Some 100-200ms delay mostly coming from low CPU intensive Python loop with telnetlib3.<sup>1</sup>. 
 + Mute are not supported, but both interfaces allow for its implementation.
-* *
+
 
 ## Why would we want to use it?
 Squeezelite usually leave it to alsa to adjust volume. We now potentially can avoid alsa do any processing on the stream other than bit depth expansion. Remember if replay gain is enabled there still is a volume adjustment happening before CamillaDSP. 
