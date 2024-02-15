@@ -13,8 +13,8 @@ Known limitation:
 ## Why would we want to use it?
 Squeezelite usually leave it to alsa to adjust volume. We now potentially can avoid alsa do any processing on the stream other than bit depth expansion. Remember if replay gain is enabled there still is a volume adjustment happening before CamillaDSP. 
 
-## Less loss
-A special version complying with the theorem found in Leedh Processing <sup>2</sup> is availbly.
+## Less Loss
+A special version complying with the theorem found in Leedh Processing<sup>2</sup> is availbly.
 
 *Minimise the number of bits used to quantize volume control coefficients so that information loss is minimized at truncation stage. In other words, it trades volume control coefficients precision against information loss minimization.*
 
@@ -35,7 +35,7 @@ cd ~/ && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-scrip
 
 ```
 
-**Less loss** version can be installed using these commands
+**Less Loss** version can be installed using these commands
 ```bash
 cd ~/ && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2llcdsp.sh && bash ./installvolumelms2llcdsp.sh
 
