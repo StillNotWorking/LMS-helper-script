@@ -93,7 +93,7 @@ Script can be used as insperation to make control over other software and hardwa
 
 <sup>3</sup> SoX was used to test bit depth `sox -v [coeff] [file] -n stats`
 
-<sup>4</sup> Step resolution in dB. Divide each value by two to get next 6dB interval.
+<sup>4</sup> Step resolution in dB. Multiply each value by two to get next 6dB interval.
 ```
 0 dB
 -0.13678849060610931953 dB
