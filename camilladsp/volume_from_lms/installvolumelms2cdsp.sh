@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash 
 # version 0.0.2 - https://github.com/StillNotWorking/LMS-helper-script
 # Forward Volume control from LMS to CamillaDSP 
 # Install as daemon om Debian based system

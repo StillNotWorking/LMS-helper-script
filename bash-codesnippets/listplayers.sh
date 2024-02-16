@@ -80,7 +80,7 @@ function createmenu(){
         getmac $i
         printf '%s\n' "  | MAC: $mac";
     done
-    printf '%s\n' " 4: Get me out of here with a graceful exit"
+    printf '%s\n' " $(($i+1)): Get me out of here with a graceful exit"
     printf '%s\n' "------------------------------------------------------------------------"
 
     # wait for user input
