@@ -121,7 +121,7 @@ def lessloss(vol):
     #
     # Truncate errors should become less obvius at higher attunation
     # Therefore one could minimize array to hold coefficients only for
-    # the first -12dB or - 18dB and let the rest of attenuation range 
+    # the first -12dB or -18dB and let the rest of attenuation range 
     # use standard calculation
 
     # dB to coefficient using pow(10)
