@@ -24,7 +24,7 @@ This version will snap volume setting to nearest value from an array of coeffici
 
 Resolution are 32 steps for each 6dB change with varying step length<sup>4</sup>.
 
-***Note:*** If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway and this feature become useless.
+***Note:*** If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway, and this feature become useless.
 
 ## Install as daemon on RPi-OS (Debian) system
 ***Install script will try to resolve the following information. If it fails you'll be asked to input manually.***
