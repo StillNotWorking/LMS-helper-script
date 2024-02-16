@@ -20,9 +20,7 @@ A special version complying with the theorem found in Leedh Processing<sup>2</su
 
 *Minimise the number of bits used to quantize volume control coefficients so that information loss is minimized at truncation stage. In other words, it trades volume control coefficients precision against information loss minimization.*
 
-This version will snap volume setting to nearest value from an array of coefficients that should<sup>3</sup> not lose precision when truncated to 24-bit.
-
-Resolution are 32 steps for each 6dB change with varying step length<sup>4</sup>.
+This version will snap volume setting to nearest value from an array of coefficients that should<sup>3</sup> not lose precision when truncated to 24-bit. Resolution are 32 steps for each 6dB change with varying step length<sup>4</sup>.
 
 ***Note:*** If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway, and this feature become useless.
 
