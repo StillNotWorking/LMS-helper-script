@@ -13,7 +13,9 @@ Known limitation:
 ## Why would we want to use it?
 Squeezelite usually leave it to alsa to adjust volume. We now potentially can avoid alsa do any processing on the stream other than bit depth expansion. 
 
-***Note:*** If replay gain is enabled for the player there still are volume adjustment happening before CamillaDSP. 
+***Note:*** 
++ These coefficients only work with 16-bit audio.
++ If replay gain is enabled for the player there still are volume adjustment happening before CamillaDSP. 
 
 ## Less Loss
 A special version complying with the theorem found in Leedh Processing<sup>2</sup> is availbly.
