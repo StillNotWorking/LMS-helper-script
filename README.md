@@ -38,7 +38,7 @@ are an exsample how to make custom visualization for any LMS player using html a
 Possible better solution today would be to use Material Skins layout and action parameters
 `http://192.168.1.3:9000/material/?layout=desktop&action=expandNowPlaying/true`
 
-Material Skin Manual https://github.com/CDrummond/lms-material/wiki/03-Actions
+Material Skin manual https://github.com/CDrummond/lms-material/wiki/03-Actions
 
 ### .bashrc
 change color on command prompt to help different multiple RPi terminals. Overwrite existing `~/.bashrc` in user home directory.

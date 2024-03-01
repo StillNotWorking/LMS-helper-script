@@ -1,5 +1,5 @@
 #!/bin/bash
-# 2.0.1a - https://github.com/StillNotWorking/LMS-helper-script
+# 2.0.3 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64-bit, should work on most Debian style distros
 # Configuration files used by this install:
 #   /etc/systemd/system/camilladsp.service
@@ -12,10 +12,10 @@
 #   /etc/asound.conf
 
 # Program Versions:
-vercmdsp="v2.0.1"     # CamillaDSP
-verpycdsp="v2.0.0"    # Python CamillaDSP
+vercmdsp="v2.0.3"     # CamillaDSP
+verpycdsp="v2.0.2"    # Python CamillaDSP
 verpyplot="v2.0.0"    # Python CamillaPlot
-verguiback="v2.0.0"   # GUI back-end
+verguiback="v2.0.1"   # GUI back-end
 
 # CamillaDSP will install its configuration directory, GUI and back-end 
 # into logged-in user's home directory. Service files will be edited accordingly
