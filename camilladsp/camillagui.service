@@ -5,7 +5,7 @@ After=multi-user.target
 
 [Service]
 User=pi
-ExecStart=/usr/bin/python3 /home/pi/camilladsp/gui/main.py
+ExecStart=/home/pi/camilladsp/camillagui_venv/bin/python /home/pi/camilladsp/gui/main.py
 Type=idle
 
 [Install]

@@ -154,8 +154,8 @@ sudo mv -b aloop.conf /etc/modules-load.d/aloop.conf
 sudo modprobe snd-aloop
 
 # download service file
-cd $INSTALL_ROOT/temp
 echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camilladsp.service"
+cd $INSTALL_ROOT/temp
 curl -LJO https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camilladsp.service
 sudo mv -b $INSTALL_ROOT/temp/camilladsp.service /etc/systemd/system/camilladsp.service
 sudo chown root:root /etc/systemd/system/camilladsp.service
@@ -182,7 +182,7 @@ if [[ ! "$guiport" == "5005" ]]; then
     sed -i -e "/^$key/ s/5005/$guiport/" $conffile
 fi
 key='config_dir: '
-sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
+sed -i -e "/^$key/ s|~/camilladsp|$INSTALL_ROOT|" $conffile
 key='coeff_dir: '
 sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
 key='default_config: '
@@ -193,8 +193,8 @@ key='log_file: '
 sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
 
 # download and configure camillagui.service
-cd $INSTALL_ROOT/temp
 echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service"
+cd $INSTALL_ROOT/temp
 curl -LJO https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service
 sudo mv -b $INSTALL_ROOT/temp/camillagui.service /etc/systemd/system/camillagui.service
 sudo chown root:root /etc/systemd/system/camillagui.service
@@ -202,7 +202,7 @@ sudo chown root:root /etc/systemd/system/camillagui.service
 # edit gui service file with user and path to home directory
 servicefile="/etc/systemd/system/camillagui.service"
 key="ExecStart="
-sudo sed -i -e "/^$key/ s|/home/pi/camilladsp|$INSTALL_ROOT|" $servicefile
+sudo sed -i -e "/^$key/ s|/home/pi/camilladsp|$INSTALL_ROOT|g" $servicefile
 key="User="
 sudo sed -i -e "/^$key/ s/pi/$user/" $servicefile
 
@@ -252,8 +252,8 @@ else
     fi
 fi
 sudo systemctl stop camillagui
-cd $INSTALL_ROOT
 echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml"
+cd $INSTALL_ROOT
 curl -LJO https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml
 chmod 644 $INSTALL_ROOT/statefile.yml
 # edit path in statefile
