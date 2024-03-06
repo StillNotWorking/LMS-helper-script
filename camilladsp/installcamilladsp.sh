@@ -243,22 +243,24 @@ fi
 # functioning statefile for the 1st run of CamillaDSP
 # it seems CamillaDSP will overwrite this file at first run
 # hence the need to trick her to first make her own before replacing it
-if test -f $INSTALL_ROOT/statefile.yml; then 
+if test -f $INSTALL_ROOT/statefile.yml; then
+    sudo systemctl stop camilladsp
     rm $INSTALL_ROOT/statefile.yml
 else
     sleep 2
     if test -f $INSTALL_ROOT/statefile.yml; then
+        sudo systemctl stop camilladsp
         rm $INSTALL_ROOT/statefile.yml
     fi
 fi
-sudo systemctl stop camillagui
+# download statefile with active config
 echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml"
 cd $INSTALL_ROOT
 curl -LJO https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/statefile.yml
 chmod 644 $INSTALL_ROOT/statefile.yml
 # edit path in statefile
 key='config_path: '
-sudo sed -i -e "/^$key/ s|/home/pi/camilladsp|$INSTALL_ROOT|g" $INSTALL_ROOT/statefile.yml
+sudo sed -i -e "/^$key/ s|/home/pi/camilladsp|$INSTALL_ROOT|" $INSTALL_ROOT/statefile.yml
 
 # initialize and start daemons
 sudo systemctl daemon-reload
@@ -269,6 +271,7 @@ sudo systemctl enable camilladsp
 sudo systemctl start squeezelite
 
 # install volume control daemon? - best run after services are up running
+echo ''
 read -p 'Do you want to adjust CamillaDSP volume from Material Skin? [N/y]: ' volume
 if [[ "$volume" =~ ^([yY])$ ]]; then
     cd $INSTALL_ROOT/temp
