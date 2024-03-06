@@ -16,12 +16,22 @@ cd ~/ && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-scrip
 
 When install is finished reboot the RPi and start playing music from your LMS system.
 
-To access CamillaDSP open a web browser with adress `[IP adress to RPi:5000]`
+To access CamillaDSP open a web browser with adress `[IP adress to RPi:5005]`
 
-Configuration files for CamillaDSP version 2 are not compatible with previous version. If the system already had an older install this script move old files to `/home/{USER}/camilladsp_[TIME]` directory.
+Configuration files for CamillaDSP version 2 are not compatible with previous version. New back-end from v2.1.0 let us now import part of the configuration. If the system already had an older install this script move old files to `/home/{USER}/camilladsp_{TIME]` directory.
 
 ***NOTE: If you already have a DAC configured and this had you disable local sound with `#dtparam=audio=on` in `/boot/config.txt` there will be no sound from the headphone out.***
 
+***New in version 2.1.1***
++ Install new back-end v2.1.0
++ Now use Henrik Enquists (HE) install script for CamillaDSP and all of her dependencies. Only additional dependency installed to RPi-OS Lite is 'git'.
++ Version numbering will from now on follow HEs install script with an added character to different local changes.
++ CamillaDSP GUI port default to 5005 can now be changed from install dialog. Used to be port 5000 pre v2.1.1
++ Installation directory can optionally be given as argument. Else default to logged-in users home directory as before.
++ Changed from wget to curl to keep visualizen more uniform with HEs script.
++ Option to upgrade to now official Squeezelite v2.0.0.1465, Debian package are currently at 1.9.9
+***New in version 2.0.3***
++ CamillaDSP v2.0.3
 ***New in version 2.0.1a***
 + Now detect previous install done with current and earlier revision of this script and opt to keep existing CamillaDSP v2 congirurations/filters and coefficients. Keep in mind script still install and start CamillaDSP with at known functioning configuration where output are set to headphone jack.
 + Now automatically edit service files to reflect logged-in user. No need for manually editing.
@@ -66,15 +76,15 @@ sudo systemctl daemon-reload
 sudo rm -r ~/camilladsp
 sudo apt remove squeezelite
 
-# dependencies used
+# dependencies used pre v2.1.1, new install make use of Python virtual env
 sudo pip3 uninstall git+https://github.com/HEnquist/pycamilladsp.git@v2.0.0
 sudo pip3 uninstall git+https://github.com/HEnquist/pycamilladsp-plot.git@$v2.0.0
 sudo apt remove git python3-pip python3-aiohttp python3-jsonschema python3-numpy python3-matplotlib
 
 ```
 ## User running the daemons
-There are four service files that control which user services are initialized with.
-Default will Squeezelite run as root. While CamillaDSP, CamillaGUI and VolumeLMS2CDSP run as user logged in when it first where installed. This is due to some Python libryas for security purposes are located in user home directory.
+There are four service files that tell the system which user services are initialized with.
+Default from the Debian install Squeezelite will run as root. While CamillaDSP, CamillaGUI and VolumeLMS2CDSP run as user logged in when it first where installed. This is due to some Python libryas for security purposes are located in user home directory. From v2.1.1 install make use of virtual install for Python dependencies.
 
 See examples below if you like to change this. Alter `{USER}` to your preferd user name.
 ```bash

@@ -14,7 +14,6 @@ Known limitation:
 Squeezelite usually leave it to alsa to adjust volume. We now potentially can avoid alsa do any processing on the stream other than bit depth expansion. 
 
 ***Note:*** 
-+ These coefficients only work with 16-bit audio.
 + If replay gain is enabled for the player there still are volume adjustment happening before CamillaDSP. 
 
 ## Less Loss
@@ -24,7 +23,9 @@ A special version complying with the theorem found in Leedh Processing<sup>2</su
 
 This version will snap volume setting to nearest value from an array of coefficients that should<sup>3</sup> not lose precision when truncated to 24-bit. Resolution are 32 steps for each 6dB change with varying step length<sup>4</sup>.
 
-***Note:*** If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway, and this feature become useless.
+***Note:*** 
++ If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway, and this feature become useless.
++ These coefficients only work with 16-bit audio.
 
 ## Install as daemon on RPi-OS (Debian) system
 ***Install script will try to resolve the following information. If it fails you'll be asked to input manually.***
