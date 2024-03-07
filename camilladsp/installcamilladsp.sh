@@ -278,7 +278,7 @@ if [[ "$volume" =~ ^([yY])$ ]]; then
     echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2cdsp.sh"
     curl -LJO https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2cdsp.sh
     # run in its own thread as it has option to exit
-    /bin/bash $INSTALL_ROOT/temp/installvolumelms2cdsp.sh
+    /usr/bin/bash $INSTALL_ROOT/temp/installvolumelms2cdsp.sh
     rm $INSTALL_ROOT/temp/installvolumelms2cdsp.sh
 fi
 
