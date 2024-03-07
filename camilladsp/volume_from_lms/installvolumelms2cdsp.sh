@@ -1,9 +1,9 @@
 #!/usr/bin/env bash 
-# version 0.0.2 - https://github.com/StillNotWorking/LMS-helper-script
+# version 0.0.3 - https://github.com/StillNotWorking/LMS-helper-script
 # Forward Volume control from LMS to CamillaDSP 
 # Install as daemon om Debian based system
-# - test platform RPi-OS 64-bit Lite
-  
+# - test platform where RPi-OS 64-bit Lite
+ 
 # stop daemon if there already exist an old install
 if sudo systemctl is-active --quiet volumelms2cdsp ; then
     sudo systemctl stop volumelms2cdsp;
@@ -21,21 +21,50 @@ if [[ "$1" == "--remove" ]] || [[ "S1" == "--uninstall" ]]; then
     exit 0
 fi
 
-echo 'This will install a daemon to control volume on CamillaDSP from LMS web UI'
-echo 'Install consist of following files:'
-echo '  /usr/bin/volumelms2cdsp'
-echo '  /etc/systemd/system/volumelms2cdsp.service'
-echo '  + Python dependency telnetlib3'
 echo ''
-read -p "Continue? (Y/n): " confirm 
-if [[ $confirm == [n] ]] ; then exit 0; fi
+echo 'This will install a daemon to control volume on CamillaDSP from LMS web UI'
+echo 'Which version do you want to install?'
+echo '  1: Standard'
+echo '  2: LessLoss'
+echo '  3: Exit without install'
+
+while true; do
+    read -p 'Please select 1-3' confirm
+    case $confirm in
+        [1]* ) fname="volumelms2cdsp.py"; break;;
+        [2]* ) fname="volumelms2llcdsp.py"; break;;
+        [3]* ) exit 0;;
+        * ) echo 'Please select 1-3';;
+    esac
+done
+
+if [[ $confirm == [1] ]] ; then fname="volumelms2cdsp.py"; fi
+if [[ $confirm == [2] ]] ; then fname="volumelms2llcdsp.py"; fi
+if [[ $confirm == [3] ]] ; then exit 0; fi
+
+# we make use of Python virtual env installed with CamillaDSP
+if test -d ~/camilladsp; then
+    INSTALL_ROOT="$HOME/camilladsp"
+else
+    read -p 'Input path to CamillaDSP directory: ' INSTALL_ROOT
+    str="$INSTALL_ROOT/camillagui_venv"
+    if ! test -d $str; then
+        echo "ERROR - Not able to locate virtual environment in $str"
+        exit 1
+    fi
+fi
 
 # download files
-wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/volumelms2cdsp.py
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/$fname
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/volumelms2cdsp.service
 
-# install dependency
-sudo pip install telnetlib3
+# rename Less Loss version to simplify maintance
+if [[ "$fname" == "volumelms2llcdsp.py" ]]; then
+    mv volumelms2llcdsp.py volumelms2cdsp.py
+fi
+
+# install dependency into CamillaDSPs virtual Python environment
+sudo /home/pi/camilladsp/camillagui_venv/bin/pip3 install telnetlib3
 
 echo ''
 echo 'Script will try to automatically resolve the following information:'
@@ -184,13 +213,13 @@ fi
 # move file to correct location
 sudo chmod 755 volumelms2cdsp.py
 sudo chown root:root volumelms2cdsp.py
-sudo mv -b volumelms2cdsp.py /usr/bin/volumelms2cdsp
+sudo mv -b volumelms2cdsp.py $INSTALL_ROOT/bin/volumelms2cdsp
 
 # build startup string
-# ExecStart=/usr/bin/volumelms2cdsp 00:00:00:00:00:00 127.0.0.0 9090 1234
+# ExecStart=/home/pi/camilladsp/camillagui_venv/bin/python3 /usr/bin/volumelms2cdsp 00:00:00:00:00:00 127.0.0.0 9090 1234
 servicefile='volumelms2cdsp.service'
 key='ExecStart='
-startstring="ExecStart=\/usr\/bin\/python3 \/usr\/bin\/volumelms2cdsp "
+startstring="ExecStart=$INSTALL_ROOT/camillagui_venv/bin/python3 $INSTALL_ROOT/bin/volumelms2cdsp "
 startstring+="${playermac} "
 startstring+="${lmsaddr} "
 startstring+="${lmsport} "
@@ -199,14 +228,14 @@ startstring+="${cdspport}"
 # update service file
 #  /^$key/       - '^'  beginning of line should begin with
 #  s/.*/string/  - '.*' substitute whole line with string
-sudo sed -i -e "/^$key/ s/.*/$startstring/" $servicefile
+sudo sed -i -e "/^$key/ s|.*|$startstring|" $servicefile
 
 # edit user and group to user running this script
 user=${SUDO_USER:-${USER}}
 key='User='
-sudo sed -i -e "/^$key/ s/.*/$key$user/g" $servicefile
+sudo sed -i -e "/^$key/ s/.*/$key$user/" $servicefile
 key='Group='
-sudo sed -i -e "/^$key/ s/.*/$key$user/g" $servicefile
+sudo sed -i -e "/^$key/ s/.*/$key$user/" $servicefile
 
 sudo chown root:root volumelms2cdsp.service
 sudo chmod 755 volumelms2cdsp.service 

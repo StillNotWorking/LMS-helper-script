@@ -42,12 +42,7 @@ cd ~/ && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-scrip
 
 ```
 
-**Less Loss** version can be installed using these commands
-```bash
-cd ~/ && wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2llcdsp.sh && bash ./installvolumelms2llcdsp.sh
-
-
-```
+**Less Loss** version can be selected while installing the daemon.
 
 Install script can be read [here ](https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2cdsp.sh)
 
@@ -56,7 +51,7 @@ Make sure the player volume are locked to 100% and Material Skin setting under `
 <img src="mssetting.jpg" style="width:48%">
 
 ## Find version
-`head -6 /usr/bin/volumelms2cdsp` will show version installed
+`head -6 /camilladsp/bin/volumelms2cdsp` will show version installed
 
 ## Stop or disable VolumeLMS2CDSP
 ```bash
@@ -75,11 +70,12 @@ To manually remove the install follow these steps:
 ```bash
 sudo systemctl stop volumelms2cdsp
 sudo systemctl disable volumelms2cdsp
-sudo rm /usr/bin/volumelms2cdsp
+sudo rm /camilladsp/bin/volumelms2cdsp
 sudo rm /etc/systemd/system/volumelms2cdsp.service
 sudo systemctl daemon-reload
 
 # If support for telnet are no longer needed in Phython
+# note: from v0.0.3 installation we run from venv inside camilldsp directory
 sudo pip uninstall telnetlib3
 
 ```
