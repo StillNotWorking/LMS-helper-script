@@ -277,7 +277,8 @@ if [[ "$volume" =~ ^([yY])$ ]]; then
     cd $INSTALL_ROOT/temp
     echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2cdsp.sh"
     curl -LJO https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/installvolumelms2cdsp.sh
-    source $INSTALL_ROOT/temp/installvolumelms2cdsp.sh
+    # run in its own thread as it has option to exit
+    /bin/bash $INSTALL_ROOT/temp/installvolumelms2cdsp.sh
     rm $INSTALL_ROOT/temp/installvolumelms2cdsp.sh
 fi
 
@@ -292,7 +293,7 @@ if sudo systemctl is-active --quiet camilladsp ; then
     echo '  Check if CamillaDSP is running: OK'
 else
     echo '  Check if CamillaDSP is running: FAIL'
-    echo "    Possible reason are missing entry in $INSTALL_ROOT/statefile.yml. From web UI first click tab Files, then click a Star in front of any of the files to activate it. This will update the statefile'
+    echo "    Possible reason are missing entry in $INSTALL_ROOT/statefile.yml. From web UI first click tab Files, then click a Star in front of any of the files to activate it. This will update the statefile"
 fi
 if sudo systemctl is-active --quiet camillagui ; then
     echo '  Check if CamillaGUI is running: OK'
@@ -301,7 +302,7 @@ else
 fi
 echo '--------------------------------------'
 
-# cleanup: delete everything inside temp directory
+echo "Cleanup - Delete everything inside $INSTALL_ROOT/temp directory"
 rm $INSTALL_ROOT/temp/*
 
 echo ''
