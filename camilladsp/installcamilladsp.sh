@@ -184,13 +184,13 @@ fi
 key='config_dir: '
 sed -i -e "/^$key/ s|~/camilladsp|$INSTALL_ROOT|" $conffile
 key='coeff_dir: '
-sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
+sed -i -e "/^$key/ s|~/camilladsp|$INSTALL_ROOT|" $conffile
 key='default_config: '
-sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
+sed -i -e "/^$key/ s|~/camilladsp|$INSTALL_ROOT|" $conffile
 key='statefile_path:'
-sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
+sed -i -e "/^$key/ s|~/camilladsp|$INSTALL_ROOT|" $conffile
 key='log_file: '
-sed -i -e "/^$key/ s|~|$INSTALL_ROOT|" $conffile
+sed -i -e "/^$key/ s|~/camilladsp|$INSTALL_ROOT|" $conffile
 
 # download and configure camillagui.service
 echo "Download: https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/camillagui.service"
