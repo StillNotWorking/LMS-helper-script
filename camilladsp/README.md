@@ -30,8 +30,10 @@ Configuration files for CamillaDSP version 2 are not compatible with previous ve
 + Installation directory can optionally be given as argument. Else default to logged-in users home directory as before.
 + Changed from wget to curl to keep visualizen more uniform with HEs script.
 + Option to upgrade to now official Squeezelite v2.0.0.1465, Debian package are currently at 1.9.9
+
 ***New in version 2.0.3***
 + CamillaDSP v2.0.3
+
 ***New in version 2.0.1a***
 + Now detect previous install done with current and earlier revision of this script and opt to keep existing CamillaDSP v2 congirurations/filters and coefficients. Keep in mind script still install and start CamillaDSP with at known functioning configuration where output are set to headphone jack.
 + Now automatically edit service files to reflect logged-in user. No need for manually editing.
