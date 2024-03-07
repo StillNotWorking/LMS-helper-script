@@ -9,38 +9,24 @@ if sudo systemctl is-active --quiet volumelms2cdsp ; then
     sudo systemctl stop volumelms2cdsp;
 fi
 
-# uninstall and remove
-if [[ "$1" == "--remove" ]] || [[ "S1" == "--uninstall" ]]; then
-    read -p "Do you want to uninstall and remove VolumeLMS2CDSP? (Y/n): " confirm
-    if [[ $confirm == [n] ]]; then exit 0; fi
-    sudo systemctl disable volumelms2cdsp
-    sudo rm /usr/bin/volumelms2cdsp
-    sudo rm /etc/systemd/system/volumelms2cdsp.service
-    sudo systemctl daemon-reload
-    sudo pip uninstall telnetlib3
-    exit 0
-fi
-
 echo ''
 echo 'This will install a daemon to control volume on CamillaDSP from LMS web UI'
 echo 'Which version do you want to install?'
 echo '  1: Standard'
 echo '  2: LessLoss'
-echo '  3: Exit without install'
+echo '  3: Remove (uninstall)'
+echo '  4: Exit without install'
 
 while true; do
-    read -p 'Please select 1-3' confirm
+    read -p 'Please select 1-4: ' confirm
     case $confirm in
         [1]* ) fname="volumelms2cdsp.py"; break;;
         [2]* ) fname="volumelms2llcdsp.py"; break;;
-        [3]* ) exit 0;;
-        * ) echo 'Please select 1-3';;
+        [3]* ) remove="True"; break;;
+        [4]* ) exit 0;;
+        * ) echo 'Please select 1-4: ';;
     esac
 done
-
-if [[ $confirm == [1] ]] ; then fname="volumelms2cdsp.py"; fi
-if [[ $confirm == [2] ]] ; then fname="volumelms2llcdsp.py"; fi
-if [[ $confirm == [3] ]] ; then exit 0; fi
 
 # we make use of Python virtual env installed with CamillaDSP
 if test -d ~/camilladsp; then
@@ -54,6 +40,18 @@ else
     fi
 fi
 
+# uninstall and remove
+if [[ "$remove" == "True" || "$1" == "--remove" ]] || [[ "S1" == "--uninstall" ]]; then
+    read -p "Do you want to uninstall and remove VolumeLMS2CDSP? (Y/n): " confirm
+    if [[ $confirm == [n] ]]; then exit 0; fi
+    sudo systemctl disable volumelms2cdsp
+    sudo rm $INSTALL_ROOT/bin/volumelms2cdsp
+    sudo rm /etc/systemd/system/volumelms2cdsp.service
+    sudo systemctl daemon-reload
+    sudo $INSTALL_ROOT/camillagui_venv/bin/pip3 uninstall telnetlib3
+    exit 0
+fi
+
 # download files
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/$fname
 wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/camilladsp/volume_from_lms/volumelms2cdsp.service
@@ -64,7 +62,7 @@ if [[ "$fname" == "volumelms2llcdsp.py" ]]; then
 fi
 
 # install dependency into CamillaDSPs virtual Python environment
-sudo /home/pi/camilladsp/camillagui_venv/bin/pip3 install telnetlib3
+sudo $INSTALL_ROOT/camillagui_venv/bin/pip3 install telnetlib3
 
 echo ''
 echo 'Script will try to automatically resolve the following information:'
