@@ -11,12 +11,12 @@ https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin#read
 ### materialskin
 Add custom menus to Material Skin to run bash commands on local and remote computers 
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin
-#### scaling_governor.sh
-scale CPU speed based on current time. Run as cron job hourly we can lock high CPU speed and quick response at daytime. And save power and enhance longevity to our RPI at night.
+### scaling_governor.sh
+Scale CPU speed based on current time. Run as cron job hourly we can lock high CPU speed and quick response at daytime. And save power and enhance longevity to our RPI at night.
 ### mountdrive.sh
-let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
+Let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
 ### mountdrive-0.0.3_all.deb
-same as above ready to install on RPi-OS (Debian)
+Same as above ready to install on RPi-OS (Debian)
 *tip: copy all text including last empty line and paste into terminal before hitting enter*
 ```bash
 wget 'https://github.com/StillNotWorking/LMS-helper-script/raw/main/mountdrive-0.0.3_all.deb'
@@ -30,12 +30,12 @@ sudo mountdrive
 When <i>deb</i> files are downloaded manually and user later want to install the file using `apt` it will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
  - `./` means <i>this directory</i>.
 ### lms_bash_aliases.txt
-are several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] logitechmediaserver'*, plus a few shortcuts to directories used by lms.
+Are several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] logitechmediaserver'*, plus a few shortcuts to directories used by lms.
 
 [Read how to implement these aliases](https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md)
 
 ### cover.html
-are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
+Are an exsample how to make custom visualization for any LMS player using html and java. Think lcd screen in a pickture frame and so on.
 
 Possible better solution today would be to use Material Skins layout and action parameters
 `http://192.168.1.3:9000/material/?layout=desktop&action=expandNowPlaying/true`
@@ -43,7 +43,7 @@ Possible better solution today would be to use Material Skins layout and action 
 Material Skin manual https://github.com/CDrummond/lms-material/wiki/03-Actions
 
 ### .bashrc
-change color on command prompt to help different multiple RPi terminals. Overwrite existing `~/.bashrc` in user home directory.
+Change color on command prompt to help different multiple RPi terminals. Overwrite existing `~/.bashrc` in user home directory.
 Will also enable aliases `la` 'ls -lhA' `ll` 'ls -lh' and `l` 'ls -CF'
 
 Like to temporary test new settings copy & paste line below. Log out and in to remove. Or first save `PS1` to a variable as shown in screen dump below.
