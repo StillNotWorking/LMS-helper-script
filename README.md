@@ -11,6 +11,8 @@ https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin#read
 ### materialskin
 Add custom menus to Material Skin to run bash commands on local and remote computers 
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin
+#### scaling_governor.sh
+scale CPU speed based on current time. Run as cron job hourly we can lock high CPU speed and quick response at daytime. And save power and enhance longevity to our RPI at night.
 ### mountdrive.sh
 let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
 ### mountdrive-0.0.3_all.deb
