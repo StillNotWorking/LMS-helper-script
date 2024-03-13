@@ -6,6 +6,8 @@ When Squeezelite is playing the CPU scaling governor are changed to ´performanc
 ### Why would we want to use it?
 If you believe stable CPU speed can impact audio quality this daemon give you the option to lock CPU to high speed only when audio is playing. And then fall back tok ´ondemand´, — saving energy and add longevity to the RPi when the music stop.
 ### How to install
+Script should be installed on the RPi running Squeezelite.
+
 Python need the ´telnetlib3´ client to function.
 
 First try ´pip install telnetlib3´
