@@ -13,6 +13,9 @@ Add custom menus to Material Skin to run bash commands on local and remote compu
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin
 ### scaling_governor.sh
 Scale CPU speed based on current time. Run as cron job hourly we can lock high CPU speed and quick response at daytime. And save power and enhance longevity to our RPI at night.
+### cpuspeeed.py
+Adjust CPU speed based on whenever Squeezelite is playing or paused
+https://github.com/StillNotWorking/LMS-helper-script/tree/main/cpuspeed
 ### mountdrive.sh
 Let user easily add USB storage devices to RPi-OS by listing detected devices and automatically configure <i>fstab</i> for item selected by user for instant access. Drive (*partition*) will then mount automatic at next boot.<sup>1</sup>
 ### mountdrive-0.0.3_all.deb
