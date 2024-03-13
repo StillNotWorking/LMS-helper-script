@@ -1,0 +1,23 @@
+# path: /etc/systemd/system/cpuspeed.service
+[Unit]
+Description=Change CPU scaling governor depending on play status of Squeezelite
+After=syslog.target
+StartLimitIntervalSec=10
+StartLimitBurst=10
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/bin/cpuspeed da:32:40:ff:df:a2 192.168.10.10 9090
+Restart=always
+RestartSec=1
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cpuspeed
+User=root
+Group=root
+CPUSchedulingPolicy=fifo
+CPUSchedulingPriority=10
+
+[Install]
+#WantedBy=graphical.target
+WantedBy=multi-user.target
