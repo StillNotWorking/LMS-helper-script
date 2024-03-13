@@ -3,7 +3,7 @@
 # path: /etc/cron.hourly 
 # sudo chmod 755 <filename>
 
-hour=$(date +%H)
+hour=$(date +%-H)
 
 if ((9 <= $hour <= 23)); then
     sudo sh -c "echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
