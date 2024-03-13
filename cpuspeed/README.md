@@ -15,7 +15,7 @@ If you do it like this you should also use the python executable from here rathe
 
 With ´telnetlib3´ in place the script can be tested
 
-cpuspeed <squeezelite player mac address> <lms server ip address> <lms server port>
+cpuspeed [squeezelite player mac address] [lms server ip address] [lms server port]
 
 cpuspeed da:32:40:ff:df:a2 192.168.10.10 9090
 
