@@ -5,7 +5,7 @@
 
 hour=$(date +%-H)
 
-if (($hour >= 9 && $hour <= 22)))); then
+if (($hour >= 9 && $hour <= 22)); then
     sudo sh -c "echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 else
     sudo sh -c "echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
