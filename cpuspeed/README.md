@@ -15,6 +15,8 @@ If this fail and you have CamillaDSP installed one possibility is to use its vir
 ´~/camilladsp/camillagui_venv/bin/pip3 install telnetlib3´
 If you do it like this you should also use the python executable from here rather than the ususal ´/usr/bin/python´
 
+Information on changes for Python install from Bookworm onwards read here: https://www.raspberrypi.com/documentation/computers/os.html#python-on-raspberry-pi
+
 With ´telnetlib3´ in place the script can be tested
 
 cpuspeed [squeezelite player mac address] [lms server ip address] [lms server port]
