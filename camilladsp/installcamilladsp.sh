@@ -1,5 +1,5 @@
 #!/bin/bash
-# 2.1.1 - https://github.com/StillNotWorking/LMS-helper-script
+# 2.1.2 - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64-bit, should work on most Debian style distros
 # From v2.1.1 now use official install script but also add alsa loopback,
 #   daemon and startup configuration with demo filter configuration
