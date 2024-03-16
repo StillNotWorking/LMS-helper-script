@@ -88,7 +88,7 @@ if [[ ! "$os" =~ ^([nN])$ ]]; then
 fi
 
 echo '****** Install Squeezelite and backend dependencies ******'
-sudo apt install squeezelite git
+sudo apt install squeezelite git python3-venv
 
 # Squeezelite configuration
 cd
