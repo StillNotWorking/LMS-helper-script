@@ -14,7 +14,7 @@
 #   /etc/asound.conf
 
 # version number for Henriks full venv install:
-full_install_version="v2.1.1"
+full_install_version="v2.1.2"
 
 # latest Sqeezelite update
 sqliteversion="squeezelite-2.0.0.1465-aarch64.tar.gz"
