@@ -60,6 +60,6 @@ Memory seem to be allocated dynamicly on RPI-OS. Where large RAM-disk size doesn
 
 ---------------------------------------------------------------
 
-<sup>1</sup>v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
+<sup>1  </sup>v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
 
 *Developed and tested on RPi5 8GB, RPi-OS Lite 64-bit*
