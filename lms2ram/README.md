@@ -22,7 +22,7 @@ Test show that CPU speed can matter as to how responsive the web GUI feels. Ther
 On the LMS server download script to your home directory. Run script with the -v argument to get to know how it works.
 
 ```bash
-wget https://github.com/StillNotWorking/LMS-helper-script/tree/main/lms2ram/lms2ram.sh
+wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/main/lms2ram/lms2ram.sh
 
 # better safe than sorry - make a backup
 sudo cp -rp /var/lib/squeezeboxserver/cache /var/lib/squeezeboxserver/cache-BACKUP
