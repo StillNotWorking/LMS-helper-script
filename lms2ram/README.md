@@ -16,7 +16,7 @@ A RAM disk is first mounted. Then the `cache` directory is copied over to RAM an
 
 [Inotifywait](https://linux.die.net/man/1/inotifywait) is used to track which files are createt or updated on the RAM drive. When the script receive exit signal from the system those files are copied back to the µSD card — if they still exist after LMS daemon first is stopped.
 
-Test show that CPU speed can matter for how responcive the web GUI feels. Therefore script will by default alter CPU scaling governor to `performance`. Can be disabled with the `-c` argument.
+Test show that CPU speed can matter as to how responsive the web GUI feels. Therefore script will by default alter CPU scaling governor to `performance`. Can be disabled with the `-c` argument.
 
 ### How to install and use
 On the LMS server download script to your home directory. Run script with the -v argument to get to know how it works.
