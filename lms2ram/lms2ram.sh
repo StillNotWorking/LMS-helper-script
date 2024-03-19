@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Move cache directory with LMS SQLite files and plugins to RAM-disk
+# v0.0.2 - 2024.03.18 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+#
 # Usage: RAM disk size in MB, defaul to +20 of directory if missing
 #        -v verbose -c disable CPU clock scaling
 #
@@ -18,7 +20,7 @@
 # RAM-disk size doesn't seem to block rest of the memory if there 
 # aren't any actually files there to use up the space allocated.
 #
-# v0.0.1 - 2024.03.18 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+
 
 # copy this directory to RAM-disk and monitor with inotifywait
 directory="/var/lib/squeezeboxserver/cache"
@@ -211,6 +213,11 @@ function remove_ramdisk() {
 }
 
 function copy_files(){
+
+    # normally we would write and exit as fast as possible
+    # wait for 1.5 second could avoid corrupting the file system
+    # if exit signal is sent due to power failure
+    sleep 1.5 
 
     _filecount=0
 
