@@ -14,7 +14,7 @@ sudo dd of=/dev/zero if=/var/lib/squeezeboxserver/delete_me bs=4K count=2K
 ### How does i work?
 A RAM disk is first mounted. Then the `cache` directory is copied over to RAM and with a symbolic link LMS can now read and write to memory rather than the µSD card.
 
-[Inotifywait](https://linux.die.net/man/1/inotifywait) is used to track which files are createt or updated on the RAM drive. When the script receive exit signal from the system those files are copied back to the µSD card — if they still exist after LMS daemon first is stopped.
+[Inotifywait](https://linux.die.net/man/1/inotifywait) is used to track which files are createt or updated on the RAM drive. When the script receive exit signal<sup>1</sup> from the system those files are copied back to the µSD card — if they still exist after LMS daemon first is stopped.
 
 Test show that CPU speed can matter as to how responsive the web GUI feels. Therefore script will by default alter CPU scaling governor to `performance`. Can be disabled with the `-c` argument.
 
@@ -58,5 +58,8 @@ Default RAM disk size is calculated from directory size +20%. This can be way to
 
 Memory seem to be allocated dynamicly on RPI-OS. Where large RAM-disk size doesn't seem to block rest of the memory if there aren't any actually files there to use up the space allocated.
 
+---------------------------------------------------------------
+
+<sup>1</sup>v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
 
 *Developed and tested on RPi5 8GB, RPi-OS Lite 64-bit*
