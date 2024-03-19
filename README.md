@@ -11,6 +11,9 @@ https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin#read
 ### materialskin
 Add custom menus to Material Skin to run bash commands on local and remote computers 
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin
+### material skin snappiness
+Run LMS cache directory from a RAM disk
+https://github.com/StillNotWorking/LMS-helper-script/tree/main/lms2ram#run-lms-cache-directory-from-ram-drive
 ### scaling_governor.sh
 Scale CPU speed based on current time. Run as cron job hourly we can lock high CPU speed and quick response at daytime. And save power and enhance longevity to our RPI at night.
 ### cpuspeeed.py
