@@ -54,6 +54,6 @@ sudo nano /etc/crontab
 
 <span style="color:red; font-weight:bold;">WARNING</span> - Undersized RAM-disk size can cause system crash
 
-Default RAM disk size is calculated from directory size +20%. This can be way to small if program is run before scanning new local or remote music archive. A collection of 4500 albums could take up approximately 1850MB. Just add the size you need in MB as argument if this could be problem `lms2ram.sh 2048` This creates a 2GB RAM-disk
+Default RAM disk size is calculated from directory size +20%. This can be way to small if program is run before scanning new local or remote music archive. A collection of 4500 albums could take up approximately 1850MB. Simply add the size you need in MB as argument if this should be an issue `lms2ram.sh 2048` would create a 2GB RAM-disk
 
 Memory seem to be allocated dynamicly on RPI-OS. Where large RAM-disk size doesn't seem to block rest of the memory if there aren't any actually files there to use up the space allocated.
