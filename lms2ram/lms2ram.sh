@@ -214,14 +214,14 @@ function remove_ramdisk() {
 
 function copy_files(){
 
+    [ $DEBUG ] && echo 'Copy new and changed files from RAM-disk back to storage'
+
     # normally we would write and exit as fast as possible
     # wait for 1.5 second could avoid corrupting the file system
     # if exit signal is sent due to power failure
     sleep 1.5 
 
     _filecount=0
-
-    [ $DEBUG ] && echo 'Copy new and changed files from RAM-disk back to storage'
 
     if test -d $passivedirname
     then
