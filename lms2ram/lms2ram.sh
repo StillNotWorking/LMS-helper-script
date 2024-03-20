@@ -487,5 +487,4 @@ do
 done < <(inotifywait -mqr -e modify,create,delete $directory --format %w%f --exclude $ex)
 
 # we should never get here
-do_before_exit
 exit 1
