@@ -39,7 +39,7 @@ bash ./lms2ram.sh -h
 
 Current revision the script will not backup files while running — only at exit. One possible mitigation for this could be to run a cron job to stop and then reload the scrip a few seconds later. Please note this will restart LMS twise and possible stop any music stream.
 
-While script can run as a service it might be better to have crontab start it in the hours the music server are in active use. Then stop it at nightime. This due to we also control CPU speed and power saving when system not in use might be beneficial. Remember LMS will function as normal, any practical changes here are how snappy the GUI feels.
+While script can run as a service it might be better to have crontab start it in the hours the music server are in active use. Then stop it at nightime. This is the preferred option as we also control CPU speed and power saving when system not in use might be beneficial. Remember LMS will function as normal, any practical changes here are how snappy the GUI feels.
 ```bash
 # stop the script from another script or crontab
 pgrep -f "lms2ram.sh" | xargs kill -TERM
@@ -65,7 +65,7 @@ If you system at any time start behaving strange. Functionality in plugins etc s
 ---------------------------------------------------------------
 
 <sup>1</sup> v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
-  v0.0.3 changed what exit signal it listen for
-  v0.0.4 addet `-r` parameter where nothing is written back to storage when program exit
+  v0.0.3 changed which exit signals program listen for
+  v0.0.4 added `-r` parameter where nothing is written back to storage when program exit
   
 *Developed and tested on RPi5 8GB, RPi-OS Lite 64-bit*
