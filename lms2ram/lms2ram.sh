@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Move cache directory with LMS SQLite files and plugins to RAM-disk
-# v0.0.3 - 2024.03.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+# v0.0.3 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
 #
 # Usage: RAM disk size in MB, defaul to +20 of directory if missing
 #        -v verbose -c disable CPU clock scaling
@@ -44,12 +44,13 @@ prevgov=$(sudo cat /sys/devices/system/cpu/cpufreq/policy0/scaling_governor)
 
 if [[ $arguments =~ h ]]
 then
-    echo "$0 {size} RAM-disk size in MB. If size not given"
-    echo "     default to 20% larger that $directory"
-    echo "    -c --cpu      do not alter CPU clock with scaling governor"
-    echo "    -h --help     this text"
-    echo "    -t --test     write read speed"
-    echo "    -v --verbose"
+    echo "$(basename $0) {size} RAM-disk size in MB. When size is unspecified"
+    echo "     default to 20% larger than $directory size"
+    echo "    -c | cpu      do not alter CPU clock with scaling governor"
+    echo "    -h | help     this text"
+    echo "    -r | read     all changes on the cashe directory are lost when program exit" 
+    echo "    -t | test     write read speed"
+    echo "    -v | verbose"
     exit 0
 fi
 
@@ -102,44 +103,44 @@ function check_unclean_exit(){
     # revert back directory name and remove symlink
     if mountpoint -q $ramdiskpath
     then
-        [ $DEBUG ] && echo "CLEANUP - Unmount $ramdiskpath"
+        [ $DEBUG ] && echo "CLEANUP: Unmount $ramdiskpath"
         sudo umount lmsramdisk
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Not able to unmount $ramdiskpath"
+            [ $DEBUG ] && echo "ERROR $?: Not able to unmount $ramdiskpath"
             exit 1
         fi
     fi
 
     if [ -d $ramdiskpath ]
     then
-        [ $DEBUG ] && echo "CLEANUP - Remove mount point $ramdiskpath"
+        [ $DEBUG ] && echo "CLEANUP: Remove mount point $ramdiskpath"
         sudo rm -rf $ramdiskpath
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Could not delete mount point directory"
+            [ $DEBUG ] && echo "ERROR $?: Could not delete mount point directory"
             exit $?
         fi
     fi
 
     if [ -L $directory ]
     then 
-        [ $DEBUG ] && echo 'CLEANUP - Unlink $directory'
+        [ $DEBUG ] && echo 'CLEANUP: Unlink $directory'
         sudo unlink $directory
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Unlink failed: $directory"
+            [ $DEBUG ] && echo "ERROR $?: Unlink failed: $directory"
             exit $?
         fi
     fi
 
     if [ -d $passivedirname ]
     then
-        [ $DEBUG ] && echo "CLEANUP - Renaming $passivedirname to $directory"
+        [ $DEBUG ] && echo "CLEANUP: Renaming $passivedirname to $directory"
         sudo mv $passivedirname $directory
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Not able to rename $passivedirname"
+            [ $DEBUG ] && echo "ERROR $?: Not able to rename $passivedirname"
             exit $?
         fi
     fi
@@ -150,7 +151,7 @@ function create_ramdisk() {
 
     if ! test -d $ramdiskroot
     then
-        [ $DEBUG ] && echo "ERROR - Check if directory $ramdiskroot exist"
+        [ $DEBUG ] && echo "ERROR: Check if directory $ramdiskroot exist"
         exit 1
     fi
 
@@ -158,19 +159,19 @@ function create_ramdisk() {
     sudo mkdir $ramdiskpath
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo "ERROR $? - Not able to create directory $ramdiskpath"
+        [ $DEBUG ] && echo "ERROR $?: Not able to create directory $ramdiskpath"
         exit $?
     else
         sudo chown squeezeboxserver:nogroup $ramdiskpath
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Not able to change owner of $ramdiskpath"
+            [ $DEBUG ] && echo "ERROR $?: Not able to change owner of $ramdiskpath"
         fi
 
         sudo chmod 775 $ramdiskpath
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Not able to change access permissions for $ramdiskpath"
+            [ $DEBUG ] && echo "ERROR $?: Not able to change access permissions for $ramdiskpath"
         fi
     fi
 
@@ -181,7 +182,7 @@ function create_ramdisk() {
     sudo mount -t tmpfs -o size=$ramsizeM lmsramdisk $ramdiskpath 
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo "ERROR $? - Could not mount RAM-disk"
+        [ $DEBUG ] && echo "ERROR $?: Could not mount RAM-disk"
         exit $?
     fi
 
@@ -198,16 +199,16 @@ function remove_ramdisk() {
         sudo umount lmsramdisk
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR - Could not umount 'lmsramdisk'"
+            [ $DEBUG ] && echo "ERROR: Could not umount 'lmsramdisk'"
         fi
 
         sudo rm -r $ramdiskpath
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR - Not able to remove directory $ramdiskpath"
+            [ $DEBUG ] && echo "ERROR: Not able to remove directory $ramdiskpath"
         fi
     else
-        [ $DEBUG ] && echo "ERROR - $ramdiskpath is not a mount point"
+        [ $DEBUG ] && echo "ERROR: $ramdiskpath is not a mount point"
     fi
 
 }
@@ -218,7 +219,7 @@ function copy_files(){
 
     # normally we would write and exit as fast as possible
     # wait for 1.5 second could avoid corrupting the file system
-    # if exit signal is sent due to power failure
+    # if exit signal by some change is sent due to power failure
     sleep 1.5 
 
     _filecount=0
@@ -255,7 +256,7 @@ function do_before_exit() {
         sudo systemctl -q stop logitechmediaserver
         if [ $? -ne 0 ]
         then        
-            [ $DEBUG ] && echo 'ERROR - Failed stopping LMS, temporary files might still be open'
+            [ $DEBUG ] && echo 'ERROR: Failed stopping LMS, temporary files might still be open'
         else
             [ $DEBUG ] && echo 'Sleep 0.2 seconds, give LMS some time to clean up temporary files'
             sleep 0.2
@@ -265,7 +266,10 @@ function do_before_exit() {
     newfilecount=$(sudo find $ramdiskpath/$directorybasename -type f,d,l | wc -l)
     [ $DEBUG ] && echo "Start filecount: $filecount  -  End filecount: $newfilecount"
 
-    copy_files
+    if [[ ! $arguments =~ r ]]
+    then
+        copy_files
+    fi
 
     # careful not to delete anything we shouldn't we check if directory 
     # actually is a symlink, and if the renamed directory exist
@@ -275,13 +279,13 @@ function do_before_exit() {
         sudo unlink $directory
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR - Failed removing symbolic link $directory"
+            [ $DEBUG ] && echo "ERROR: Failed removing symbolic link $directory"
         fi
         [ $DEBUG ] && echo "Change directory name back to original: $directory"
         sudo mv $passivedirname $directory
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR - Failed renaming $passivedirname"
+            [ $DEBUG ] && echo "ERROR: Failed renaming $passivedirname"
         fi
     fi
 
@@ -289,7 +293,7 @@ function do_before_exit() {
     sudo systemctl -q start logitechmediaserver
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo 'ERROR - Failed starting Logitech Media Server'
+        [ $DEBUG ] && echo 'ERROR: Failed starting Logitech Media Server'
         [ $DEBUG ] && echo "try 'sudo systemctl start logitechmediaserver'"
     fi
 
@@ -301,7 +305,7 @@ function do_before_exit() {
         sudo sh -c "echo $prevgov > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
         if [ $? -ne 0 ]
         then
-             $DEBUG ] && echo "ERROR - Failed setting back CPU scaling governor to $prevgov"
+             $DEBUG ] && echo "ERROR: Failed setting back CPU scaling governor to $prevgov"
         fi
     fi
 
@@ -327,7 +331,7 @@ function initiate_program() {
     sudo systemctl -q stop logitechmediaserver
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo "ERROR - Failed stopping LMS"
+        [ $DEBUG ] && echo "ERROR: Failed stopping LMS"
     else
         sleep 0.1  # give LMS some time to delete temporary files
     fi
@@ -344,7 +348,7 @@ function initiate_program() {
         sudo cp -rp $directory $ramdiskpath
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR $? - Failed copy $directory to RAM-disk"
+            [ $DEBUG ] && echo "ERROR $?: Failed copy $directory to RAM-disk"
             exit $?
         else
             [ $DEBUG ] && echo "Verify file and directory count:"
@@ -358,14 +362,14 @@ function initiate_program() {
             fi
         fi
     else
-        [ $DEBUG ] && echo "ERROR - Could not copy content. $ramdiskpath is not a mount point"
+        [ $DEBUG ] && echo "ERROR: Could not copy content. $ramdiskpath is not a mount point"
     fi
 
     [ $DEBUG ] && echo "Change name of original $directory to $passivedirname"
     sudo mv -b $directory $passivedirname
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo "ERROR $? - Failed changing directory name"
+        [ $DEBUG ] && echo "ERROR $?: Failed changing directory name"
         exit $?
     fi
 
@@ -373,13 +377,13 @@ function initiate_program() {
     sudo ln -s $ramdiskpath/$directorybasename $directory
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo "ERROR - Could not create symlink $directory"
+        [ $DEBUG ] && echo "ERROR: Could not create symlink $directory"
         exit $?
     else
         sudo chown -h squeezeboxserver:nogroup $directory
         if [ $? -ne 0 ]
         then
-            [ $DEBUG ] && echo "ERROR - Failed changing owner of symlink $directory"
+            [ $DEBUG ] && echo "ERROR: Failed changing owner of symlink $directory"
         fi
     fi
 
@@ -396,7 +400,7 @@ delay_lms_startup() {
     sudo systemctl -q start logitechmediaserver
     if [ $? -ne 0 ]
     then
-        [ $DEBUG ] && echo 'ERROR - Failed starting LMS from RAM-disk'
+        [ $DEBUG ] && echo 'ERROR: Failed starting LMS from RAM-disk'
     fi
 
 }
@@ -443,7 +447,7 @@ check_unclean_exit
 
 if [ ! -d $directory ]
 then
-    [ $DEBUG ] && echo "ERROR - Not able to solve problem with missing $directory"
+    [ $DEBUG ] && echo "ERROR: Not able to solve problem with missing $directory"
     exit 1
 fi
 
@@ -484,6 +488,7 @@ do
             echo "$line  (${#fnames[@]})"
         fi
     fi
+
 done < <(inotifywait -mqr -e modify,create,delete $directory --format %w%f --exclude $ex)
 
 # we should never get here
