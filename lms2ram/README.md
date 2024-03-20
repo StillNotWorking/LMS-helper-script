@@ -65,7 +65,9 @@ If you system at any time start behaving strange. Functionality in plugins etc s
 ---------------------------------------------------------------
 
 <sup>1</sup> v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
+
   v0.0.3 changed which exit signals program listen for
+
   v0.0.4 added `-r` parameter where nothing is written back to storage when program exit
   
 *Developed and tested on RPi5 8GB, RPi-OS Lite 64-bit*
