@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Move cache directory with LMS SQLite files and plugins to RAM-disk
-# v0.0.2 - 2024.03.18 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+# v0.0.3 - 2024.03.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
 #
 # Usage: RAM disk size in MB, defaul to +20 of directory if missing
 #        -v verbose -c disable CPU clock scaling
@@ -437,8 +437,7 @@ function run_dd_speedtest() {
 }
 
 # try do a graceful exit when receiving signal
-# SIGINT SIGTERM SIGQUIT SIGABRT SIGTERM
-trap 'do_before_exit' 1 2 3 6 15
+trap 'do_before_exit' SIGINT SIGTERM
 
 check_unclean_exit
 
