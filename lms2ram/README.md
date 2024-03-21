@@ -18,7 +18,7 @@ A RAM disk is first mounted. Then the `cache` directory is copied over to RAM an
 
 There is an option `-r` not to write back to storage. This will initiate the LMS in the same manner as it was last run while operating in normal mode.
 
-Test show that CPU speed can matter as to how responsive the web GUI feels. Therefore script will by default alter CPU scaling governor to `performance`. Can be disabled with the `-c` argument.
+Tests indicate that the responsiveness of the web GUI can be influenced by RPi CPU speed. Therefore, the script will automatically adjust the CPU scaling governor to 'performance' unless disabled using the -c argument.
 
 ### How to install and use
 On the LMS server download script to your home directory. Run script with the -v argument to get to know how it works.
