@@ -104,6 +104,7 @@ Although this is generally not an issue, it's prudent to be mindful when the scr
 
 There are several methods to address this problem, with one usually not requiring additional installation.
 [`nohup`](https://www.gnu.org/software/coreutils/nohup) runs the given command with hangup signals ignored, so that the command can continue running in the background after you log out.
+
 Output will normally go to file `nohup.out`. If we require the ability to read the output we can use [`tail -f nohup.out`](https://www.gnu.org/software/coreutils/tail). The limitation with this solution is the inability to interact directly with the application. Stopping the application would then require logging into the machine from another SSH session and executing `pgrep -f "appname" | xargs kill -TERM`. Or use [`htop`](https://htop.dev/) to find and stop the application. 
 
 Better solution could possible be to use a dedicated SSH client software that better handles interruptions.
