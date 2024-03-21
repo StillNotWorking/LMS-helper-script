@@ -62,7 +62,7 @@ Memory seem to be allocated dynamicly on RPI-OS. Where large RAM-disk size doesn
 [Please be aware of the potential risks](https://github.com/StillNotWorking/LMS-helper-script/tree/main#when-ssh-can-get-you-into-trouble) associated with running an SSH session for scripts that copy files to storage devices.
 
 ### A suggested course of action if something stops functioning
-If you system at any time start behaving strange. Functionality in plugins etc stop working as intended. Please test if things fall into place by **not** running this script before attempting to get help from those developers involved with the thing thats no longer working.
+If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, please verify if things align as expected without executing this script.
 
 ---------------------------------------------------------------
 
