@@ -97,6 +97,18 @@ We often see guidance to runs script with `./[scriptname]`.
 `./` meens *this directory* and are used to different the local script rather than similar named system command. You might see the logic behind this if you followed the guide how to make your script a system command by moving it to the /bin directory.
 There is also another logic in work here as there are no need for the bash command as the system will read the first comment in the script '#!/bin/bash' to determine what script engine to use with the script. Hence the file extention are not needed.
 
+### When SSH can get you into trouble
+One important consideration when managing a headless Linux computer via SSH is to understand that any processes or scripts initiated within that session will typically terminate as well when the SSH session is closed.
+![htop process three](/img/processthree.jpg)
+Although this is generally not an issue, it's prudent to be mindful when the script or application in question involves writing to storage devices. Despite the expectation that the SSH process sends a SIGHUP to open applications, I've encountered instances of filesystem corruption when the SSH session unexpected terminate due to power saving on client side.
+
+There are several methods to address this problem, with one usually not requiring additional installation.
+[`nohup`](https://www.gnu.org/software/coreutils/nohup) runs the given command with hangup signals ignored, so that the command can continue running in the background after you log out.
+Output will normally go to file `nohup.out`. If we require the ability to read the output we can use [`tail -f nohup.out`](https://www.gnu.org/software/coreutils/tail). The limitation with this solution is the inability to interact directly with the application. Stopping the application would then require logging into the machine from another SSH session and executing `pgrep -f "appname" | xargs kill -TERM`. Or use [`htop`](https://htop.dev/) to find and stop the application. 
+
+Better solution could possible be to use a dedicated SSH client software that better handles interruptions.
+> Both [`screen`](https://savannah.gnu.org/projects/screen) and [`tmux`](https://tmux.github.io/) are client-side applications. They allow you to manage multiple terminal sessions within a single SSH connection. When you run screen or tmux on an SSH session, you're essentially creating a virtual terminal session that persists even if the SSH connection is terminated. This enables you to interact with applications running on the server side in a detached state.
+
 ---------------------------------------------------------------
 
 <sup>1</sup> Technically the script are not mounting a drive but rather help user to mount a partition living on the physical drive. There can be multiple partition on the drive where system list the physical drive as sd(a-z) and partitions as sd(a-z)(#).
