@@ -14,7 +14,9 @@ sudo dd of=/dev/zero if=/var/lib/squeezeboxserver/delete_me bs=4K count=2K
 ### How does i work?
 A RAM disk is first mounted. Then the `cache` directory is copied over to RAM and with a symbolic link LMS can now read and write to memory rather than the µSD card.
 
-[Inotifywait](https://linux.die.net/man/1/inotifywait) is used to track which files are createt or updated on the RAM drive. When the script receive exit signal<sup>1</sup> from the system those files are copied back to the µSD card — if they still exist after LMS daemon first is stopped. There is an option `-r` not to write back to storage. This will start LMS as it where last time it where ran in normal mode. 
+[Inotifywait](https://linux.die.net/man/1/inotifywait) is used to track which files are createt or updated on the RAM drive. When the script receive exit signal<sup>1</sup> from the system those files are copied back to the µSD card — if they still exist after LMS daemon first is stopped. 
+
+There is an option `-r` not to write back to storage. This will initiate the LMS in the same manner as it was last run while operating in normal mode.
 
 Test show that CPU speed can matter as to how responsive the web GUI feels. Therefore script will by default alter CPU scaling governor to `performance`. Can be disabled with the `-c` argument.
 
