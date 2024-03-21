@@ -59,7 +59,9 @@ Default RAM disk size is calculated from directory size +20%. This can be way to
 
 Memory seem to be allocated dynamicly on RPI-OS. Where large RAM-disk size doesn't seem to block rest of the memory if there aren't any actually files there to use up the space allocated.
 
-### Recommended approach if something stop functioning
+**[Please be aware of the potential risks]**(https://github.com/StillNotWorking/LMS-helper-script/tree/main#when-ssh-can-get-you-into-trouble) associated with running an SSH session for scripts that copy files to storage devices.
+
+### A suggested course of action if something stops functioning
 If you system at any time start behaving strange. Functionality in plugins etc stop working as intended. Please test if things fall into place by **not** running this script before attempting to get help from those developers involved with the thing thats no longer working.
 
 ---------------------------------------------------------------
