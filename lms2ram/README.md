@@ -3,12 +3,15 @@ On Linux plugins and SQLite database files used by LMS and plugins are installed
 
 The idea is to take benefit of the much improved read speed from RAM to evaluate if Material Skin becomes more responsive on the client side.
 From a well-reputed SD card brand stated 200MB/s read speed our RPi5 usually return a low 15MB/s in direct read mode and 40MB/s in nocache mode. While the RAM disk give us a wopping **3.5GB/s**.
+
+In comparison using SSD on USB3 port. Tested with Samsung T7 Shield 4TB read direct: 20.4 MB/s, nocache: 343 MB/s
 ```bash
 # ------ µSD card Write -----------------------------------------
 sudo dd if=/dev/zero of=/var/lib/squeezeboxserver/delete_me bs=4K count=2K oflag=direct
 # ------ µSD card Read  -----------------------------------------
 sudo dd of=/dev/zero if=/var/lib/squeezeboxserver/delete_me bs=4K count=2K iflag=direct
-sudo dd of=/dev/zero if=/var/lib/squeezeboxserver/delete_me bs=4K count=2K
+# repeating the iflag=nocache test mutiple times seem to give more realistic results 
+sudo dd of=/dev/zero if=/var/lib/squeezeboxserver/delete_me bs=4K count=2K iflag=nocache
 ```
 
 ### How does i function?
