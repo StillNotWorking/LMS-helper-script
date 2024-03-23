@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Move cache directory with LMS SQLite files and plugins to RAM-disk
-# v0.0.3 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+# v0.0.4 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
 #
 # Usage: RAM disk size in MB, defaul to +20 of directory if missing
 #        -v verbose -c disable CPU clock scaling
