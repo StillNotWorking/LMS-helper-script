@@ -71,6 +71,30 @@ It appears that memory is allocated dynamically on RPI-OS. With a large RAM disk
 ### A suggested course of action if something stops functioning
 If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, **please verify if things align as expected without executing this script**.
 
+### Exploring alternative to RAM disk 
+With the RPi5 running at 2.4GHz, the advantage of using RAM disks is mostly evident in image-intensive activities, — like browsing artists. The SQLite database here lacks the same level of *training* compared to searching text metadata. It will make an attempt to create a cashe, but it struggles with over 7000 artist images. Despite being notably faster, even the RAM disk exhibits sluggish performance in this scenario.
+
+We have not tested this, but configure the cache to use a faster SSD disk for storage might give enough improvement? 
+
+If we run the command `sudo systemctl status logitechmediaserver` we learn which path is actually used for the cashe directory.
+Somewhat confusing we find LMS has its cache parameter set two places. `/var/lib/squeezeboxserver/prefs/server.prefs` and 
+`/lib/systemd/system/logitechmediaserver.service`. Where we also learn the correct place to make changes to the startup is `/etc/default/logitechmediaserver`. Adding a new line like this `Environment="CACHEDIR=/var/lib/squeezeboxserver/cache"` should do the trick.
+
+For compatibility the cashe directory might need to exist in two places for pluggins that use use hard coded path, — or the path found in the server.prefs.
+```bash
+$ sudo systemctl status logitechmediaserver
+● logitechmediaserver.service - Logitech Media Server
+     Loaded: loaded (/lib/systemd/system/logitechmediaserver.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2024-03-24 15:09:27 CET; 1min 47s ago
+   Main PID: 2581 (squeezeboxserve)
+      Tasks: 2 (limit: 9260)
+        CPU: 2.081s
+     CGroup: /system.slice/logitechmediaserver.service
+             ├─2581 /usr/bin/perl /usr/sbin/squeezeboxserver --prefsdir /var/lib/squeezeboxserve>
+             └─2592 /usr/bin/perl /usr/sbin/squeezeboxserver-resized
+
+Mar 24 15:09:27 LMS5 systemd[1]: Started logitechmediaserver.service - Logitech Media Server.
+```
 ---------------------------------------------------------------
 
 <sup>1</sup> v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
