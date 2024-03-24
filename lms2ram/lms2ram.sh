@@ -82,7 +82,7 @@ if (( ramsize > FreeRAM_MB ))
 then
     [ $DEBUG ] && echo 'WARNING - Might run low on program memory and swap file might be used'
 fi
-exit
+
 if [ ! $(which inotifywait) ]
 then
     [ $DEBUG ] && echo 'Install missing inotifywait'
