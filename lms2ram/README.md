@@ -72,7 +72,7 @@ It appears that memory is allocated dynamically on RPI-OS. With a large RAM disk
 If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, **please verify if things align as expected without executing this script**.
 
 ### Exploring alternative to RAM disk 
-With the RPi5 running at 2.4GHz, the advantage of using RAM disks is mostly evident in image-intensive activities, — like browsing artists. The SQLite database here lacks the benefit of short strings of text metadata it can temprorary store in memory. It will make an attempt to create a cashe database but makes heavily use of disk I/O, and struggles with over 7000 artist images. Despite being notably faster, even the RAM disk exhibits sluggish performance in this scenario.
+With the RPi5 running at 2.4GHz, the advantage of using RAM disks is mostly evident in image-intensive activities, — like browsing artists. The SQLite database here lacks the benefit of short strings of text metadata it temporary can store in memory. It will make an attempt to create a cashe database but makes heavily use of disk I/O, and struggles with over 7000 artist images. Despite being notably faster, even the RAM disk exhibits sluggish performance in this scenario.
 
 We have not tested this, but configure the cache to use a faster SSD disk for storage might give enough improvement? 
 
