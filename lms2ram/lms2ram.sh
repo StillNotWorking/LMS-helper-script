@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Move cache directory with LMS SQLite files and plugins to RAM-disk
-# v0.0.4 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+# v0.0.5 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
 #
 # Usage: RAM disk size in MB, defaul to +20 of directory if missing
 #        -v verbose -c disable CPU clock scaling
@@ -78,11 +78,11 @@ then
     echo "RAM-disk size: $ramsize""MB"
 fi
 
-if (( $ramsize > $FreeRAM_MB ))
+if (( ramsize > FreeRAM_MB ))
 then
     [ $DEBUG ] && echo 'WARNING - Might run low on program memory and swap file might be used'
 fi
-
+exit
 if [ ! $(which inotifywait) ]
 then
     [ $DEBUG ] && echo 'Install missing inotifywait'

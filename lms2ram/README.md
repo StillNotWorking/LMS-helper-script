@@ -76,5 +76,7 @@ If your system starts behaving strangely at any time, such as when plugin functi
   v0.0.3 changed which exit signals program listen for
 
   v0.0.4 added `-r` parameter where nothing is written back to storage when program exit
+
+  v0.0.5 bug fix
   
 *Developed and tested on RPi5 8GB, RPi-OS Lite 64-bit*
