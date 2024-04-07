@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Move cache directory with LMS SQLite files and plugins to RAM-disk
-# v0.0.5 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
+# v0.0.6 - 2024.04.20 - https://github.com/StillNotWorking/LMS-helper-script/tree/main
 #
 # Usage: RAM disk size in MB, defaul to +20 of directory if missing
 #        -v verbose -c disable CPU clock scaling
@@ -21,6 +21,13 @@
 # aren't any actually files there to use up the space allocated.
 #
 
+# now work with new Lyrion Music Server name from LMS v9
+if sudo systemctl is-enabled --quiet lyrionmusicserver
+then 
+    servicename="lyrionmusicserver" 
+else
+    servicename="logitechmediaserver"
+fi 
 
 # copy this directory to RAM-disk and monitor with inotifywait
 directory="/var/lib/squeezeboxserver/cache"
@@ -250,10 +257,10 @@ function do_before_exit() {
     [ $DEBUG ] && echo ' ...we traped an exit signal'
     [ $DEBUG ] && echo 'Will try save new and changed files back to storage'
 
-    if sudo systemctl is-active --quiet logitechmediaserver
+    if sudo systemctl is-active --quiet $servicename
     then
         [ $DEBUG ] && echo 'Stop LMS will update and close all temporary files from SQLite, Spotty and others'
-        sudo systemctl -q stop logitechmediaserver
+        sudo systemctl -q stop $servicename
         if [ $? -ne 0 ]
         then        
             [ $DEBUG ] && echo 'ERROR: Failed stopping LMS, temporary files might still be open'
@@ -290,11 +297,11 @@ function do_before_exit() {
     fi
 
     [ $DEBUG ] && echo 'Start Logitech Media Server from standard drive'
-    sudo systemctl -q start logitechmediaserver
+    sudo systemctl -q start $servicename
     if [ $? -ne 0 ]
     then
         [ $DEBUG ] && echo 'ERROR: Failed starting Logitech Media Server'
-        [ $DEBUG ] && echo "try 'sudo systemctl start logitechmediaserver'"
+        [ $DEBUG ] && echo "try sudo systemctl start $servicename"
     fi
 
     if [[ $arguments =~ c ]]
@@ -328,7 +335,7 @@ function initiate_program() {
     [ $DEBUG ] && echo "CPU speed: $(sudo cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq)"
 
     [ $DEBUG ] && echo 'Stop LMS will update and close all temporary files from SQLite, Spotty and others'
-    sudo systemctl -q stop logitechmediaserver
+    sudo systemctl -q stop $servicename
     if [ $? -ne 0 ]
     then
         [ $DEBUG ] && echo "ERROR: Failed stopping LMS"
@@ -397,7 +404,7 @@ delay_lms_startup() {
     [ $DEBUG ] && echo 'Start Logitech Media Server using RAM-disk for SQLite and plugins'
     [ $DEBUG ] && echo ''
 
-    sudo systemctl -q start logitechmediaserver
+    sudo systemctl -q start $servicename
     if [ $? -ne 0 ]
     then
         [ $DEBUG ] && echo 'ERROR: Failed starting LMS from RAM-disk'

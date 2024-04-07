@@ -97,12 +97,18 @@ Mar 24 15:09:27 LMS5 systemd[1]: Started logitechmediaserver.service - Logitech 
 ```
 ---------------------------------------------------------------
 
-<sup>1</sup> v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
+  v0.0.6 now work with new service name for Lyrion Music Server from LMS v9
 
-  v0.0.3 changed which exit signals program listen for
+  v0.0.5 bug fix  
 
   v0.0.4 added `-r` parameter where nothing is written back to storage when program exit
+  
+  v0.0.3 changed which exit signals program listen for
+  
+<sup>1</sup> v0.0.2 now have a delay on exit before it start writing back to storage disk. This is an attempt to avoid corrupting the file system if the exit signal is sent due to power failure.
 
-  v0.0.5 bug fix
+
+
+
   
 *Developed and tested on RPi5 8GB, RPi-OS Lite 64-bit*
