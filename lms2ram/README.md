@@ -80,6 +80,8 @@ If we run the command `sudo systemctl status logitechmediaserver` we learn which
 Somewhat confusing we find LMS has its cache parameter set two places. `/var/lib/squeezeboxserver/prefs/server.prefs` and 
 `/lib/systemd/system/logitechmediaserver.service`. Where we also learn the correct place to make changes to the startup is `/etc/default/logitechmediaserver`. Adding a new line like this `Environment="CACHEDIR=/var/lib/squeezeboxserver/cache"` should do the trick.
 
+**NOTE**: From LMS v9.0.0 all instances of the name `logitechmediaserver` are to be replaced with **`lyrionmusicserver`**. i.e. `/etc/default/lyrionmusicserver`.
+
 For compatibility the cashe directory might need to exist in two places for pluggins that use use hard coded path, — or the path found in the server.prefs.
 ```bash
 $ sudo systemctl status logitechmediaserver
