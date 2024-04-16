@@ -107,3 +107,9 @@ sudo systemctl start camilladsp
 sudo systemctl enable camilladsp
 
 ```
+## Tip
+If you like me get used to have auto apply and save enabled and wish they where active next time the Camilla GUI page is loaded we have the option to configure default settings for these check boxes from `/camilladsp/gui/config/gui-config.yml`. 
+```
+apply_config_automatically: true
+save_config_automatically: true
+```
