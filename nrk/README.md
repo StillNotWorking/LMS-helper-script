@@ -1,6 +1,6 @@
 # NRK - Favorite links to Norsk Riks Kringkasting
 As radio links to NRK found in other radio plugins often link the AAC 48 kbps stream rather than the 192 kbps MP3 stream we made this `favorites.opml` file including 15 radio "station" provided by NRK.
-
+![screenshot of NRK favorites](screenshot.jpg)
 From the Classic web GUI (http://192.168.x.x:9000/Default) there is a merge function found on the bottom of you favorites list.
 Press `Edit` (*pen icon*) on the `Favorites` folder, then scroll down to the `Import` button and paiste in this path:
 ```
