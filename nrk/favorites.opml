@@ -5,21 +5,21 @@
   </head>
   <body>
     <outline icon="html/images/radio.png" text="NRK Radio">
-      <outline URL="http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u" icon="html/images/radio.png" text="NRK Jazz" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p1_hordaland_mp3_h.m3u" icon="html/images/radio.png" text="NRK P1 Vestland" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_sapmi_mp3_h.m3u" icon="html/images/radio.png" text="NRK Sámi Radio" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h.m3u" icon="html/images/radio.png" text="NRK Alltid Nyheter" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_folkemusikk_mp3_h.m3u" icon="html/images/radio.png" text="NRK Folkemusikk" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_klassisk_mp3_h.m3u" icon="html/images/radio.png" text="NRK Klassisk" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_mp3_mp3_h.m3u" icon="html/images/radio.png" text="NRK mP3" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p13_mp3_h.m3u" icon="html/images/radio.png" text="NRK P13" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p1pluss_mp3_h.m3u" icon="html/images/radio.png" text="NRK P1+" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p2_mp3_h.m3u" icon="html/images/radio.png" text="NRK P2" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p3_mp3_h.m3u" icon="html/images/radio.png" text="NRK P3" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p3_urort_mp3_h.m3u" icon="html/images/radio.png" text="NRK Urørt" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_p3x_mp3_h.m3u" icon="html/images/radio.png" text="NRK P3X" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_radio_sport_mp3_h.m3u" icon="html/images/radio.png" text="NRK Sport" type="audio" />
-      <outline URL="http://lyd.nrk.no/nrk_super_mp3_h.m3u" icon="html/images/radio.png" text="NRK Super" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u" icon="https://gfx.nrk.no/aFMXhKOMy6Ue3jaipCn-UQzVR9hjLyI-NOwkXM5-KxpQ" text="NRK Jazz" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p1_hordaland_mp3_h.m3u" icon="https://gfx.nrk.no/GqvrjqwGGnKoE3tIvEzY2A4PcqHP69-JKMkreTeRWLPA" text="NRK P1 Vestland" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_sapmi_mp3_h.m3u" icon="https://gfx.nrk.no/TfKsU64zk3MwDaXkc3wEXgD--35PBRnVedTBHaL738Zw" text="NRK Sámi Radio" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h.m3u" icon="https://gfx.nrk.no/uz50aloXC5595B4WoXfLdgg8Kk6OMeQ7a26-IIlaHQ3Q" text="NRK Alltid Nyheter" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_folkemusikk_mp3_h.m3u" icon="https://gfx.nrk.no/Xc_1bsMNUNIHrTCcE7qolwUKA2XnYQouQzvRaAxf4eXQ" text="NRK Folkemusikk" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_klassisk_mp3_h.m3u" icon="https://gfx.nrk.no/uNlqEGHjsDhIqgNF3_P37A6xqrTx7HJoGo5tYow_Gs7w" text="NRK Klassisk" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_mp3_mp3_h.m3u" icon="https://gfx.nrk.no/CBeGDqme2kmHYWKHeclN2wACIYbbwI42MqMS41Ufp8BQ" text="NRK mP3" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p13_mp3_h.m3u" icon="https://gfx.nrk.no/NSyqUS_9DDFcgj1OxXux_wXTvnNpSvtQISNlnioK5nUw" text="NRK P13" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p1pluss_mp3_h.m3u" icon="https://gfx.nrk.no/wKkAqRZLpCA1tCzyPayD2QMT4z43gRpQ3ZX0kzONmhBw" text="NRK P1+" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p2_mp3_h.m3u" icon="https://gfx.nrk.no/hVBUdpcHtp87P8emrlhg8QAma73tyo3HY2qcyc9WPPFA" text="NRK P2" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p3_mp3_h.m3u" icon="https://gfx.nrk.no/TvccpeYgz8sWBhpXZvXgwAuV1kv2-Z_D5nKdJPhEpZow" text="NRK P3" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p3_urort_mp3_h.m3u" icon="https://gfx.nrk.no/NAEMHC9YFzmmPwqaU9TbDQz_65L8bOyw4iTbxSdaJU7A" text="NRK Urørt" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_p3x_mp3_h.m3u" icon="https://gfx.nrk.no/AZxjjiv0Yf7DkZQ4YaV4SA2ZGEHs21NlfwGJMFJTlSuw" text="NRK P3X" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_radio_sport_mp3_h.m3u" icon="https://gfx.nrk.no/VibgsowIC5sZKjBFwTgM8QNE58lEqQAswvZ41HevX4tQ" text="NRK Sport" type="audio" />
+      <outline URL="http://lyd.nrk.no/nrk_super_mp3_h.m3u" icon="https://gfx.nrk.no/Wa9X4HXmZ0p6rDlDtWlT5Qm4K0KEH3thRt5b4ZYCUolA" text="NRK Super" type="audio" />
     </outline>
   </body>
 </opml>
