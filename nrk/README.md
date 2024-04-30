@@ -13,7 +13,9 @@ Now using Material Skin web GUI, — from the Favorites list select your favorit
 *When this is written Material Skin are missing the import button hence the need to temporary use the Classic web GUI by adding `/Default` to the LMS server address.*
 
 ### Known limitations:
-Radio station icons are now provided but simply link to static image from NRK site. In conversation with NRK support it seems these streams do not publish relevant icons or cover art.
+Radio station icons are now provided using link to static images from the NRK site. In conversation with NRK support it seems these streams do not publish relevant icons or cover art. If cover art is significant, see if the 'Radio Now Playing' plugin fulfills what you're looking for.
+
+**Note:** Track information and certain metadata are accessible by clicking the `More` option in the drop-down menu of Material Skin. Legacy Logitech devices like Touch do not have this More option.
 
 Only link to the `Vestland` region are provided for NRK P1. You can edit this favorite from the web GUI using path to your region found on this page http://lyd.nrk.no/
 You want the link ending with `_mp3_h` for the 192 kbps stream.
