@@ -1,0 +1,600 @@
+{
+	"rnp_comment": "Edit at your own risk. Note - regex strings need to have their backslashes escaped with another backslash and do not include the opening and closing single quote",
+	"rnp_broadcaster": {
+		"name": "NRK (no)",
+		"icon": "https://info.nrk.no/wp-content/uploads/2022/12/NRK-Radio_slab_RGB-768x196.png",
+		"web": {
+			"site": "https://radio.nrk.no",
+			"player": ""
+		},
+		"songurl": "https://psapi.nrk.no/channels/${fetchid}/liveelements",
+		"progurl": "https://psapi.nrk.no/radio/channels/livebuffer/now",
+		"coversearch": true,
+		"streamsregex": [
+			"\\/hls\\/nrk[-_](${cap})\\/",
+			"\\/nrk[-_]radio[-_](${cap})[-_]mp3[-_]h.m3u"
+		],
+		"brands": [
+			{
+				"name": "NRK (no)",
+				"icon": "https://info.nrk.no/wp-content/uploads/2022/12/NRK-Radio_slab_RGB-768x196.png",
+				"id": "nrkno"
+			}
+		],
+		"rnp-comment-2": "Could have used the isLive flag from data but might one regional P1 station has it set so might be part-time",
+		"stationsignoreregex": "NRK Sápmi FM",
+		"coverpath": "$root",
+		"coverfields": [
+			"imageUrl",
+			"url"
+		],
+		"coverignoreextension": true,
+		"iconsignoreregex": "",
+		"datapaths": [
+			"$root[0]"
+		],
+		"datapaths_alt": [
+			"$root/channels[0]"
+		],
+		"songpath": "$root[0]",
+		"progpath": "$root/channels[id=${fetchid}]/entry",
+		"progiconpath": "$root/image/mainKeyArtImage/images[0]/width=600",
+		"fieldmap": {
+			"artist": "description",
+			"title": "title",
+			"duration": "duration",
+			"startTimeTextAlt": "startTime",
+			"progtitle": "title",
+			"progStartTime": "actualStart",
+			"progEndTime": "actualEnd"
+		},
+		"timetextaltregex": "^\\/Date\\((?<unixtime>[\\d]{10})",
+		"titlesignoreregex": "",
+		"allowsongwithoutartist": true,
+		"maxshowlth": 180,
+		"minsonglth": 30
+	},
+	"rnp_stations": [
+		{
+			"rnp-comment": "Special case because the top level P1 needs specific fetchid",
+			"name": "NRK P1 Stor-Oslo",
+			"station_id": "p1",
+			"external_station_id": "p1",
+			"fetchid": "p1_oslo_akershus",
+			"brandorder": 1,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p1-oslo-akershus.akamaized.net/60/0/hls/nrk_p1_oslo_akershus/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_stor-oslo_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/tl559jbqKAaoZoJ55zbCvQ4KrwC8qSYBEwOzPzOVPYKg"
+		},
+		{
+			"name": "NRK P1+",
+			"station_id": "p1_pluss",
+			"external_station_id": "p1pluss",
+			"fetchid": "p1pluss",
+			"brandorder": 2,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/47/0/hls/nrk_p1_pluss/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1pluss_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/wKkAqRZLpCA1tCzyPayD2QMT4z43gRpQ3ZX0kzONmhBw"
+		},
+		{
+			"name": "NRK P2",
+			"station_id": "p2",
+			"external_station_id": "p2",
+			"fetchid": "p2",
+			"brandorder": 3,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p2.akamaized.net/35/0/hls/nrk_p2/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p2_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/hVBUdpcHtp87P8emrlhg8QAma73tyo3HY2qcyc9WPPFA"
+		},
+		{
+			"name": "NRK P3",
+			"station_id": "p3",
+			"external_station_id": "p3",
+			"fetchid": "p3",
+			"brandorder": 4,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/36/0/hls/nrk_p3/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p3_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/TvccpeYgz8sWBhpXZvXgwAuV1kv2-Z_D5nKdJPhEpZow"
+		},
+		{
+			"name": "NRK P13",
+			"station_id": "p13",
+			"external_station_id": "p13",
+			"fetchid": "p13",
+			"brandorder": 5,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p13.akamaized.net/44/0/hls/nrk_p13/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p13_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/NSyqUS_9DDFcgj1OxXux_wXTvnNpSvtQISNlnioK5nUw"
+		},
+		{
+			"name": "NRK mP3",
+			"station_id": "mp3",
+			"external_station_id": "mp3",
+			"fetchid": "mp3",
+			"brandorder": 6,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/41/0/hls/nrk_mp3/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_mp3_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/CBeGDqme2kmHYWKHeclN2wACIYbbwI42MqMS41Ufp8BQ"
+		},
+		{
+			"name": "NRK Nyheter",
+			"station_id": "alltid_nyheter",
+			"external_station_id": "alltid_nyheter",
+			"fetchid": "alltid_nyheter",
+			"brandorder": 7,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-alltid-nyheter.akamaized.net/40/0/hls/nrk_alltid_nyheter/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/uz50aloXC5595B4WoXfLdgg8Kk6OMeQ7a26-IIlaHQ3Q"
+		},
+		{
+			"name": "NRK Radio Super",
+			"station_id": "radio_super",
+			"external_station_id": "radio_super",
+			"fetchid": "radio_super",
+			"brandorder": 8,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-super.akamaized.net/46/0/hls/nrk_radio_super/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_super_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/Wa9X4HXmZ0p6rDlDtWlT5Qm4K0KEH3thRt5b4ZYCUolA"
+		},
+		{
+			"name": "NRK Klassisk",
+			"station_id": "klassisk",
+			"external_station_id": "klassisk",
+			"fetchid": "klassisk",
+			"brandorder": 9,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/42/0/hls/nrk_klassisk/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_klassisk_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/uNlqEGHjsDhIqgNF3_P37A6xqrTx7HJoGo5tYow_Gs7w"
+		},
+		{
+			"name": "NRK Sápmi",
+			"station_id": "sami_radio",
+			"external_station_id": "sapmi",
+			"fetchid": "sapmi",
+			"brandorder": 10,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-sapmi.akamaized.net/43/0/hls/nrk_sami_radio/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_sapmi_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/TfKsU64zk3MwDaXkc3wEXgD--35PBRnVedTBHaL738Zw"
+		},
+		{
+			"name": "NRK Jazz",
+			"station_id": "jazz",
+			"external_station_id": "jazz",
+			"fetchid": "jazz",
+			"brandorder": 11,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-jazz.akamaized.net/48/0/hls/nrk_jazz/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/aFMXhKOMy6Ue3jaipCn-UQzVR9hjLyI-NOwkXM5-KxpQ"
+		},
+		{
+			"name": "NRK Folkemusikk",
+			"station_id": "folkemusikk",
+			"external_station_id": "folkemusikk",
+			"fetchid": "folkemusikk",
+			"brandorder": 12,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/49/0/hls/nrk_folkemusikk/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_folkemusikk_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/Xc_1bsMNUNIHrTCcE7qolwUKA2XnYQouQzvRaAxf4eXQ"
+		},
+		{
+			"name": "NRK Sport",
+			"station_id": "sport",
+			"external_station_id": "sport",
+			"fetchid": "sport",
+			"brandorder": 13,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/45/0/hls/nrk_sport/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_sport_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/VibgsowIC5sZKjBFwTgM8QNE58lEqQAswvZ41HevX4tQ"
+		},
+		{
+			"name": "NRK Urørt",
+			"station_id": "p3_urort",
+			"external_station_id": "urort",
+			"fetchid": "urort",
+			"brandorder": 14,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/37/0/hls/nrk_p3_urort/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p3_urort_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/NAEMHC9YFzmmPwqaU9TbDQz_65L8bOyw4iTbxSdaJU7A"
+		},
+		{
+			"name": "NRK P3X",
+			"station_id": "p3x",
+			"external_station_id": "p3x",
+			"fetchid": "p3x",
+			"brandorder": 15,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/512077/0/hls/nrk_p3x/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p3x_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/AZxjjiv0Yf7DkZQ4YaV4SA2ZGEHs21NlfwGJMFJTlSuw"
+		},
+		{
+			"name": "NRK P1 Buskerud",
+			"station_id": "p1_buskerud",
+			"external_station_id": "p1_buskerud",
+			"fetchid": "p1_buskerud",
+			"brandorder": 16,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/32/0/hls/nrk_p1_buskerud/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_buskerud_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/AgX_oj-E4GPkqlJNMuI-FQUVjo1LludTcjXTqSz4JIPw"
+		},
+		{
+			"name": "NRK P1 Finnmark",
+			"station_id": "p1_finnmark",
+			"external_station_id": "p1_finnmark",
+			"fetchid": "p1_finnmark",
+			"brandorder": 17,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/58/0/hls/nrk_p1_finnmark/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_finnmark_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/7GbqlsJIvFj4X7HpjDkDIQm2gccQsPdGTgDAEaKYc4ow"
+		},
+		{
+			"name": "NRK P1 Hordaland",
+			"station_id": "p1_hordaland",
+			"external_station_id": "p1_hordaland",
+			"fetchid": "p1_hordaland",
+			"brandorder": 18,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/27/0/hls/nrk_p1_hordaland/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_hordaland_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/GqvrjqwGGnKoE3tIvEzY2A4PcqHP69-JKMkreTeRWLPA"
+		},
+		{
+			"name": "NRK P1 Innlandet",
+			"station_id": "p1_innlandet",
+			"external_station_id": "p1_innlandet",
+			"fetchid": "p1_innlandet",
+			"brandorder": 19,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p1-innlandet.akamaized.net/30/0/hls/nrk_p1_innlandet/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_innlandet_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/g61BroCWO2BIRL3uMU-yzQeL5fCzVUBTnwjettbXQ1UQ"
+		},
+		{
+			"name": "NRK P1 Møre og Romsdal",
+			"station_id": "p1_more_og_romsdal",
+			"external_station_id": "p1_more_romsdal",
+			"fetchid": "p1_more_romsdal",
+			"brandorder": 20,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/61/0/hls/nrk_p1_more_og_romsdal/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_more_og_romsdal_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/OD5fcBtz2FmFNF-CIWKEWwyOz-WQlnq2m0kWc-z8wb_A"
+		},
+		{
+			"name": "NRK P1 Nordland",
+			"station_id": "p1_nordland",
+			"external_station_id": "p1_nordland",
+			"fetchid": "p1_nordland",
+			"brandorder": 21,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/62/0/hls/nrk_p1_nordland/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_nordland_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/CFZ0SqJMf8VptCYheA5SGQcgkViyxLEDAt8xHBB7DBzA"
+		},
+		{
+			"name": "NRK P1 Stor-Oslo",
+			"station_id": "p1_oslo_akershus",
+			"external_station_id": "p1_oslo_akershus",
+			"fetchid": "p1_oslo_akershus",
+			"brandorder": 22,
+			"stream_urls": [
+				{
+					"streamUrl": "https://httpcache0-47115-httpcache0.dna.ip-only.net/47115-cachelive2/60/0/hls/nrk_p1_oslo_akershus/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_ostlandssendingen_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/ANtpPxyTVAPcsldwMnxoFghD7o-0rXzkRmjlbpqIhRXA"
+		},
+		{
+			"name": "NRK P1 Rogaland",
+			"station_id": "p1_rogaland",
+			"external_station_id": "p1_rogaland",
+			"fetchid": "p1_rogaland",
+			"brandorder": 23,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p1-rogaland.akamaized.net/28/0/hls/nrk_p1_rogaland/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_rogaland_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/BmdcJiANeNDchpezt1u4PwbC_iJAefiaYljh0l8MiOOg"
+		},
+		{
+			"name": "NRK P1 Sogn og Fjordane",
+			"station_id": "p1_sogn_fjordane",
+			"external_station_id": "p1_sogn_fjordane",
+			"fetchid": "p1_sogn_fjordane",
+			"brandorder": 24,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/26/0/hls/nrk_p1_sogn_fjordane/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_sogn_og_fjordane_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/lBMbr__PY5KBtkj4XBZbnApG6cWE5SxNPE9XIyGmDtjg"
+		},
+		{
+			"name": "NRK P1 Sørlandet",
+			"station_id": "p1_sorlandet",
+			"external_station_id": "p1_sorlandet",
+			"fetchid": "p1_sorlandet",
+			"brandorder": 25,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p1-sorlandet.akamaized.net/29/0/hls/nrk_p1_sorlandet/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_sorlandet_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/nuTIEei7yQYorGgCZlO6uQ1AAiLARACrJMFaQeaCdRcQ"
+		},
+		{
+			"name": "NRK P1 Telemark",
+			"station_id": "p1_telemark",
+			"external_station_id": "p1_telemark",
+			"fetchid": "p1_telemark",
+			"brandorder": 26,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/31/0/hls/nrk_p1_telemark/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_telemark_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/5lYkpp2Aaqb9Dv8uDjHYTAp9ZTes7M1eRR53yQ8CdYHg"
+		},
+		{
+			"name": "NRK P1 Troms",
+			"station_id": "p1_troms",
+			"external_station_id": "p1_troms",
+			"fetchid": "p1_troms",
+			"brandorder": 27,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-p1-troms.akamaized.net/57/0/hls/nrk_p1_troms/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_troms_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/atrPQQNwCft6xloc-zKy4QqCaqGp2e8J_C8BAzkTPfug"
+		},
+		{
+			"name": "NRK P1 Trøndelag",
+			"station_id": "p1_trondelag",
+			"external_station_id": "p1_trondelag",
+			"fetchid": "p1_trondelag",
+			"brandorder": 28,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/59/0/hls/nrk_p1_trondelag/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_trondelag_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/-IBcbtYK9vWdAy2vwiVz3QGk_gPbOXDeChD_dX40b0Iw"
+		},
+		{
+			"name": "NRK P1 Vestfold",
+			"station_id": "p1_vestfold",
+			"external_station_id": "p1_vestfold",
+			"fetchid": "p1_vestfold",
+			"brandorder": 29,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/33/0/hls/nrk_p1_vestfold/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_vestfold_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/vGLEGKEQwA4I0I8_aT_B_Ay7LoQXhA-M3MgHTIQzESLQ"
+		},
+		{
+			"name": "NRK P1 Østfold",
+			"station_id": "p1_ostfold",
+			"external_station_id": "p1_ostfold",
+			"fetchid": "p1_ostfold",
+			"brandorder": 30,
+			"stream_urls": [
+				{
+					"streamUrl": "https://nrk-radio-live.telenorcdn.net/34/0/hls/nrk_p1_ostfold/playlist.m3u8?bw_low=16&bw_high=130",
+					"streamType": "hls"
+				},
+				{
+					"streamUrl": "http://lyd.nrk.no/nrk_radio_p1_ostfold_mp3_h.m3u",
+					"streamType": "mp3-high"
+				}
+			],
+			"stream_logo": "https://gfx.nrk.no/GnwuH23tN0zvLnLj4d9m_w2qaMofIlX-TreDWKZk_Vwg"
+		}
+	]
+}
