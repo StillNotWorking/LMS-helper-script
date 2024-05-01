@@ -12,7 +12,7 @@
 		"coversearch": true,
 		"streamsregex": [
 			"\\/hls\\/nrk[-_](${cap})\\/",
-			"\\/nrk[-_]radio[-_](${cap})[-_]mp3[-_]h.m3u"
+            "[-_](${cap})[-_]mp3[-_]h.m3u"
 		],
 		"brands": [
 			{
