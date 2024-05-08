@@ -98,6 +98,9 @@ When properly installed as a service, the start command is:
 sudo systemctl start atc
 ```
 
+### A suggested course of action if something stops functioning ###
+If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, please verify if things align as expected without executing this program.
+
 ### CPU speed ###
 This option switch CPU scaling governor depending on play or stop/pause mode of Squeezelite.
 
