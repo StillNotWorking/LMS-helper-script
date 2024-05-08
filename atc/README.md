@@ -2,9 +2,11 @@
 ### Its primary functionality is to minimize the number of stages at which audio is rendered ###
 This is achieved by transferring digital volume control from LMS to CamillaDSP and adjusting sample rate in CamillaDSP. Optional resampling profiles can be configured based on the sample rate.
 
-Amplitude control may incorporate features such as replay gain and lessloss using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
+Amplitude control may incorporate features such as replay gain and lessloss<sub>2</sub> using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
 
-### How does it function? ###
+### Principle of operation ###
+When Player has it volume control set to `Output level is fixed at 100%` we have the option to repurpose the volume slider.
+
 Using network socket ATC connects with both Lyrion Music Server and CamillaDSP, functioning as gateway between the two program.
 Listening to asynchronous events coming from LMS triggers commands are then sent to CamillaDSP and Squeezelite service. 
 
@@ -67,6 +69,10 @@ sudo systemctl start atc
 ```
 
 ### Use and configuration ###
+From Material Skin menu `Player -> Extra setting -> Audio -> Volume Control` set `Output level is fixed at 100%`.
+
+From Material Skin menu `Server -> Plugins - Material Skin`set `Fixed volume players` to `Display standard volume control`.
+
 ATC runs silently in the background<sup>1</sup> as a service, requiring no user interaction on the computer running Squeezelite/CamillaDSP. 
 
 The configuration file `atc.yml` contains explanatory comments. Important settings after a new install is found under `network` where Squeezelite player MAC address and Lyrion server address must be set.
@@ -122,3 +128,9 @@ Current implementation do not have two way control of volume.
 -----------------------------------------------
 
 <sup>1</sup> For troubleshoting the program can be started manually with the `-v` argument for verbose output. Ensure that the service is stopped before manual execution, — like this: `sudo systemctl stop atc`
+
+<sup>2</sup> Less Loss: Minimise the number of bits used to quantize volume control coefficients so that information loss is minimized at truncation stage. In other words, it trades volume control coefficients precision against information loss minimization - https://www.processing-leedh.com/copie-de-presentation  
+  This version will snap volume setting to nearest value from an array of coefficients that should3 not lose precision when truncated to 24-bit. Resolution are 32 steps for each 6dB change with varying step length4.  
+  SoX was used to test bit depth `sox -v [coeff] [file] -n stats`  
+  Note: If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway.  
+
