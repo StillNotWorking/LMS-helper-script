@@ -75,7 +75,7 @@ In the service configuration file, the user who runs the program and the program
 
 ATC is designed to read resampling profiles from the `atc.yml` file as needed. This ensures that changes regarding these profiles take effect immediately without the need to restart the program. All other settings take place after restating ATC like this: `sudo systemctl restart atc`
 
-When convolution filters are utilized, ATC will edit the value for the key filename, — responsible for telling CamillaDSP which convolution file to load.
+When convolution filters are utilized, ATC will edit the value for the key `filename`, — responsible for telling CamillaDSP which convolution file to load.
 This implies that dedicated convolution files must exist for all expected sample rates, with identical names except for the different sample rates specified within brackets.
 In this example current file name is `MyConvFilter[44100].raw`, if the new sample rate is 96000, the sample rate inside the required `[ ]` brackets will be modified to `MyConvFilter[96000].raw`
 
@@ -102,7 +102,7 @@ Testet with RPi3/4/5 with RPi-OS. Not supported on all CPUs nor do all Linux dis
 ### Known limitations & quirks ###
 - Changing sample rate for convolution filters are limited to only change the name for the convolution file to load. Type nor read/skip are updated.
 
-- Glitches can occur, especially when quickly jumping between multiple sources playlist events are sometimes not sent correcly from LMS. Resulting in wrong replay gain attenuation and/or sample rate. Listening to a playlist normally with multiple sourches seem to function well, — where metadata often are ready 8 second before newsong event take place.
+- Glitches can occur, especially when quickly jumping between multiple sources playlist events are sometimes not sent correcly from LMS. Resulting in wrong replay gain attenuation and/or sample rate. Listening to a playlist normally with multiple sourches seem to function well, — where metadata often are ready 8 seconds before newsong event take place.
 
 - If ATC i started in middle of a song no correct changes take effect until next track.
 
