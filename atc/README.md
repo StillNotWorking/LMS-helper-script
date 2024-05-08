@@ -101,12 +101,16 @@ sudo systemctl start atc
 ### CPU speed ###
 This option switch CPU scaling governor depending on play or stop/pause mode of Squeezelite.
 
-### A suggested course of action if something stops functioning ###
-If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, please verify if things align as expected without executing this program.
-
 If one believe stable CPU speed can impact audio quality this option lock CPU to high speed when audio is playing. And then after a few seconds scale back tok `ondemand` when Squeezelite mode is stop/pause, — saving energy and add longevity to the RPi when the music stop.
 
 Testet with RPi3/4/5 with RPi-OS. Not supported on all CPUs nor do all Linux distributions have the commandset.
+
+### A suggested course of action if something stops functioning ###
+If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, please verify if things align as expected without executing this program.
+
+### Discussion and help ###
+"Thread over at the Lyrion community forum:"  
+https://forums.slimdevices.com/forum/user-forums/3rd-party-software/1705035-atc-sample-rate-switcher-and-volume-control-for-camilladsp
 
 ### Known limitations & quirks ###
 - Changing sample rate for convolution filters are limited to only change the name for the convolution file to load. Type nor read/skip are updated.
