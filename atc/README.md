@@ -1,6 +1,5 @@
 # ATC is a utilety program for Lyrion Music Server and CamillaDSP #
 ### Its primary functionality is to minimize the number of stages at which audio is rendered ###
-
 This is achieved by transferring digital volume control from LMS to CamillaDSP and adjusting sample rate in CamillaDSP. Optional resampling profiles can be configured based on the sample rate.
 
 Amplitude control may incorporate features such as replay gain and lessloss using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
