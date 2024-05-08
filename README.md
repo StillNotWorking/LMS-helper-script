@@ -5,6 +5,9 @@ Tools to help maintain headless **Logitech Media Server** devices for novice Lin
 With this script all dependencies, binary and configuration files to make both Squeezelite and CamillaDSP up running on a fresh RPi-OS install. 
 **Intended for RPi-OS Lite 64 bit** but should work on most Debian style distros
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp
+### atc.py
+ATC is a utility program designed for Lyrion Music Server and CamillaDSP, aimed at minimizing the number of audio rendering stages. Its functionality includes switching sample rates, adjusting volume, applying replay gain, and controlling CPU speed.
+https://github.com/StillNotWorking/LMS-helper-script/tree/main/atc
 ### squeezetoggle.sh
 Restart Squeezelite with alternative configuration. Here used to toogle Squeezelite output between sound cards or loopback devices, e.g loopback used for input on CamillaDSP or output direcly to a USB DAC. See custom menus on how to run script from Material Skin.
 https://github.com/StillNotWorking/LMS-helper-script/tree/main/materialskin#readme
