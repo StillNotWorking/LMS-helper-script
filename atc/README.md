@@ -109,7 +109,7 @@ Testet with RPi3/4/5 with RPi-OS. Not supported on all CPUs nor do all Linux dis
 If your system starts behaving strangely at any time, such as when plugin functionality or other features cease to work as intended. Before seeking assistance from developers involved with the malfunctioning component, please verify if things align as expected without executing this program.
 
 ### Discussion and help ###
-"Thread over at the Lyrion community forum:"  
+Thread over at the Lyrion community forum:  
 https://forums.slimdevices.com/forum/user-forums/3rd-party-software/1705035-atc-sample-rate-switcher-and-volume-control-for-camilladsp
 
 ### Known limitations & quirks ###
