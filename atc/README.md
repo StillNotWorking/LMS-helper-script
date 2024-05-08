@@ -42,9 +42,9 @@ Two files require configuration tailored to your system.
 #
 # Download files:
 cd ~/camilladsp
-wget atc.py
-wget atc.yml
-wget atc.service
+wget https://github.com/StillNotWorking/LMS-helper-script/raw/main/atc/atc.py
+wget https://github.com/StillNotWorking/LMS-helper-script/raw/main/atc/atc.yml
+wget https://github.com/StillNotWorking/LMS-helper-script/raw/main/atc/atc.service
 
 # Change mode so everyone can execute program:
 chmod a+x atc.py
