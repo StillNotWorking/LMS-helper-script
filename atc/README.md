@@ -117,7 +117,7 @@ https://forums.slimdevices.com/forum/user-forums/3rd-party-software/1705035-atc-
 
 - Glitches can occur, especially when quickly jumping between multiple sources playlist events are sometimes not sent correcly from LMS. Resulting in wrong replay gain attenuation and/or sample rate. Listening to a playlist normally with multiple sourches seem to function well, — where metadata often are ready 8 seconds before newsong event take place.
 
-- If ATC i started in middle of a song no correct changes take effect until next track.
+- If ATC is started in middle of a song no correct changes take effect until next track.
 
 - Since we are depending on asynchronous events, the next track might start playing before we receive and can react to the event. This could result in stuttering if the sample rate needs to change. An option to insert a short break has been implemented to mitigate this annoyance.
 
