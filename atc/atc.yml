@@ -1,0 +1,104 @@
+# IMPORTANT - Keep all indents as they are original in this file
+# - If the this configuration file isn't located in the same directory as 
+#   the program file, the full path, including the file name, must be 
+#   provided as an argument when starting the program.
+# - Except for resampling edits changes will take effect after the program is restarted.
+
+program:
+  acronym: ATC
+  name: "Anna Takes Control"
+  about: "Anna is friend with Camilla, and they work together with Lyrion changing sample rate and adjusting replay gain."
+
+network:
+  player_mac_address: "d8:3a:dd:46:ef:04"
+  lms_address: "192.168.10.253"
+  lms_cli_port: 9090
+  cdsp_address: "127.0.0.1"
+  cdsp_port: 1234
+
+# To disable a resampling configuration rename the first-level element
+# i.e. 44100 renamed to 44100-D will dissable resampling for that sample rate
+# Resampler edits can be done without the need for restarting the application.
+resampler:
+  44100:
+    # sinc_len: 1024 result in f_cutoff: 0.98663634 * Nyquist: 22050 = 21755 Hz
+    capture_samplerate: 176400
+    f_cutoff: null
+    interpolation: Quadratic
+    oversampling_factor: 256
+    sinc_len: 1024
+    type: AsyncSinc
+    window: BlackmanHarris2
+  44100-D:
+    capture_samplerate: 176400
+    f_cutoff: null
+    interpolation: Quadratic
+    oversampling_factor: 256
+    sinc_len: 256
+    type: AsyncSinc
+    window: BlackmanHarris2
+  48000:
+    capture_samplerate: 192000
+    f_cutoff: null
+    interpolation: Quadratic
+    oversampling_factor: 256
+    sinc_len: 256
+    type: AsyncSinc
+    window: BlackmanHarris2
+
+
+functions:
+  # Volume must be active for replay gain or lessloss to function  
+  use_volume: true
+  # Snap to nearest attunation value without resolution loss 
+  # when 16-bit audio are truncated to 24-bit
+  use_lessloss: true
+  
+  # If both 'use_track_replay_gain' and 'use_album_replay_gain' are true, then album will be used
+  # Will automatically fall back to either if one of the tag are missing from track meta data
+  use_track_replay_gain: true
+  use_album_replay_gain: false
+
+  # Change active configuration on CamillaDSP. Will not save any changes it performs.
+  switch_samplerate: true
+
+  # Set CPU scaling governor. Confirmed function with RPi-OS on RPi3, RPi4, RPi5.
+  # Will not function on macOS nor Windows, and not even with all Linux or CPUs.
+  switch_cpu_speed: true
+  
+settings:
+  # If a track is missing the replay gain tag, it could get annoyingly loud
+  default_gain: -6.02
+
+  # CamillaDSP can take positive values for digital gain. As this potentially
+  # can be harmful we set max positive gain in dB replay gain can operate 
+  # If LessLoss is active it does not support digital gain and return 0dB attunation
+  max_replay_gain: 3
+  
+  # When the player connect with LMS the server will try to set volume to 100%. We try
+  # to supress this by ignoring volume changes the first few seconds after restart of
+  # Squeezelite. Still it sometimes can fail. Setting 'ignore_max_volume' to true will
+  # ensure 100% are never passed to CamillaDSP. Meaning we can max adjust to 99%.
+  # Recommended set to true if CamillaDSP is the main volume control in the system
+  ignore_max_volume: false
+  
+  # How frequently we check if connection to LMS CLI port is alive. Value given in seconds.
+  keepalive_interval: 30
+  
+  # Since we receive asynchronous events from LMS, there are occasions when we
+  # may encounter the start of a track before we can intervene and adjust the 
+  # sample rate. This sounds like stutter and one might prefer a pause before
+  # track start over with correct sample rate. The switching itself is trimmed
+  # down to approx 650-840ms on RPi4. Where more than half of the time 
+  # and most varying time is devoted to stopping the Squeezelite service.
+  stutter_delay: 0
+  
+  # When Squeezelite restart it need a moment to reconnect before we send commands
+  # 40ms seem to function well with RPi5 server and RPi4 Squeezelite player. 
+  # Running LMS on same machine as player can try shorten delay, and with slower
+  # machines add longer delay - valid numbers are 0.01 - 1, default is 0.04
+  lms_connection_delay: 0.04
+  
+  # When track is missing sample rate information fall back to this sample rate
+  # Compressed audio format will normally not expose such information
+  default_samplerate: 44100
