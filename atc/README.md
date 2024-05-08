@@ -2,7 +2,7 @@
 ### Its primary functionality is to minimize the number of stages at which audio is rendered ###
 This is achieved by transferring digital volume control from LMS to CamillaDSP and adjusting sample rate in CamillaDSP. Optional resampling profiles can be configured based on the sample rate.
 
-Amplitude control may incorporate features such as replay gain and lessloss<sub>2</sub> using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
+Amplitude control may incorporate features such as replay gain and lessloss<sup>2</sup> using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
 
 ### Principle of operation ###
 When Player has it volume control set to `Output level is fixed at 100%` we have the option to repurpose the volume slider.
@@ -114,11 +114,12 @@ Testet with RPi3/4/5 with RPi-OS. Not supported on all CPUs nor do all Linux dis
 
 - Since we are depending on asynchronous events, the next track might start playing before we receive and can react to the event. This could result in stuttering if the sample rate needs to change. An option to insert a short break has been implemented to mitigate this annoyance.
 
-- A quirk with ALSA is the requirement to free up both ends of its audio path before changes can take place. Although CamillaDSP handles this well, we need to stop Squeezelite to also free the input on the loopback card of ALSA.
-This introduces some issues. The logic enabling volume changes is based on us initially locking the volume for the Squeezelite player to 100%. 
-When Squeezelite reconnects with LMS, the server will send the player's configuration back to it, including a volume change to 100%. 
-To mitigate this, we ignore all volume changes for 3 seconds, then send last know value to LMS. If we send the command too early, LMS will again attempt to force 100%. 
-We also added the options to never adjust to 100%. This ensures that user cases where CamillaDSP is the main volume control in the system do not result in blowned up speakers when a glitch occurs.
+- A quirk with ALSA is the requirement to free up both ends of its audio path before changes can take place. Although CamillaDSP handles this well, we need to stop Squeezelite to also free the input on the loopback card of ALSA. This introduces some issues.  
+The logic enabling volume changes is based on us initially locking the volume for the Squeezelite player to 100%. 
+When Squeezelite reconnects with LMS, the server will send the player's configuration back to it, including a volume change to 100%.  
+To mitigate this, we ignore all volume changes for 3 seconds, then send last know value to LMS. If we send the command too early, LMS will again attempt to force 100%.  
+We also added the options to never adjust to 100%. This ensures that user cases where CamillaDSP is the main volume control in the system do not result in blowned up speakers when a glitch occurs. 
+We still do not take responsibility for any damage that may occur. **Here, we emphasize that users must evaluate the associated risks themselves**.
 
 - In most normal implementation of replay gain, the changes take place behind the scenes. However, here, we will observe the main volume slider in CamillaGUI adjusting with replay gain changes. 
 Current implementation do not have two way control of volume.
