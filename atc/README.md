@@ -2,7 +2,7 @@
 ### Its primary functionality is to minimize the number of stages at which audio is rendered ###
 This is achieved by transferring digital volume control from LMS to CamillaDSP and adjusting sample rate in CamillaDSP. Optional resampling profiles can be configured based on the sample rate.
 
-Amplitude control may incorporate features such as replay gain and lessloss<sup>2</sup> using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
+Amplitude control may incorporate features such as replay gain and lessloss<sup>[2](#anchor2)</sup> using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit.
 
 ### Principle of operation ###
 When Player has it volume control set to `Output level is fixed at 100%` we have the option to repurpose the volume slider.
@@ -137,8 +137,8 @@ Current implementation do not have two way control of volume.
 
 <sup>1</sup> For troubleshoting the program can be started manually with the `-v` argument for verbose output. Ensure that the service is stopped before manual execution, — like this: `sudo systemctl stop atc`
 
-<sup>2</sup> Less Loss: Minimise the number of bits used to quantize volume control coefficients so that information loss is minimized at truncation stage. In other words, it trades volume control coefficients precision against information loss minimization - https://www.processing-leedh.com/copie-de-presentation  
-  This version resolution are 32 steps for each 6dB change down to -51dB as volume slider in CamillaDSP max attenuation.  
-  SoX was used to test bit depth `sox -v [coeff] [file] -n stats`  
-  Note: If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway.  
+<sup><a id="anchor2" href="#"></a>2</sup> Less Loss: *Minimise the number of bits used to quantize volume control coefficients so that information loss is minimized at truncation stage. In other words, it trades volume control coefficients precision against information loss minimization. - source: https://www.processing-leedh.com/copie-de-presentation*  
+  This version resolution have 32 steps for each 6dB change down to -51dB as volume slider in CamillaDSP max attenuation.  
+  SoX was used to test bit depth `sox -v [coeff] [file] -n stats`. Check out the initial implementation of this code here: https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp/volume_from_lms 
+  **Note:** If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway.  
 
