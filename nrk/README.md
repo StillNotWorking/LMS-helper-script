@@ -21,7 +21,7 @@ Only link to the `Vestland` region are provided for NRK P1. You can edit this fa
 You want the link ending with `_mp3_h` for the 192 kbps stream.
 
 ### Radio Now Playing:
-This great plugin provides access to numerous radio stations. Unfortunately, all links to NRK are at 128kbps VBR AAC. We have updated the `stationdata-nrkno.json` to also include 192kbps CBR MP3 streams. Despite these streams functioning correctly with accurate metadata, including program and cover art, the RNP plugin developer insists on implementing only the official HLS streams from NRK. Therefore, manual installation of the stations description file is necessary.
+This great plugin provides access to numerous radio stations. Unfortunately, all links to NRK are at 128kbps VBR AAC. We have updated the `stationdata-nrkno.json` to also include 192kbps CBR MP3 streams. Despite these streams functioning correctly with accurate metadata, including program and cover art, the RNP plugin developer insists on implementing only the official HLS streams from NRK. Therefore, manual installation of the NRK stations description file is necessary.
 
 <img src="nrkhlsmp3.png" alt="hls and mp3" width="144">
 
