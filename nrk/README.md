@@ -21,7 +21,7 @@ Only link to the `Vestland` region are provided for NRK P1. You can edit this fa
 You want the link ending with `_mp3_h` for the 192 kbps stream.
 
 ### Radio Now Playing:
-This great plugin provides access to numerous radio stations. Unfortunately, all links to NRK are at 128kbps VBR AAC. We have updated the `stationdata-nrkno.json` to also include 192kbps CBR MP3 streams. Despite these streams functioning correctly with accurate metadata, including program and cover art, the developer insists on implementing only the official HLS streams from NRK. Therefore, manual installation of the stations description file is necessary.
+This great plugin provides access to numerous radio stations. Unfortunately, all links to NRK are at 128kbps VBR AAC. We have updated the `stationdata-nrkno.json` to also include 192kbps CBR MP3 streams. Despite these streams functioning correctly with accurate metadata, including program and cover art, the RNP plugin developer insists on implementing only the official HLS streams from NRK. Therefore, manual installation of the stations description file is necessary.
 
 <img src="nrkhlsmp3.png" alt="hls and mp3" width="144">
 
@@ -35,7 +35,8 @@ sudo wget https://raw.githubusercontent.com/StillNotWorking/LMS-helper-script/ma
 ```
 Note: LMS need to be restarted for `Radio Now Playing` to read in any new stations and hyperlinks.
 
-If one rater have the RNP plugin only use the higher bit rate (*as in hide lower bit rates*). From `Server settings -> Radio Now Playing` make a list in the order you want different formats to be prioritised. This setting is global for all stations.
+If one rater have the RNP plugin only use the higher bit rate (*as in hide lower bit rates*).  
+From `Server settings -> Radio Now Playing` make a list in the order you want different formats to be prioritised. This setting is global for all stations.
 
 <img src="tiprnp.png" alt="hls and mp3" width="270">
 
