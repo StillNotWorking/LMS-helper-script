@@ -73,7 +73,7 @@ From Material Skin menu `Player -> Extra setting -> Audio -> Volume Control` set
 
 From Material Skin menu `Server -> Plugins - Material Skin`set `Fixed volume players` to `Display standard volume control`.
 
-ATC runs silently in the background<sup>1</sup> as a service, requiring no user interaction on the computer running Squeezelite/CamillaDSP. 
+ATC runs silently in the background<sup>[1](#anchor1)</sup> as a service, requiring no user interaction on the computer running Squeezelite/CamillaDSP. 
 
 The configuration file `atc.yml` contains explanatory comments. Important settings after a new install is found under `network` where Squeezelite player MAC address and Lyrion server address must be set.
 
@@ -135,7 +135,7 @@ Current implementation do not have two way control of volume.
 
 -----------------------------------------------
 
-<sup>1</sup> For troubleshoting the program can be started manually with the `-v` argument for verbose output. Ensure that the service is stopped before manual execution, — like this: `sudo systemctl stop atc`
+<sup><a id="anchor1" href="#"></a>1</sup> For troubleshoting the program can be started manually with the `-v` argument for verbose output. Ensure that the service is stopped before manual execution, — like this: `sudo systemctl stop atc`
 
 <sup><a id="anchor2" href="#"></a>2</sup> Less Loss: *Minimise the number of bits used to quantize volume control coefficients so that information loss is minimized at truncation stage. In other words, it trades volume control coefficients precision against information loss minimization. - source: https://www.processing-leedh.com/copie-de-presentation*  
   This version resolution have 32 steps for each 6dB change down to -51dB as volume slider in CamillaDSP max attenuation.  
