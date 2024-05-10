@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# ATC Version 1.0.0beta
+# ATC Version 1.0.0beta-b
 #  - Switch sample rate in CamillaDSP using meta data from LMS and 
 #  - Adjust CamillaDSP volume from Material Skin including replay gain
 #    https://github.com/StillNotWorking/LMS-helper-script
@@ -1172,7 +1172,7 @@ if __name__ == "__main__":
                             last_received_time = current_time  # Update the last received time
             else:
                 # Socket not ready for reading, do something else or continue
-                time.sleep(0.01)  # go do important stuff some other place
+                time.sleep(0.02)  # go do important stuff some other place
         except Exception as e:
             if DEBUG: 
                 print(f"Error: {e}, attempting to reconnect with LMS...", flush=True)
