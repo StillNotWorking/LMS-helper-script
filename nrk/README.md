@@ -25,7 +25,7 @@ This great plugin provides access to numerous radio stations. Unfortunately, all
 
 <img src="nrkhlsmp3.png" alt="hls and mp3" width="144">
 
-First install the plug `Radio Now Playing`. This plug need a transcoder plug `PlayHLS versjon 2` to function. When this is written, v2 versions are not up to date and need to be manually added as instructed here: https://forums.slimdevices.com/forum/user-forums/3rd-party-software/99692-announce-playhls-plugin-plugin-to-play-apple-hls-m3u8-stream#post1195368
+First install the plug `Radio Now Playing`. This plug need a transcoder plug `PlayHLS versjon 2` to function. When this is written, v2 versions the install part are not ready and need to be manually added as instructed here: https://forums.slimdevices.com/forum/user-forums/3rd-party-software/99692-announce-playhls-plugin-plugin-to-play-apple-hls-m3u8-stream#post1195368
 
 When install is ready copy the `stationdata-nrkno.json` into to the plugin directory. These Linux commands should do the trick:
 ```bash
