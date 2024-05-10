@@ -27,7 +27,7 @@ This great plugin provides access to numerous radio stations. Unfortunately, all
 
 First install the plug `Radio Now Playing`. This plug need a transcoder plug `PlayHLS versjon 2` to function. When this is written, v2 versions are not up to date and need to be manually added as instructed here: https://forums.slimdevices.com/forum/user-forums/3rd-party-software/99692-announce-playhls-plugin-plugin-to-play-apple-hls-m3u8-stream#post1195368
 
-When install is ready copy the `stationdata-nrkno.json` into to the plugin directory. On linux this is should do the trick:
+When install is ready copy the `stationdata-nrkno.json` into to the plugin directory. These Linux commands should do the trick:
 ```bash
 cd /var/lib/squeezeboxserver/cache/InstalledPlugins/Plugins/RadioNowPlaying/stationdata
 sudo mv stationdata-nrkno.json stationdata-nrkno.json-backup
