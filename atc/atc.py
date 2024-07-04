@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
-# ATC Version 1.0.0beta-b
-#  - Switch sample rate in CamillaDSP using meta data from LMS and 
+# ATC Version 1.0.0
+#  - Switch sample rate in CamillaDSP using meta data from LMS and
 #  - Adjust CamillaDSP volume from Material Skin including replay gain
 #    https://github.com/StillNotWorking/LMS-helper-script
 #
@@ -11,7 +11,7 @@
 #        in the directory from where the program is executed.
 #
 # Primary program logic are to listen for asynchronous events comming from LMS CLI.
-#    See 'evaluate_cli_response'. We can code events through LMS CLI to trigger this 
+#    See 'evaluate_cli_response'. We can code events through LMS CLI to trigger this
 #    function like we do by asynchronous sending play and mixer volume commands.
 #
 # When Squeezelite reconnect with LMS it seems to happen some house keeping at LMS that
@@ -412,6 +412,8 @@ def rescale(volume_percent):
 
 def adjust_volume(volume_percent, caller_id):
     global YML
+    global CDSP
+    global GAIN
 
     if volume_percent == 100 and YML['settings']['ignore_max_volume']:
         if DEBUG:
@@ -448,8 +450,9 @@ def adjust_volume(volume_percent, caller_id):
             print(f"Attenuation sent to CamillaDSP: {volume_decibel} dB", flush=True)
     except Exception as e:
         if DEBUG: 
-            print(f"Error: {e}", flush=True)
+            print(f"Error occurred changing CDSP volume: {e}", flush=True)
 
+            CDSP = connect_to_cdsp(YML['network']['cdsp_address'], YML['network']['cdsp_port'])
     return(volume_decibel)
 
 
@@ -748,27 +751,32 @@ def evaluate_cli_response(data):
 
 def connect_to_lms(host, port):
     # Connect to Lyrion Music Server command line interface
+    global sock
     while True:
         try:
             sock = socket.create_connection((host, port))
             time.sleep(0.5)
             # Send the subscription command to Lyrion Media Server
             command = 'subscribe mixer,playlist\n'
-            sock.sendall(command.encode())           
+            sock.sendall(command.encode())
             return sock
         except ConnectionRefusedError:
             if DEBUG:
-                print("Connection failed. Retrying...", flush=True)
+                print("Connection to LMS failed. Retrying...", flush=True)
             time.sleep(1)
 
 
 def send_keepalive(sock):
     try:
-        sock.sendall(b"keepalive\n")
+        command = 'keepalive\n'
+        sock.sendall(command.encode())
+        if DEBUG:
+            print('Send keepalive', flush=True)
     except Exception as e:
         if DEBUG:
             print(f"Failed to send keepalive: {e}. Will try to reconnect...", flush=True)
         # Reconnect to the Lyrion Music Server Command Line Interface
+        sock.close
         connect_to_lms(YML['network']['lms_address'], YML['network']['lms_cli_port'])
 
 
@@ -818,8 +826,8 @@ def lessloss(volume_decibel):
     if vol >= 0:
         if DEBUG:
             if vol > 0:
-                msg = 'Algorithm does not support positive values:'
-            print(f"LessLoss: coeff=0  0 dB - {msg} {str(vol)}", flush=True)
+                message = 'Algorithm does not support positive values:'
+                print(f"LessLoss: coeff=0  0 dB - {message} {str(vol)}", flush=True)
         return 0 #  0 dB = 0 coefficient
 
     # First coefficient give -0.13678849060610931 dB
@@ -1021,6 +1029,9 @@ def check_active_audio_system():
 def connect_to_cdsp(ip, port, retries=5, delay=0.5):
     # Connect to CamillaDSP back-end
 
+    if DEBUG:
+        print('Attempting to connect with CamillaDSP backend...')
+
     for x in range(retries):
         try:
             if x == (retries-1):
@@ -1065,12 +1076,12 @@ def list_active_interfaces():
     return active_interfaces
 
 
-
-if __name__ == "__main__":
-
-    # Handle exits with more grace
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+def main():
+    global YML
+    global CDSP
+    global CDSP_ORIGINAL_CONF
+    global GAIN
+    global sock
 
     # List ip and mac addess of local system
     active_interfaces = list_active_interfaces()
@@ -1095,7 +1106,7 @@ if __name__ == "__main__":
     if DEBUG:
         print(f"  Is Squeezelite running: {sq}\n  Is CamillaDSP  running: {cd}", flush=True)
 
-    # Look for running audio system other than alsa
+    # Look for running audio system other than alsa, left out as its rather slow 
     #if check_active_audio_system():
     #    print("An active audio system is detected.")
     #else:
@@ -1116,19 +1127,17 @@ if __name__ == "__main__":
         # Keep original configuration 'safe'
         CDSP_ORIGINAL_CONF = CDSP.config.active()
 
-        if DEBUG:  # we might need them in later versions
+        if DEBUG:  # we might need these in later versions
             cdsp_config_file_path = CDSP.config.file_path()
             cdsp_general_state_file_path = CDSP.general.state_file_path()
             print(f"Active configuration: {cdsp_config_file_path}", flush=True)
             print(f"Statefile path:     : {cdsp_general_state_file_path}", flush=True)
-        # Send a safe startup attenuation to CamillaDSP
-        #CDSP.volume.set_main(-24)
+
     except ConnectionError as e:
         if DEBUG:
-            print(f"Error: {e} - ID: __main__", flush=True)
-            print("Will retry connecting...", flush=True)
-        time.sleep(1)
-        #cdsp = connect_to_cdsp(YML['network']['cdsp_address'], YML['network']['cdsp_port'])
+            print(f"Error: {e} - main(). Will retry connecting to CDSP...", flush=True)
+        time.sleep(0.5)
+        CDSP = connect_to_cdsp(YML['network']['cdsp_address'], YML['network']['cdsp_port'])
 
     if (YML['functions']['use_album_replay_gain'] or YML['functions']['use_track_replay_gain']):
         GAIN = -6.020599913279624  # Initial value before any real replay gain values exists
@@ -1169,18 +1178,29 @@ if __name__ == "__main__":
                         current_time = time.time()
                         if current_time - last_received_time > YML['settings']['keepalive_interval']:
                             send_keepalive(sock)
-                            last_received_time = current_time  # Update the last received time
+
             else:
-                # Socket not ready for reading, do something else or continue
+                # Socket not ready for reading
                 time.sleep(0.02)  # go do important stuff some other place
         except Exception as e:
             if DEBUG: 
-                print(f"Error: {e}, attempting to reconnect with LMS...", flush=True)
+                print(f"Error: {e}, attempting to reconnect with LMS from main()...", flush=True)
             sock.close()
             time.sleep(0.1)
             sock = connect_to_lms(YML['network']['lms_address'], YML['network']['lms_cli_port'])
+            request_volume_setting = "{} mixer volume ?\n".format(YML['network']['player_mac_address'])
+            sock.sendall(request_volume_setting.encode())
             last_received_time = time.time()
-
 
     # should never reache here in the current implementation
     sock.close()
+
+
+if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("Program interrupted by user")
+        sys.exit(0)

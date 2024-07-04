@@ -1,7 +1,9 @@
 # path: /etc/systemd/system/atc.service
 [Unit]
 Description=ATC utilities for Lyrion & CamillaDSP
-After=syslog.target
+After=squeezelite camilladsp
+Requires=squeezelite camilladsp
+PartOf=squeezelite camilladsp
 StartLimitIntervalSec=10
 StartLimitBurst=10
 

@@ -1,5 +1,5 @@
-# IMPORTANT - Keep all indents as they are original in this file
-# - If the this configuration file isn't located in the same directory as 
+# IMPORTANT - Keep all indents (two spaces) as they are original in this file
+# - If this configuration file isn't located in the same directory as 
 #   the program file, the full path, including the file name, must be 
 #   provided as an argument when starting the program.
 # - Except for resampling edits changes will take effect after the program is restarted.
@@ -47,6 +47,7 @@ resampler:
     window: BlackmanHarris2
 
 
+# All changes from here on the ATC application must be restarted to take effect
 functions:
   # Volume must be active for replay gain or lessloss to function  
   use_volume: true
@@ -83,7 +84,7 @@ settings:
   ignore_max_volume: false
   
   # How frequently we check if connection to LMS CLI port is alive. Value given in seconds.
-  keepalive_interval: 30
+  keepalive_interval: 10
   
   # Since we receive asynchronous events from LMS, there are occasions when we
   # may encounter the start of a track before we can intervene and adjust the 
@@ -100,5 +101,5 @@ settings:
   lms_connection_delay: 0.04
   
   # When track is missing sample rate information fall back to this sample rate
-  # Compressed audio format will normally not expose such information
+  # Compressed audio format will normally not expose such information and usually expect 44.1kHz
   default_samplerate: 44100
