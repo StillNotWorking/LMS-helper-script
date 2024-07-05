@@ -69,26 +69,12 @@ sudo systemctl start atc
 ```
 
 ### Use and configuration ###
-From Material Skin menu `Player -> Extra setting -> Audio -> Volume Control` set `Output level is fixed at 100%`.
-
-From Material Skin menu `Server -> Plugins - Material Skin`set `Fixed volume players` to `Display standard volume control`.
-
 ATC runs silently in the background<sup>[1](#anchor1)</sup> as a service, requiring no user interaction on the computer running Squeezelite/CamillaDSP. 
-
-The configuration file `atc.yml` contains explanatory comments. Important settings after a new install is found under `network` where Squeezelite player MAC address and Lyrion server address must be set.
-
-In the service configuration file, the user who runs the program and the program path must be set according to your preferences.
-
-ATC is designed to read resampling profiles from the `atc.yml` file as needed. This ensures that changes regarding these profiles take effect immediately without the need to restart the program. All other settings take place after restating ATC like this: `sudo systemctl restart atc`
-
-When convolution filters are utilized, ATC will edit the value for the key `filename`, — responsible for telling CamillaDSP which convolution file to load.
-This implies that dedicated convolution files must exist for all expected sample rates, with identical names except for the different sample rates specified within brackets.
-In this example current file name is `MyConvFilter[44100].raw`, if the new sample rate is 96000, the sample rate inside the required `[ ]` brackets will be modified to `MyConvFilter[96000].raw`
-
-For convolution filters if CamillaDSP configuration is `resampler: null` track sample rate is used. If resampling is not null convolution filter name will be set to `capture_samplerate`. This ensure resampling profiles can be used with Conv filters.
-There is no check to verify whether these files actually exists, so caution should be exercised.
-
-**atc.py should be executed within the Python virtual environment of CamillaGUI**. Simply typing `python atc.py` will normally fail. 
+- From Material Skin menu `Player -> Extra setting -> Audio -> Volume Control` set `Output level is fixed at 100%`.
+- From Material Skin menu `Server -> Plugins - Material Skin`set `Fixed volume players` to `Display standard volume control`.
+- The configuration file `atc.yml` contains explanatory comments. Important settings after a new install is found under `network` where Squeezelite player MAC address and Lyrion server address must be set.
+- In the service configuration file, the user who runs the program and the program path must be set according to your preferences.
+- **atc.py should be executed within the Python virtual environment of CamillaGUI**. Simply typing `python atc.py` will normally fail. 
 If `camilladsp` directory exist inside user `pi` home directory the start command would look like this:
 ```bash
 /home/pi/camilladsp/camillagui_venv/bin/python /home/pi/camilladsp/atc.py
@@ -97,6 +83,15 @@ When properly installed as a service, the start command is:
 ```bash
 sudo systemctl start atc
 ```
+
+ATC is designed to read resampling profiles from the `atc.yml` file as needed. This ensures that changes regarding these profiles take effect immediately without the need to restart the program. All other settings take place after restating ATC like this: `sudo systemctl restart atc`
+
+When convolution filters are utilized, ATC will edit the value for the key `filename`, — responsible for telling CamillaDSP which convolution file to load.
+This implies that dedicated convolution files must exist for all expected sample rates, with identical names except for the different sample rates specified within brackets.
+In this example current file name is `MyConvFilter[44100].raw`, if the new sample rate is 96000, the sample rate inside the required `[ ]` brackets will be modified to `MyConvFilter[96000].raw`
+
+For convolution filters if CamillaDSP configuration is `resampler: null` track sample rate is used. If resampling is not null convolution filter name will be set to same as `capture_samplerate`. This ensure resampling profiles can be used with Conv filters.
+There is no check to verify whether these files actually exists, so caution should be exercised.
 
 ### CPU speed ###
 This option switch CPU scaling governor depending on play or stop/pause mode of Squeezelite.
