@@ -1,5 +1,5 @@
 #!/bin/bash
-# 2.1.2 - https://github.com/StillNotWorking/LMS-helper-script
+# 2.1.2b - https://github.com/StillNotWorking/LMS-helper-script
 # Scriptet for RPi-OS Lite 64-bit, should work on most Debian style distros
 # From v2.1.1 now use official install script but also add alsa loopback,
 #   daemon and startup configuration with demo filter configuration
@@ -17,7 +17,7 @@
 full_install_version="v2.1.2"
 
 # latest Sqeezelite update
-sqliteversion="squeezelite-2.0.0.1465-aarch64.tar.gz"
+sqliteversion="squeezelite-2.0.0.1488-aarch64.tar.gz"
 
 # to visulize URL to CamillaDSP GUI
 myip=$(hostname -I)
@@ -226,7 +226,7 @@ if test -f /usr/bin/squeezelite; then
                 echo "Failed downloading Squeezelite. Continue with v$sqver"
             else
                 # check file hash before unpack and install
-                if [[ "$(sha1sum $sqliteversion)" == "dba645abf324987dd2068620d629b18915a56046  $sqliteversion" ]] && [[ "$(md5sum $sqliteversion)" == "0170d04ac75f6748ab8b5a51fb66376d  $sqliteversion" ]]; then
+                if [[ "$(sha1sum $sqliteversion)" == "ec125828a9379694cffe83d08b1c2f8081a1b5ad  $sqliteversion" ]] && [[ "$(md5sum $sqliteversion)" == "8aa57ad21b9a9199aafed3b8a7bfb84d  $sqliteversion" ]]; then
                     echo "SHA1 and SH5 checksum OK - Unpack archive:"
                     tar -xvf $sqliteversion
                     sudo mv -b $INSTALL_ROOT/temp/squeezelite /usr/bin/squeezelite

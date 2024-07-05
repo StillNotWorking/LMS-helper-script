@@ -22,6 +22,9 @@ Configuration files for CamillaDSP version 2 are not compatible with previous ve
 
 ***NOTE: If you already have a DAC configured and this had you disable local sound with `#dtparam=audio=on` in `/boot/config.txt` there will be no sound from the headphone out.***
 
+***New in version 2.1.1b***
++ Option to install Squeezelite v2.0.0.1488
+
 ***New in version 2.1.1***
 + Install new back-end v2.1.0
 + Now use Henrik Enquists (HE) install script for CamillaDSP and all of her dependencies. Only additional dependency installed to RPi-OS Lite is 'git'.
