@@ -144,5 +144,5 @@ Changes since first beta release include
   SoX was used to test bit depth `sox -v [coeff] [file] -n stats`. Check out the initial implementation of this code here: https://github.com/StillNotWorking/LMS-helper-script/tree/main/camilladsp/volume_from_lms 
   **Note:** If CamillaDSP are configured to do any filter processing there most likely will take place calculation that end in truncating loss anyway.  
   
-<sub>Inspired by how CamillaDSP got its name, this application also makes use of the programmer's daughter's name. ATC is an acronym for Anna Takes Control</sub>
+<sub>Inspired by the origin of CamillaDSP's name, this application also incorporates the programmer's daughter's name. ATC is an acronym for Anna Takes Control</sub>
 
