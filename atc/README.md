@@ -134,11 +134,11 @@ Current implementation do not have two way control of volume.
 - ATC has only been tested with RPi-OS but should function on all Debian distros. If support for macOS or Windows is desired, the primary changes needed would involve replacing all calls to `systemctl` and remove the CPU speed control.
 
 ### Changelog ###
-Versjon 1.0.0
-    Changes since first beta release include 
-    - Fix: New atc.service file to ensure ATC (re)start after CamillaDSP
-    - Fix: Automatically reconnect to LMS now function when Lyrion server reboot or temporary goes off the network
-    - New: Automatically reconnect with CamillaDSP backend if connection is missing when sending amplitude value
+#### Versjon 1.0.0 ####
+Changes since first beta release include 
+- Fix: New atc.service file to ensure ATC (re)start after CamillaDSP
+- Fix: Automatically reconnect to LMS now function when Lyrion server reboot or temporary goes off the network
+- New: Automatically reconnect with CamillaDSP backend if connection is missing when sending amplitude value
 
 -----------------------------------------------
 
