@@ -39,7 +39,8 @@ sudo mountdrive
 When <i>deb</i> files are downloaded manually and user later want to install the file using `apt` it will need the full path to the <i>deb</i> install file. Else `apt` will look in its packaging list and give an error.
  - `./` means <i>this directory</i>.
 ### lms_bash_aliases.txt
-Are several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] logitechmediaserver'*, plus a few shortcuts to directories used by lms.
+Several aliases (command shortcut) meant to simplify the control of the LMS system with short single word commands rather than typing *'sudo systemctl [command] lyrionmusicserver'*, plus a few shortcuts to directories used by LMS.
+After install type `lmshelp` to get the list of commands. Now updated to support name change to Lyrion Music Server, LMS version 9.
 
 [Read how to implement these aliases](https://github.com/StillNotWorking/LMS-helper-script/blob/main/lms_bash_aliasesREADME.md)
 
