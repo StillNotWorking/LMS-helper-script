@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# ATC Version 1.0.0
+# ATC Version 1.0.1
 #  - Switch sample rate in CamillaDSP using meta data from LMS and
 #  - Adjust CamillaDSP volume from Material Skin including replay gain
 #    https://github.com/StillNotWorking/LMS-helper-script
@@ -1082,6 +1082,7 @@ def main():
     global CDSP_ORIGINAL_CONF
     global GAIN
     global sock
+    global CONFIG_FILE
 
     # List ip and mac addess of local system
     active_interfaces = list_active_interfaces()
