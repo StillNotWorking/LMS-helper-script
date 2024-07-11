@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net" modified="2024-07-11T13:12:14.373Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0" etag="iUGBpaeYYhmdmwHgjjVY" version="24.6.4" type="device">
+  <diagram name="Page-1" id="u631UNNer6J-ei_CW03N">
+    <mxGraphModel dx="84" dy="56" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="370" y="52" width="270" height="228" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="132" width="120" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mIPf0SYcgv_N5FDMoNyD-4" target="mIPf0SYcgv_N5FDMoNyD-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-4" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="16" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-7" value="Internet" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="91" y="45" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-8" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;Music HUB&lt;/b&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="80" y="137" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mIPf0SYcgv_N5FDMoNyD-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="237" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-14" value="" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="85" y="259" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-15" value="USB SSD" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="282" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-17" value="Lyrion Music Server" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="157" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-18" value="RPi 5 RPI-OS Lite 64-bit&lt;br&gt;Ethernet" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="78" y="192" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="mIPf0SYcgv_N5FDMoNyD-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="125" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-22" value="&lt;b&gt;Squeezelite&lt;br&gt;&lt;/b&gt;(ffmpeg)" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="147" as="sourcePoint" />
+            <mxPoint x="580" y="177" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-26" value="ALSA&lt;br&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;(verified bit perfect)&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="110" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-29" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;Player&lt;br&gt;&lt;/b&gt;RPi 4 RPi-OS Lite 64-bit&lt;br&gt;WiFi" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="432" y="57" width="140" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="mIPf0SYcgv_N5FDMoNyD-30" target="mIPf0SYcgv_N5FDMoNyD-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-30" value="&lt;b&gt;CamillaDSP&lt;br&gt;&lt;/b&gt;&lt;span&gt;64-bit floating point&lt;/span&gt; Resampling&lt;br&gt; Gain&lt;br&gt;EQ" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="210" width="115" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-31" value="&lt;b&gt;ATC&lt;br&gt;&lt;/b&gt;&lt;div&gt;Forward Replay Gain and Sample Rate Profiles to CamillaDSP&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="210" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-38" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="195" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-40" value="&lt;b&gt;DAC&lt;br&gt;&lt;/b&gt;USB2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="211" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-44" value="" style="endArrow=classic;html=1;rounded=0;startArrow=classic;startFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="166" as="sourcePoint" />
+            <mxPoint x="400" y="127" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-45" value="&lt;h1 id=&quot;slimproto-protocol&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; SlimProto Protocol &amp;nbsp;&lt;/font&gt; &lt;br&gt;&lt;/h1&gt;" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="mIPf0SYcgv_N5FDMoNyD-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-18" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.383;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="433" y="183" as="sourcePoint" />
+            <mxPoint x="432.98" y="150.01" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="433" y="173" />
+              <mxPoint x="433" y="173" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-63" value="" style="endArrow=classic;html=1;rounded=0;startArrow=classic;startFill=1;" edge="1" parent="1" target="mIPf0SYcgv_N5FDMoNyD-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="210" as="sourcePoint" />
+            <mxPoint x="280" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-64" value="&lt;b&gt;CLI&lt;/b&gt;" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="mIPf0SYcgv_N5FDMoNyD-63">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-67" value="&lt;b&gt;Command Line Interface&amp;nbsp; &lt;br&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="mIPf0SYcgv_N5FDMoNyD-63">
+          <mxGeometry x="-0.0287" y="-2" relative="1" as="geometry">
+            <mxPoint x="-4" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.02;entryY=0.643;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mIPf0SYcgv_N5FDMoNyD-31" target="mIPf0SYcgv_N5FDMoNyD-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mIPf0SYcgv_N5FDMoNyD-73" value="(restart)" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="403" y="160" width="60" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

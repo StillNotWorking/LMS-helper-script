@@ -5,6 +5,8 @@ This is achieved by transferring digital volume control from LMS to CamillaDSP a
 Amplitude control may incorporate features such as replay gain and lessloss<sup>[2](#anchor2)</sup> using fixed coefficient values to reduce rounding errors when 16-bit audio is truncated to 24-bit from FP64 or 32-bit prosessing.
 
 ### Principle of operation ###
+<img src="atcdiagram.jpg" style=" width:98% ">
+
 When Player has it volume control set to `Output level is fixed at 100%` we have the option to repurpose the volume slider.
 
 Using network socket ATC connects with both Lyrion Music Server and CamillaDSP, functioning as gateway between the two program.
